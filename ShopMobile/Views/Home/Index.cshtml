@@ -1,11 +1,8 @@
 ﻿
 @{
-    ViewBag.Title = "Home";
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<!--===============================================================================================-->
-<!--===============================================================================================-->
-
 
 <div id="home-slider">
     <div class="container">
@@ -57,7 +54,9 @@
                                         <div class="bestseller"></div>
                                     </div>
                                     <div class="right-block">
-                                        <h5 class="product-name"><a href="#">{{e.TenDienThoai}} {{e.BoNhoTrong}}GB</a></h5>
+                                        <h5 class="product-name">
+                                            <a href="#">{{e.TenDienThoai}} ({{e.Ram}}GB/{{e.BoNhoTrong}}GB)</a>
+                                        </h5>
                                         <div class="content_price">
                                             <span class="price product-price"><span style="color: black">Giá từ:</span>{{e.Gia | number}} </span>
                                         </div>
@@ -75,16 +74,15 @@
         <div class="row">
             <div class="row">
                 <div class="col-md-9">
-                    <h3>Products Showcase using carousel and Bootstrap</h3>
+                    <h3 style="text-transform:uppercase">điện thoại bán chạy nhất</h3>
                 </div>
-                <div class="col-md-3">
+                <!--<div class="col-md-3">-->
                     <!-- Controls -->
-                    <div class="controls pull-right hidden-xs">
-                        <a class="left fa fa-chevron-left btn btn" href="#carousel-example"
-                           data-slide="prev"></a><a class="right fa fa-chevron-right btn" href="#carousel-example"
-                                                    data-slide="next"></a>
+                    <!--<div class="controls pull-right hidden-xs">
+                        <a class="left fa fa-chevron-left btn btn" href="#carousel-example" data-slide="prev"></a>
+                        <a class="right fa fa-chevron-right btn" href="#carousel-example" data-slide="next"></a>
                     </div>
-                </div>
+                </div>-->
             </div>
             <div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel">
                 <!-- Wrapper for slides -->
@@ -94,17 +92,17 @@
                             <div class="col-sm-3" ng-repeat="e in dataphone| limitTo: 4" ng-class-even="even" ng-class-odd="odd">
                                 <div class="col-item">
                                     @*<div class="info">
-                                            <div class="row">
-                                                <div class="price col-md-6">
-                                                    <h5>{{e.TenDienThoai}}</h5>
-                                                    <h5 class="price-text-color">{{e.Gia | number}}</h5>
-                                                </div>
-                                                <div class="rating hidden-sm col-md-6">
-                                                    <i class="price-text-color fa fa-star"></i>
-                                                    <i class="price-text-color fa fa-star"></i>
-                                                </div>
-                                            </div>
-                                        </div>*@
+                            <div class="row">
+                                <div class="price col-md-6">
+                                    <h5>{{e.TenDienThoai}}</h5>
+                                    <h5 class="price-text-color">{{e.Gia | number}}</h5>
+                                </div>
+                                <div class="rating hidden-sm col-md-6">
+                                    <i class="price-text-color fa fa-star"></i>
+                                    <i class="price-text-color fa fa-star"></i>
+                                </div>
+                            </div>
+                        </div>*@
 
                                     <div class="photo">
                                         <img src="~/Assets/Client/img/product/{{e.HinhAnh}}" class="img-responsive" alt="a" />
@@ -143,17 +141,17 @@
                             <div class="col-sm-3" ng-repeat="e in dataphone| limitTo: 4:4" ng-class-even="even" ng-class-odd="odd">
                                 <div class="col-item">
                                     @*<div class="info">
-                                            <div class="row">
-                                                <div class="price col-md-6">
-                                                    <h5>{{e.TenDienThoai}}</h5>
-                                                    <h5 class="price-text-color">{{e.Gia | number}}</h5>
-                                                </div>
-                                                <div class="rating hidden-sm col-md-6">
-                                                    <i class="price-text-color fa fa-star"></i>
-                                                    <i class="price-text-color fa fa-star"></i>
-                                                </div>
-                                            </div>
-                                        </div>*@
+                            <div class="row">
+                                <div class="price col-md-6">
+                                    <h5>{{e.TenDienThoai}}</h5>
+                                    <h5 class="price-text-color">{{e.Gia | number}}</h5>
+                                </div>
+                                <div class="rating hidden-sm col-md-6">
+                                    <i class="price-text-color fa fa-star"></i>
+                                    <i class="price-text-color fa fa-star"></i>
+                                </div>
+                            </div>
+                        </div>*@
 
                                     <div class="photo">
                                         <img src="~/Assets/Client/img/product/{{e.HinhAnh}}" class="img-responsive" alt="a" />
@@ -186,8 +184,11 @@
                             </div>
                         </div>
                     </div>
+                    <a class="left fa fa-chevron-left btn btn" href="#carousel-example" data-slide="prev" style="position:absolute;left:0;top:150px;font-size:2em;color:rgba(0,0,0,0.3)"></a>
+                    <a class="right fa fa-chevron-right btn" href="#carousel-example" data-slide="next" style="position:absolute;right:0;top:150px;font-size:2em;color:rgba(0,0,0,0.3)"></a>
                 </div>
             </div>
         </div>
     </div>
 </div>
+

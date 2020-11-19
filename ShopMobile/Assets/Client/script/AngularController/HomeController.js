@@ -26,7 +26,7 @@ app.controller("HomeClient", function ($scope, $http) {
         }).then(function (d) {
             $scope.btntext = 'Login';
             if (d != null) {
-                window.location.href = '/Home/Home';
+                window.location.href = '/Home/Index';
             }
             else {
                 alert(d);
@@ -40,7 +40,7 @@ app.controller("HomeClient", function ($scope, $http) {
 
 
 app.controller("SanphamController", function ($scope, $http) {
-$http.get("/LoaiDienThoai/Get_DienThoai_byMaLoai").then(function (d) {
+    $http.get("/LoaiDienThoai/Get_DienThoai_byMaLoai").then(function (d) {
             $scope.typephone = d.data;
             
         }, function (error) {

@@ -12,7 +12,7 @@ namespace ShopMobile.Areas.Admin.Controllers
     public class ManagerOrderController : Controller
     {
         // GET: Admin/ManagerOrder
-        DonHangBUS dh = new DonHangBUS();
+        DonHangBUS _db = new DonHangBUS();
         public ActionResult OrderNotComfirm()
         {
             return View();
@@ -27,15 +27,19 @@ namespace ShopMobile.Areas.Admin.Controllers
         }
         public JsonResult Get_Paging_DonHangChuaXacThuc(int pageindex,int pagesize)
         {
-            return Json(dh.Get_Paging_DonHangChuaXacThuc(pageindex, pagesize),JsonRequestBehavior.AllowGet);
+            return Json(_db.Get_Paging_DonHangChuaXacThuc(pageindex, pagesize),JsonRequestBehavior.AllowGet);
         }
         public JsonResult Get_Paging_DonHangDaXacThuc(int pageindex, int pagesize)
         {
-            return Json(dh.Get_Paging_DonHangDaXacThuc(pageindex, pagesize),JsonRequestBehavior.AllowGet);
+            return Json(_db.Get_Paging_DonHangDaXacThuc(pageindex, pagesize),JsonRequestBehavior.AllowGet);
         }
         public JsonResult Get_Paging_DonHangDaGiao(int pageindex, int pagesize)
         {
-            return Json(dh.Get_Paging_DonHangDaGiao(pageindex, pagesize),JsonRequestBehavior.AllowGet);
+            return Json(_db.Get_Paging_DonHangDaGiao(pageindex, pagesize),JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult Comfirm_ThisOrder(int value)
+        {
+            return Json(_db.Comfirm_ThisOrder(value), JsonRequestBehavior.AllowGet);
         }
     }
 }

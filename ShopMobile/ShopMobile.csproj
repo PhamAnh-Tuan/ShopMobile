@@ -1480,8 +1480,6 @@
     <Content Include="Areas\Admin\Views\ManagerOrder\OrderDelivered.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Home.cshtml" />
-    <Content Include="Views\LoaiDienThoai\LoaiDienThoai.cshtml" />
     <Content Include="Views\KhachHang\Login.cshtml" />
     <Content Include="Scripts\version.json" />
     <Content Include="Scripts\errors.json" />
@@ -1498,6 +1496,7 @@
     <Content Include="Scripts\angular-aria.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="Views\LoaiDienThoai\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

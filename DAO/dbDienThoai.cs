@@ -25,7 +25,7 @@ namespace DAO
             da.Fill(ds);
             return ds;
         }
-        public DataSet Get_DienThoai_byMaLoai(string maloai)
+        public DataSet Get_DienThoai_byMaLoai(int maloai)
         {
             com = new SqlCommand("sp_getdata_DienThoai_byMaLoai", con);
             com.CommandType = CommandType.StoredProcedure;
@@ -49,6 +49,7 @@ namespace DAO
             while (dr.Read())
             {
                 DienThoai dt = new DienThoai();
+
                 dt.MaDienThoai = int.Parse(dr["MaDienThoai"].ToString());
                 dt.TenDienThoai = dr["TenDienThoai"].ToString();
                 dt.MaLoai = Convert.ToInt32(dr["MaLoai"].ToString());

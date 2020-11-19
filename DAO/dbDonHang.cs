@@ -16,7 +16,7 @@ namespace DAO
         SqlDataReader dr;
         SqlCommand com;
         DataSet ds;
-        DonHangList dhlist = new DonHangList();
+        DonHangList _dblist = new DonHangList();
         public DonHangList Get_Paging_DonHangChuaXacThuc(int pageindex, int pagesize)
         {
             com = new SqlCommand("sp_page_DonHangChuaXacThuc", con);
@@ -29,21 +29,21 @@ namespace DAO
             List<DonHang> list = new List<DonHang>();
             while (dr.Read())
             {
-                DonHang dh = new DonHang();
-                dh.MaDonHang = int.Parse(dr["MaDonHang"].ToString());
-                dh.MaKhachHang = int.Parse(dr["MaKhachHang"].ToString());
-                dh.NgayTao = dr["NgayTao"].ToString();
-                dh.TrangThaiDonHang = dr["TrangThaiDonHang"].ToString();
-                dh.TongTien = int.Parse(dr["TongTien"].ToString());
-                list.Add(dh);
+                DonHang _db = new DonHang();
+                _db.MaDonHang = int.Parse(dr["MaDonHang"].ToString());
+                _db.MaKhachHang = int.Parse(dr["MaKhachHang"].ToString());
+                _db.NgayTao = dr["NgayTao"].ToString();
+                _db.TrangThaiDonHang = dr["TrangThaiDonHang"].ToString();
+                _db.TongTien = int.Parse(dr["TongTien"].ToString());
+                list.Add(_db);
             }
             dr.NextResult();
             while (dr.Read())
             {
-                dhlist.totalcount = Convert.ToInt32(dr["totalcount"]);
+                _dblist.totalcount = Convert.ToInt32(dr["totalcount"]);
             }
-            dhlist.listdonhang = list;
-            return dhlist;
+            _dblist.listdonhang = list;
+            return _dblist;
         }
         public DonHangList Get_Paging_DonHangDaXacThuc(int pageindex, int pagesize)
         {
@@ -57,21 +57,21 @@ namespace DAO
             List<DonHang> list = new List<DonHang>();
             while (dr.Read())
             {
-                DonHang dh = new DonHang();
-                dh.MaDonHang = int.Parse(dr["MaDonHang"].ToString());
-                dh.MaKhachHang = int.Parse(dr["MaKhachHang"].ToString());
-                dh.NgayTao = dr["NgayTao"].ToString();
-                dh.TrangThaiDonHang = dr["TrangThaiDonHang"].ToString();
-                dh.TongTien = int.Parse(dr["TongTien"].ToString());
-                list.Add(dh);
+                DonHang _db = new DonHang();
+                _db.MaDonHang = int.Parse(dr["MaDonHang"].ToString());
+                _db.MaKhachHang = int.Parse(dr["MaKhachHang"].ToString());
+                _db.NgayTao = dr["NgayTao"].ToString();
+                _db.TrangThaiDonHang = dr["TrangThaiDonHang"].ToString();
+                _db.TongTien = int.Parse(dr["TongTien"].ToString());
+                list.Add(_db);
             }
             dr.NextResult();
             while (dr.Read())
             {
-                dhlist.totalcount = Convert.ToInt32(dr["totalcount"]);
+                _dblist.totalcount = Convert.ToInt32(dr["totalcount"]);
             }
-            dhlist.listdonhang = list;
-            return dhlist;
+            _dblist.listdonhang = list;
+            return _dblist;
         }
         public DonHangList Get_Paging_DonHangDaGiao(int pageindex, int pagesize)
         {
@@ -85,21 +85,30 @@ namespace DAO
             List<DonHang> list = new List<DonHang>();
             while (dr.Read())
             {
-                DonHang dh = new DonHang();
-                dh.MaDonHang = int.Parse(dr["MaDonHang"].ToString());
-                dh.MaKhachHang = int.Parse(dr["MaKhachHang"].ToString());
-                dh.NgayTao = dr["NgayTao"].ToString();
-                dh.TrangThaiDonHang = dr["TrangThaiDonHang"].ToString();
-                dh.TongTien = int.Parse(dr["TongTien"].ToString());
-                list.Add(dh);
+                DonHang _db = new DonHang();
+                _db.MaDonHang = int.Parse(dr["MaDonHang"].ToString());
+                _db.MaKhachHang = int.Parse(dr["MaKhachHang"].ToString());
+                _db.NgayTao = dr["NgayTao"].ToString();
+                _db.TrangThaiDonHang = dr["TrangThaiDonHang"].ToString();
+                _db.TongTien = int.Parse(dr["TongTien"].ToString());
+                list.Add(_db);
             }
             dr.NextResult();
             while (dr.Read())
             {
-                dhlist.totalcount = Convert.ToInt32(dr["totalcount"]);
+                _dblist.totalcount = Convert.ToInt32(dr["totalcount"]);
             }
-            dhlist.listdonhang = list;
-            return dhlist;
+            _dblist.listdonhang = list;
+            return _dblist;
+        }
+        public void Comfirm_ThisOrder(int value)
+        {
+            com = new SqlCommand("sp_ComfirmThisOrder", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@MaDonHang", value);
+            con.Open();
+            com.ExecuteNonQuery();
+            con.Close();
         }
     }
 }

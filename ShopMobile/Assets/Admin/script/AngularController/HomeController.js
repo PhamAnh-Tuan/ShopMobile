@@ -331,6 +331,24 @@ app.controller("OrderNotComfirmController", function ($scope, $http) {
         $scope.pageIndex = 1;
         $scope.NotComfirm();
     }
+
+
+    $scope.Comfirm = function (value) {
+        $http.get('/Admin/ManagerOrder/Comfirm_ThisOrder?value=' + value).then(function (d) {
+            alert(d.data);
+            $http.get("/Admin/ManagerOrder/Get_Paging_DonHangChuaXacThuc?pageindex=" + $scope.pageIndex + "&pagesize=" + $scope.pageSize).then(function (response) {
+
+                $scope.Spdata = response.data.listdonhang;
+
+                $scope.totalcount = response.data.totalcount;
+
+            }, function (error) {
+                alert('failed');
+            });
+        }, function (error) {
+            alert('failed');
+        });
+    };
 });
 
 //----------------------------------------------------------------------------------------------------------------

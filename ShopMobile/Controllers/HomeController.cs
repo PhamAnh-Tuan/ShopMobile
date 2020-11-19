@@ -15,7 +15,7 @@ namespace ShopMobile.Controllers
         LoaiDTBUS dblayer = new LoaiDTBUS();
         DienThoaiBUS dbDT = new DienThoaiBUS();
         // GET: Home
-        public ActionResult Home()
+        public ActionResult Index()
         {
             return View();
         }

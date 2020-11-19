@@ -14,7 +14,7 @@ namespace ShopMobile.Controllers
         // GET: LoaiDienThoai
         LoaiDTBUS dblayer = new LoaiDTBUS();
         DienThoaiBUS dbDT = new DienThoaiBUS();
-        public ActionResult Index(string maloai)
+        public ActionResult Index(int maloai)
         {
             Session.Add("maloai", maloai);
             return View();
@@ -22,7 +22,7 @@ namespace ShopMobile.Controllers
 
         public JsonResult Get_DienThoai_byMaLoai()
         {
-            return Json(dbDT.Get_DienThoai_byMaLoai(Session["maloai"].ToString()), JsonRequestBehavior.AllowGet);
+            return Json(dbDT.Get_DienThoai_byMaLoai(Convert.ToInt32(Session["maloai"].ToString())), JsonRequestBehavior.AllowGet);
         }
     }
 }

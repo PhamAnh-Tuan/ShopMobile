@@ -25,7 +25,6 @@ namespace BUS
                 {
                     MaDienThoai = Convert.ToInt32(dr["MaDienThoai"]),
                     TenDienThoai = dr["TenDienThoai"].ToString(),
-                    //MaLoai = Convert.ToInt32(dr["MaLoai"].ToString()),
                     HinhAnh = dr["HinhAnh"].ToString(),
                     KichThuocManHinh = dr["KichThuocManHinh"].ToString(),
                     DoPhanGiai = dr["DoPhanGiai"].ToString(),
@@ -42,7 +41,7 @@ namespace BUS
             }
             return l;
         }
-        public List<DienThoai> Get_DienThoai_byMaLoai(string maloai)
+        public List<DienThoai> Get_DienThoai_byMaLoai(int maloai)
         {
             ds = dbDT.Get_DienThoai_byMaLoai(maloai);
             List<DienThoai> l = new List<DienThoai>();
@@ -50,7 +49,7 @@ namespace BUS
             {
                 l.Add(new DienThoai
                 {
-                    MaDienThoai = Convert.ToInt32(dr["MaDienThoai"]),
+                    MaDienThoai = Convert.ToInt32(dr["MaDienThoai"].ToString()),
                     TenDienThoai = dr["TenDienThoai"].ToString(),
                     MaLoai = Convert.ToInt32(dr["MaLoai"].ToString()),
                     HinhAnh = dr["HinhAnh"].ToString(),
@@ -62,9 +61,9 @@ namespace BUS
                     CameraTruoc = dr["CameraTruoc"].ToString(),
                     DungLuongPin = dr["DungLuongPin"].ToString(),
                     TheSim = dr["TheSim"].ToString(),
-                    Ram = int.Parse(dr["Ram"].ToString()),
-                    BoNhoTrong = int.Parse(dr["BoNhoTrong"].ToString()),
-                    Gia = int.Parse(dr["TheSim"].ToString()),
+                    Ram = Convert.ToInt32(dr["Ram"].ToString()),
+                    BoNhoTrong = Convert.ToInt32(dr["BoNhoTrong"].ToString()),
+                    Gia = Convert.ToInt32(dr["Gia"].ToString()),
                 });
             }
             return l;
