@@ -1,0 +1,90 @@
+﻿
+@{
+    ViewBag.Title = "OrderNotComfirm";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<link href="~/Assets/Admin/css/manager.css" rel="stylesheet" />
+
+<div class="contain-table" ng-controller="OrderNotComfirmController">
+    <div class="section-product_type" id="Id-product-type">
+        <div class="product_type_list">
+            <div class="add-product-type">
+                <div class="nav-search">
+                    <h3>Đơn hàng chưa xác thực</h3>
+                    <div style="position: absolute; width: 300px; right: 0;">
+                        <input type="text" class="form-search form-control" placeholder="Search" ng-model="searchText">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="product_type_cen">
+                <form>
+                    <table class="table-product_type" id="table_type">
+                        <tr>
+                            <th>Mã đơn hàng</th>
+                            <th>Mã khách hàng</th>
+                            <th>Ngày tạo</th>
+                            <th>Trạng thái đơn hàng</th>
+                            <th>Tổng tiền</th>
+                            <th>Xác thực</th>
+                        </tr>
+                        <tr ng-repeat="e in Spdata  | filter: searchText  " ng-class-even="even" ng-class-odd="odd">
+                            <td>{{e.MaDonHang}}</td>
+                            <td>{{e.MaKhachHang}}</td>
+                            <td>{{e.NgayTao}}</td>
+                            <td>{{e.TrangThaiDonHang}}</td>
+                            <td>{{e.TongTien| number}}</td>
+                            <td><button class="btn_remove" ><i class="far fa-trash-alt"></i></button></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+    <table class="table table-bordered">
+        <tfoot>
+            <tr>
+                <td align="center" colspan="8">
+                    <div>
+                        <div style="display:flex;justify-content:space-between;align-items:center" class="col-xs-pull-6">
+
+                            <pagination total-items="totalcount" ng-change="pagechanged()" items-per-page="pageSize" direction-links="true" ng-model="pageIndex" max-size="maxsize" class="pagination" boundary-links="true" rotate="false" num-pages="numPages"></pagination>
+
+                            <a class=" btn btn-primary pull-right">Page: {{pageIndex}} / {{numPages}}</a>
+
+                        </div>
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+        </tfoot>
+        <thead>
+            <tr>
+                <td class="header-table" colspan="12">
+
+                    <span class="form-group pull-left page-size form-inline">
+
+                        <select class="form-control control-color"
+                                ng-model="pageSize"
+                                ng-change="changePageSize()">
+                            <option value="3">3</option>
+
+                            <option value="5">5</option>
+
+                            <option value="7">7</option>
+
+                            <option value="10">10</option>
+
+                        </select>
+
+                    </span>
+                </td>
+            </tr>
+        </thead>
+    </table>
+</div>
+

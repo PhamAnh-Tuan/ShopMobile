@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "LoaiDienThoai";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!--===============================================================================================-->
+<link href="~/Assets/Client/css/style.css" rel="stylesheet" />
+<!--===============================================================================================-->
+
+<div class="content-page">
+    <div class="container">
+        <div class="category-featured Vegetables">
+            <nav class="navbar nav-menu show-brand">
+                <div class="container">
+                    <div class="navbar-brand"><a href="#"> <img alt="fashion" src="~/Assets/Client/images/icon_like.png" /> Best Seller</a></div>
+                    <div class="collapse navbar-collapse">
+                    </div>
+                </div>
+            </nav>
+            <div class="product-featured clearfix">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="box-right">
+                            <ul class="product-list"  ng-repeat="e in typephone">
+                                <li class="col-sm-4 product-item">
+                                    <div class="left-block">
+                                        <a>
+                                            <img class="img-responsive" alt="product" src="~/Assets/Client/img/{{e.HinhAnh}}" />
+                                        </a>
+                                        <div class="quick-view">
+                                            <a title="Add to my wishlist" class="heart" href="#"></a>
+                                            <a title="Add to compare" class="compare" href="#"></a>
+                                            <a title="Quick view" href="~/Assets/Client/img/apple/" class="search fancybox-button"></a>
+                                        </div>
+                                        @*<div class="add-to-cart">
+            <a class="add-item-to-cart" title="Add to Cart" href="#" data-name="{{e.TenDienThoai}}"
+               data-price="" data-image="~/Assets/Client/img/apple/{{e.HinhAnh}}" data-product-code="{{e.MaDienThoai}}">Add to Cart</a>
+        </div>*@
+                                        <div class="bestseller"></div>
+                                    </div>
+                                    <div class="right-block">
+                                        <h5 class="product-name"><a href="#">{{e.TenLoai}}</a></h5>
+                                        <div class="content_price">
+                                            <span class="price product-price"><span style="color: black">Price:</span> {{e.Gia}}</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

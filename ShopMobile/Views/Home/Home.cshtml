@@ -1,0 +1,193 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+
+
+<div id="home-slider">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 header-top-right">
+                <div class="homeslider">
+                    <ul id="contenhomeslider">
+                        <li><img alt="Funky roots" src="~/Assets/Client/img/slide/slide_01.jpg" title="Funky roots" /></li>
+                        <li><img alt="Funky roots" src="~/Assets/Client/img/slide/slide_02.jpg" title="Funky roots" /></li>
+                        <li><img alt="Funky roots" src="~/Assets/Client/img/slide/slide_03.jpg" title="Funky roots" /></li>
+                        <li><img alt="Funky roots" src="~/Assets/Client/img/slide/slide_04.jpg" title="Funky roots" /></li>
+                        <li><img alt="Funky roots" src="~/Assets/Client/img/slide/slide_05.jpg" title="Funky roots" /></li>
+                        <li><img alt="Funky roots" src="~/Assets/Client/img/slide/slide_06.jpg" title="Funky roots" /></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-page" ng-controller="HomeClient">
+    <div class="container">
+        <div class="category-featured Vegetables">
+            <nav class="navbar nav-menu show-brand">
+                <div class="container">
+                    <div class="navbar-brand"><a href="#"> <img alt="fashion" src="~/Assets/Client/images/icon_like.png" />Điện thoại chính hãng</a></div>
+                    <div class="collapse navbar-collapse">
+                    </div>
+                </div>
+            </nav>
+            <div class="product-featured clearfix">
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12">
+                        <div class="box-right">
+                            <ul class="product-list">
+                                <li class="col-lg-3 col-sm-4 product-item" ng-repeat="e in dataphone" ng-class-even="even" ng-class-odd="odd">
+                                    <div class="left-block">
+                                        <a>
+                                            <img class="img-responsive" alt="product" src="~/Assets/Client/img/product/{{e.HinhAnh}}" />
+                                        </a>
+                                        <div class="quick-view">
+                                            <a title="Add to my wishlist" class="heart" href="#"></a>
+                                            <a title="Add to compare" class="compare" href="#"></a>
+                                            <a title="Quick view" href="~/Assets/Client/img/product/{{e.HinhAnh}}" class="search fancybox-button"></a>
+                                        </div>
+                                        <div class="add-to-cart">
+                                            <a class="add-item-to-cart" title="Add to Cart" href="#" data-name="{{e.TenDienThoai}}"
+                                               data-price="{{e.Gia}}" data-image="~/Assets/Client/img/product/{{e.HinhAnh}}" data-product-code="{{e.MaDienThoai}}">Add to Cart</a>
+                                        </div>
+                                        <div class="bestseller"></div>
+                                    </div>
+                                    <div class="right-block">
+                                        <h5 class="product-name"><a href="#">{{e.TenDienThoai}} {{e.BoNhoTrong}}GB</a></h5>
+                                        <div class="content_price">
+                                            <span class="price product-price"><span style="color: black">Giá từ:</span>{{e.Gia | number}} </span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--============================-->
+    <div class="container">
+        <div class="row">
+            <div class="row">
+                <div class="col-md-9">
+                    <h3>Products Showcase using carousel and Bootstrap</h3>
+                </div>
+                <div class="col-md-3">
+                    <!-- Controls -->
+                    <div class="controls pull-right hidden-xs">
+                        <a class="left fa fa-chevron-left btn btn" href="#carousel-example"
+                           data-slide="prev"></a><a class="right fa fa-chevron-right btn" href="#carousel-example"
+                                                    data-slide="next"></a>
+                    </div>
+                </div>
+            </div>
+            <div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel">
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <div class="row">
+                            <div class="col-sm-3" ng-repeat="e in dataphone| limitTo: 4" ng-class-even="even" ng-class-odd="odd">
+                                <div class="col-item">
+                                    @*<div class="info">
+                                            <div class="row">
+                                                <div class="price col-md-6">
+                                                    <h5>{{e.TenDienThoai}}</h5>
+                                                    <h5 class="price-text-color">{{e.Gia | number}}</h5>
+                                                </div>
+                                                <div class="rating hidden-sm col-md-6">
+                                                    <i class="price-text-color fa fa-star"></i>
+                                                    <i class="price-text-color fa fa-star"></i>
+                                                </div>
+                                            </div>
+                                        </div>*@
+
+                                    <div class="photo">
+                                        <img src="~/Assets/Client/img/product/{{e.HinhAnh}}" class="img-responsive" alt="a" />
+                                    </div>
+                                    <div class="info">
+                                        <div class="row">
+                                            <div class="price col-lg-9 col-md-9">
+                                                <h5>{{e.TenDienThoai}} {{e.BoNhoTrong}}GB</h5>
+                                                <h5 class="price-text-color">{{e.Gia | number}}</h5>
+                                            </div>
+                                            <div class="rating hidden-sm col-lg-3 col-md-3">
+                                                <i class="price-text-color fa fa-star"></i>
+                                                <i class="price-text-color fa fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="info">
+                                        <div class="separator clear-left">
+                                            <p class="btn-add">
+                                                <i class="fa fa-shopping-cart"></i><a href="#" class="hidden-sm">Add to cart</a>
+                                            </p>
+                                            <p class="btn-details">
+                                                <i class="fa fa-list"></i><a href="#" class="hidden-sm">More details</a>
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-sm-3" ng-repeat="e in dataphone| limitTo: 4:4" ng-class-even="even" ng-class-odd="odd">
+                                <div class="col-item">
+                                    @*<div class="info">
+                                            <div class="row">
+                                                <div class="price col-md-6">
+                                                    <h5>{{e.TenDienThoai}}</h5>
+                                                    <h5 class="price-text-color">{{e.Gia | number}}</h5>
+                                                </div>
+                                                <div class="rating hidden-sm col-md-6">
+                                                    <i class="price-text-color fa fa-star"></i>
+                                                    <i class="price-text-color fa fa-star"></i>
+                                                </div>
+                                            </div>
+                                        </div>*@
+
+                                    <div class="photo">
+                                        <img src="~/Assets/Client/img/product/{{e.HinhAnh}}" class="img-responsive" alt="a" />
+                                    </div>
+                                    <div class="info">
+                                        <div class="row">
+                                            <div class="price col-lg-9 col-md-9">
+                                                <h5>{{e.TenDienThoai}} {{e.BoNhoTrong}}GB</h5>
+                                                <h5 class="price-text-color">{{e.Gia | number}}</h5>
+                                            </div>
+                                            <div class="rating hidden-sm col-lg-3 col-md-3">
+                                                <i class="price-text-color fa fa-star"></i>
+                                                <i class="price-text-color fa fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="info">
+                                        <div class="separator clear-left">
+                                            <p class="btn-add">
+                                                <i class="fa fa-shopping-cart"></i><a href="#" class="hidden-sm">Add to cart</a>
+                                            </p>
+                                            <p class="btn-details">
+                                                <i class="fa fa-list"></i><a href="#" class="hidden-sm">More details</a>
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossOrigin="anonymous" />
+
+    <link href="~/Assets/Client/css/login.css" rel="stylesheet" />
+</head>
+<body>
+    <form class="login-form" autocomplete="off" action="#">
+        <input placeholder="Email/Tên đăng nhập" ng-model="user.TaiKhoanDangNhap" />
+        <div class="input-icon">
+            <input type="password" placeholder="Password" ng-model="user.MatKhau"/>
+            <i class="fa fa-eye show-password"></i>
+        </div>
+        <a href="#" class="forgot">Quên mật khẩu?</a>
+        <button value="{{btntext}}" ng-click="login()">Đăng nhập</button>
+    </form>
+</body>
+</html>
+
+

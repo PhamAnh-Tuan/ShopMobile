@@ -1,0 +1,119 @@
+﻿
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"></script>
+
+    <link href="~/Assets/Admin/css/styles.css" rel="stylesheet" />
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.4/ui-bootstrap-tpls.js" integrity="sha512-xndMzK9x1ZhE9Jsj38+gx8lSAxJ9UZrtsCb8cY9P1QX+X4qBi0F+J/TbxBkywc53w4S2qaaBY/WjvH4bUW4W9Q==" crossorigin="anonymous"></script>
+    <script src="~/Assets/Admin/script/AngularController/HomeController.js"></script>
+    @*<script src="~/Scripts/ng-file-upload.min.js"></script>*@
+</head>
+<body ng-app="Homeapp">
+    <div class="wrapper">
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-header-div">
+                    <img src="~/Assets/Admin/img/anhtuanmobile_free-file.png" class="img-logo"/>
+                </div>
+            </div>
+            <ul class="lisst-unstyled components">
+                <li class="portfolio">
+                    <a href="/Admin/ManagerTypePhone/ManagerTypePhone"><p><i class="fas fa-mobile-alt"></i>Quản lý loại điện thoại</p></a>
+                </li>
+                <li class="portfolio">
+                    <a href="/Admin/ManagerPhone/ManagerPhone"><i class="fas fa-mobile"></i>Quản lý điện thoại</a>
+                </li>
+                <li class="portfolio">
+                    <a href="#"><i class="fas fa-cogs"></i>Cấu hình</a>
+                </li>
+                <li class="portfolio">
+                    <a href="#"><i class="fas fa-people-carry"></i>Quản lý nhà cung cấp</a>
+                </li>
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-receipt"></i>Quản lý đơn hàng</a>
+                    <ul class="collapse lisst-unstyled" id="homeSubmenu">
+                        <li class="sub-menu-item">
+                            <a href="/Admin/ManagerOrder/OrderNotComfirm">Chưa xác thực</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/Admin/ManagerOrder/OrderComfirm">Đã xác thực</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/Admin/ManagerOrder/OrderDelivered">Đã giao</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="portfolio">
+                    <a href="#"><i class="fas fa-file-invoice"></i>Quản lý hóa đơn nhập</a>
+                </li>
+                <li class="portfolio">
+                    <a href="#"><i class="fas fa-file-invoice-dollar"></i>Quản lý hóa đơn bán</a>
+                </li>
+            </ul>
+        </nav>
+        <div id="content">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-expand-sm">
+                <div class="left-menu-bar">
+                    <div class="container-fluid">
+                        <button type="button" id="sidebarCollapse" class="btn btn-info">
+                            <i class="fas fa-align-left"></i>
+                        </button>
+                    </div>
+
+                    <form class="form-inline" action="/action_page.php">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                        <button class="btn btn-success" type="submit">Search</button>
+                    </form>
+                </div>
+                <div class="right-menu-bar">
+                    <div class="icon">
+                        <i class="bell-icon far fa-bell"></i>
+                        <i class="far fa-envelope"></i>
+                    </div>
+                    <div class="topbar-divider d-none d-sm-block"></div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            Xin chào: @Session["USER"]
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Thông tin</a>
+                            <a class="dropdown-item" href="/Admin/Admin/Logout">Đăng xuất</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div class="main">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    @*<script src="~/Assets/Admin/script/AngularController/HomeController.js"></script>*@
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+</body>
+</html>
+
+

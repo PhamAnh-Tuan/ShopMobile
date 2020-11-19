@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewBag.Title = "ManagerTypePhone";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<link href="~/Assets/Admin/css/manager.css" rel="stylesheet" />
+
+<div class="contain-table" ng-controller="HomeController">
+    <div class="section-product_type" id="Id-product-type">
+        <div class="product_type_list">
+            <div class="add-product-type">
+                <ul class="nav-search">
+                    <h3>Loại sản phẩm</h3>
+                    <li>
+                        <a href="/Admin/ManagerTypePhone/AddTypePhone">
+                            <button type="button" id="Id_add_type" class="btn_add button-add-type color-green">
+                                <svg class="svg-type">
+                                    <rect class="rect-type" x="0" y="0" fill="none" width="100%" height="100%" />
+                                </svg>Thêm loại
+                            </button>
+                        </a>
+                    </li>
+                    <li>
+                        <input type="text" class="form-search form-control" placeholder="Search" ng-model="searchText">
+                        <i class="fas fa-search"></i>
+                    </li>
+                </ul>
+            </div>
+            <div class="product_type_cen">
+                <form>
+                    <table class="table-product_type" id="table_type">
+                        <tr>
+                            <th>Mã loại sản phẩm</th>
+                            <th>Tên loại sản phẩm</th>
+                            <th>Xuất sứ</th>
+                            <th>Sửa</th>
+                            <th>Xóa</th>
+                        </tr>
+                        <tr ng-repeat="e in Spdata  | filter: searchText  " ng-class-even="even" ng-class-odd="odd">
+                            <td>{{e.MaLoai}}</td>
+                            <td>{{e.TenLoai}}</td>
+                            <td><p>{{e.XuatXu}}</p></td>
+                            <td><a href="/Admin/ManagerTypePhone/UpdateTypePhone?id={{e.MaLoai}}"><i class="fas fa-edit"></i></a></td>
+                            <td><button class="btn_remove" ng-click="deleteLoaiDT(e.MaLoai)"><i class="far fa-trash-alt"></i></button></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+    <table class="table table-bordered">
+        <tfoot>
+            <tr>
+                <td align="center" colspan="8">
+                    <div>
+                        <div style="display:flex;justify-content:space-between;align-items:center" class="col-xs-pull-6">
+
+                            <pagination total-items="totalcount" ng-change="pagechanged()" items-per-page="pageSize" direction-links="true" ng-model="pageIndex" max-size="maxsize" class="pagination" boundary-links="true" rotate="false" num-pages="numPages"></pagination>
+
+                            <a class=" btn btn-primary pull-right">Page: {{pageIndex}} / {{numPages}}</a>
+
+                        </div>
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+        </tfoot>
+        <thead>
+            <tr>
+                <td class="header-table" colspan="12">
+
+                    <span class="form-group pull-left page-size form-inline">
+
+                        <select class="form-control control-color"
+                                ng-model="pageSize"
+                                ng-change="changePageSize()">
+                            <option value="3">3</option>
+
+                            <option value="5">5</option>
+
+                            <option value="10">10</option>
+
+                            <option value="25">25</option>
+
+                            <option value="50">50</option>
+
+                        </select>
+
+                    </span>
+                </td>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+
