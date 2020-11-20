@@ -19,6 +19,14 @@ namespace ShopMobile.Controllers
         {
             return View();
         }
+        public ActionResult Contact()
+        {
+            return View();
+        }
+        public ActionResult News()
+        {
+            return View();
+        }
         public JsonResult Get_LoaiDT()
         {
             return Json(dblayer.Get_LoaiDT(), JsonRequestBehavior.AllowGet);

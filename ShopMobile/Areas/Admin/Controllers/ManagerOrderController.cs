@@ -41,5 +41,9 @@ namespace ShopMobile.Areas.Admin.Controllers
         {
             return Json(_db.Comfirm_ThisOrder(value), JsonRequestBehavior.AllowGet);
         }
+        public JsonResult View_Details(int value)
+        {
+            return Json(_db.View_Details(value), JsonRequestBehavior.AllowGet);
+        }
     }
 }

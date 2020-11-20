@@ -28,6 +28,7 @@
                             <th>Trạng thái đơn hàng</th>
                             <th>Tổng tiền</th>
                             <th>Xác thực</th>
+                            <th>Tác vụ</th>
                         </tr>
                         <tr ng-repeat="e in Spdata  | filter: searchText  " ng-class-even="even" ng-class-odd="odd">
                             <td>{{e.MaDonHang}}</td>
@@ -35,7 +36,8 @@
                             <td>{{e.NgayTao}}</td>
                             <td>{{e.TrangThaiDonHang}}</td>
                             <td>{{e.TongTien| number}}</td>
-                            <td><button class="btn_remove" ng-click="Comfirm(e.MaDonHang)" ><i class="far fa-trash-alt"></i></button></td>
+                            <td><button class="btn_remove" ng-click="Comfirm(e.MaDonHang)"><i class="fas fa-check"></i></button></td>
+                            <td><button class="btn_remove" ng-click="View(e.MaDonHang)"><i class="far fa-eye"></i></button></td>
                         </tr>
                     </table>
                 </form>
@@ -86,5 +88,23 @@
             </tr>
         </thead>
     </table>
+</div>
+<div ng-controller="OrderNotComfirmController" id="view" style=" background: rgba(0,0,0,0.4); left: 25%; width: 70%; top: 16%; position: fixed; height: 60%; z-index: 6; margin: 0 auto;display:none">
+    <form>
+        <table class="table-product_type" id="table_type">
+            <tr>
+                <th style="background: rgba(0,0,0,0.4);">Mã CTDH</th>
+                <th style="background: rgba(0,0,0,0.4);">Mã điện thoại</th>
+                <th style="background: rgba(0,0,0,0.4);">Số Lượng</th>
+                <th style="background: rgba(0,0,0,0.4);">Đơn giá</th>
+            </tr>
+            <tr ng-repeat="e in details  | filter: searchText  " ng-class-even="even" ng-class-odd="odd">
+                <td>{{e.MaDonHang}}</td>
+                <td>{{e.MaKhachHang}}</td>
+                <td>{{e.NgayTao}}</td>
+                <td>{{e.TrangThaiDonHang}}</td>
+            </tr>
+        </table>
+    </form>
 </div>
 

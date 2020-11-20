@@ -110,5 +110,15 @@ namespace DAO
             com.ExecuteNonQuery();
             con.Close();
         }
+        public DataSet View_Details(int value)
+        {
+            com = new SqlCommand("view_details", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@MaDonHang", value);
+            da = new SqlDataAdapter(com);
+            ds = new DataSet();
+            da.Fill(ds);
+            return ds;
+        }
     }
 }

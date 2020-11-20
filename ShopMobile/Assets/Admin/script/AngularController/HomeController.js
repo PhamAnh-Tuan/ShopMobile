@@ -349,6 +349,16 @@ app.controller("OrderNotComfirmController", function ($scope, $http) {
             alert('failed');
         });
     };
+    $scope.View = function (val) {
+        $("#view").show();
+        $http.get('/Admin/ManagerOrder/View_Details?value=' + val).then(function (d) {
+            $scope.details = d.data;
+            alert(details);
+        }, function (error) {
+            alert('failed');
+        });
+        
+    };
 });
 
 //----------------------------------------------------------------------------------------------------------------

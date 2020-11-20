@@ -450,6 +450,8 @@
     <Content Include="Assets\Client\img\LogoCompany\Samsung.jpg" />
     <Content Include="Assets\Client\img\LogoCompany\Vsmart.png" />
     <Content Include="Assets\Client\img\All\masterCard.jpg" />
+    <Content Include="Assets\Client\img\News\news1.jpg" />
+    <Content Include="Assets\Client\img\News\news2.jpg" />
     <Content Include="Assets\Client\img\product\apple\apple_iphone11.png" />
     <Content Include="Assets\Client\img\product\apple\apple_iphone11Pro.png" />
     <Content Include="Assets\Client\img\product\apple\apple_iphone7.jpg" />
@@ -1497,6 +1499,8 @@
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="Views\LoaiDienThoai\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\News.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

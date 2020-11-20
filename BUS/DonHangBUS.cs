@@ -11,6 +11,7 @@ namespace BUS
 {
     public class DonHangBUS
     {
+        DataSet ds;
         dbDonHang _db = new dbDonHang();
         public DonHangList Get_Paging_DonHangChuaXacThuc(int pageindex,int pagesize)
         {
@@ -43,6 +44,22 @@ namespace BUS
                 res = "Xác thực thất bại";
             }
             return res;
+        }
+        public List<ChiTietDonHang> View_Details(int value)
+        {
+            ds = _db.View_Details(value);
+            List<ChiTietDonHang> l = new List<ChiTietDonHang>();
+            foreach(DataRow dr in ds.Tables[0].Rows)
+            {
+                l.Add(new ChiTietDonHang
+                {
+                    MaChiTietDonHang=Convert.ToInt32(dr["MaChiTietDonHang"].ToString()),
+                    MaDienThoai = Convert.ToInt32(dr["MaDienThoai"].ToString()),
+                    SoLuong = Convert.ToInt32(dr["SoLuong"].ToString()),
+                    DonGia = Convert.ToInt32(dr["DonGia"].ToString()),
+                });
+            }
+            return l;
         }
     }
 }
