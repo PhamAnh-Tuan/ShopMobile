@@ -1,7 +1,7 @@
 ﻿/// <reference path="../../../../scripts/angular.min.js" />
 var app = angular.module('Homeapp', []);
 /*======================================================================================================================================*/
-app.controller("HomeClient", function ($scope, $http) {
+app.controller("HomeClient", function ($rootScope,$scope, $http) {
     $http.get('/Home/Get_LoaiDT').then(function (d) {
         $scope.regdata = d.data;
     }, function (error) {
@@ -36,6 +36,38 @@ app.controller("HomeClient", function ($scope, $http) {
             alert('failed');
         })
     }
+
+        // displayCart
+    //function($rootScope, $scope, $http) {
+    //    $rootScope.AddCart = function (s) {
+    //        $http({
+    //            method: 'POST',
+    //            datatype: 'json',
+    //            url: 'GioHang/AddCart',
+    //            data: JSON.stringify(s)
+    //        }).then(function (d) {
+    //            if (d.data.ctdon != null) {
+    //                $rootScope.dsDonHang.push(d.data.ctdon);
+
+    //            }
+    //            else
+    //                for (var i = 0; i < $rootScope.dsDonHang.length; i++)
+    //                    if ($rootScope.dsDonHang[i].MaDienThoai == s.MaDienThoai) {
+    //                        $rootScope.dsDonHang[i].SoLuong = $rootScope.dsDonHang[i].SoLuong + 1;
+    //                    }
+    //            $rootScope.SoLuong = d.data.sl;
+
+    //        }, function () { alert("failed"); });
+    //    }
+    //}
+    $rootScope.dsDonHang = null;
+    $rootScope.GetCart = function () {
+        $http.get('/GioHang/GetCarts').then(function (d) {
+            $rootScope.dsDonHang = d.data.dsDonHang;
+            $rootScope.SoLuong = d.data.SoLuong;
+            $rootScope.Thanhtien = d.data.Thanhtien;
+        }, function (e) { });
+    };
 });
 
 
@@ -48,3 +80,42 @@ app.controller("SanphamController", function ($scope, $http) {
         });
 
 });
+
+
+var common = {
+    init: function () {
+        common.registerEvent();
+    },
+    registerEvent: function () {
+        $("#txtKeyWord").autocomplete({
+            minLength: 0,
+            source: function (request, response) {
+                $.ajax({
+                    url: "/DienThoai/ListName",
+                    dataType: "jsonp",
+                    data: {
+                        term: request.term
+                    },
+                    success: function (data) {
+                        response(data.data);
+                    }
+                });
+            },
+            focus: function (event, ui) {
+                $("#txtKeyWord").val(ui.item.label);
+                return false;
+            },
+            select: function (event, ui) {
+                $("#project").val(ui.item.label);
+
+                return false;
+            }
+        })
+            .autocomplete("instance")._renderItem = function (ul, item) {
+                return $("<li>")
+                    .append("<div>" + item.label + "</div>")
+                    .appendTo(ul);
+            };
+    }
+}
+common.init();

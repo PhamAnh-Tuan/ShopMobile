@@ -43,23 +43,24 @@ namespace ShopMobile.Controllers
             }
             return Json(new { ctdon = d, sl = soluong }, JsonRequestBehavior.AllowGet);
         }
-        //public JsonResult GetCarts()
-        //{
-        //    int sl = 0;
-        //    int thanhtien = 0;
-        //    List<ChiTietDonHang> ds = new List<ChiTietDonHang>();
-        //    if (Session["giohang"] == null)
-        //    {
-        //        Session["giohang"] = new List<ChiTietDonHang>();
-        //        sl = 0;
-        //        thanhtien = 0;
-        //    }
-        //    else
-        //    {
-        //        ds = Session["giohang"] as List<ChiTietDonHang>;
-        //        thanhtien = ds.Sum(s => s.DonGia * s.SoLuong);
-        //        sl = ds.Sum(s => s.SoLuong);
-        //    }
-        //}
+        public JsonResult GetCarts()
+        {
+            int sl = 0;
+            int thanhtien = 0;
+            List<ChiTietDonHang> ds = new List<ChiTietDonHang>();
+            if (Session["giohang"] == null)
+            {
+                Session["giohang"] = new List<ChiTietDonHang>();
+                sl = 0;
+                thanhtien = 0;
+            }
+            else
+            {
+                ds = Session["giohang"] as List<ChiTietDonHang>;
+                thanhtien = ds.Sum(s => s.DonGia * s.SoLuong);
+                sl = ds.Sum(s => s.SoLuong);
+            }
+            return Json(new { DSDonHang = ds, soluong = sl, ThanhTien = thanhtien }, JsonRequestBehavior.AllowGet);
+        }
     }
 }

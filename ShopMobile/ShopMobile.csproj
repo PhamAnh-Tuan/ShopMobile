@@ -219,26 +219,6 @@
     <Content Include="Assets\Client\images\logo.png" />
     <Content Include="Assets\Client\images\log_fb.png" />
     <Content Include="Assets\Client\images\log_gg.png" />
-    <Content Include="Assets\Client\images\news\health-new.jpg" />
-    <Content Include="Assets\Client\images\news\news1.jpg" />
-    <Content Include="Assets\Client\images\news\news10_300x300.jpg" />
-    <Content Include="Assets\Client\images\news\news1_300x300.jpg" />
-    <Content Include="Assets\Client\images\news\news2.jpg" />
-    <Content Include="Assets\Client\images\news\news2_300x300.jpg" />
-    <Content Include="Assets\Client\images\news\news3.jpg" />
-    <Content Include="Assets\Client\images\news\news3_300x300.jpg" />
-    <Content Include="Assets\Client\images\news\news4.jpg" />
-    <Content Include="Assets\Client\images\news\news4_300x300.jpg" />
-    <Content Include="Assets\Client\images\news\news5.jpg" />
-    <Content Include="Assets\Client\images\news\news5_300x300.jpg" />
-    <Content Include="Assets\Client\images\news\news6.jpg" />
-    <Content Include="Assets\Client\images\news\news6_300x300.jpg" />
-    <Content Include="Assets\Client\images\news\news7.jpg" />
-    <Content Include="Assets\Client\images\news\news7_300x300.jpg" />
-    <Content Include="Assets\Client\images\news\news8_300x300.jpg" />
-    <Content Include="Assets\Client\images\news\news9_300x300.jpg" />
-    <Content Include="Assets\Client\images\news\shutterstock_275793086-676x450.jpg" />
-    <Content Include="Assets\Client\images\news\shutterstock_440115364-676x450.jpg" />
     <Content Include="Assets\Client\images\next.png" />
     <Content Include="Assets\Client\images\next7.png" />
     <Content Include="Assets\Client\images\notify-right-6.png" />
@@ -389,12 +369,6 @@
     <Content Include="Assets\Client\images\range-icon.png" />
     <Content Include="Assets\Client\images\sale-bg.png" />
     <Content Include="Assets\Client\images\search.png" />
-    <Content Include="Assets\Client\images\slide\img1.jpg" />
-    <Content Include="Assets\Client\images\slide\img2.jpg" />
-    <Content Include="Assets\Client\images\slide\img3.jpg" />
-    <Content Include="Assets\Client\images\slide\img4.jpg" />
-    <Content Include="Assets\Client\images\slide\img5.jpg" />
-    <Content Include="Assets\Client\images\slide\img6.jpg" />
     <Content Include="Assets\Client\images\social\aboutme.png" />
     <Content Include="Assets\Client\images\social\amazon.png" />
     <Content Include="Assets\Client\images\social\behance.png" />
@@ -550,6 +524,7 @@
     <Content Include="Assets\Client\lib\owl.carousel\owl.video.play.html" />
     <Content Include="Assets\Client\lib\select2\css\select2.min.css" />
     <Content Include="Assets\Client\lib\select2\js\select2.min.js" />
+    <Content Include="Assets\Client\script\AngularController\BaseController.js" />
     <Content Include="Assets\Client\script\AngularController\HomeController.js" />
     <Content Include="Assets\Client\script\checkout.js" />
     <Content Include="Assets\Client\script\contact-us.js" />
@@ -1361,6 +1336,7 @@
     <Compile Include="Areas\Admin\Controllers\ManagerOrderController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManagerPhoneController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManagerTypePhoneController.cs" />
+    <Compile Include="Controllers\DienThoaiController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KhachHangController.cs" />
@@ -1397,7 +1373,6 @@
     <Content Include="Assets\Client\lib\font-awesome\fonts\fontawesome-webfonte0a5.ttf" />
     <Content Include="Assets\Client\lib\font-awesome\fonts\fontawesome-webfonte0a5.woff" />
     <Content Include="Assets\Client\lib\font-awesome\fonts\fontawesome-webfonte0a5.woff2" />
-    <Content Include="Assets\Client\images\slide\Thumbs.db" />
     <Content Include="Assets\Client\images\social\Thumbs.db" />
     <Content Include="Assets\Client\images\Thumbs.db" />
     <Content Include="Assets\Admin\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
@@ -1501,6 +1476,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\News.cshtml" />
+    <Content Include="Views\DienThoai\Search.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

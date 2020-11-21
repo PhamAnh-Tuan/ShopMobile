@@ -130,5 +130,20 @@ namespace DAO
             da.Fill(ds);
             return ds;
         }
+        public List<string> ListName(string keyword)
+        {
+            com = new SqlCommand("get_ListName", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@Ten", keyword);
+            con.Open();
+            dr = com.ExecuteReader();
+            List<string> name = new List<string>();
+            while (dr.Read())
+            {
+                string word = dr["TenDienThoai"].ToString();
+                name.Add(word);
+            }
+            return name;
+        }
     }
 }

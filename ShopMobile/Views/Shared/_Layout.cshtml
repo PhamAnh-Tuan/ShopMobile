@@ -40,8 +40,14 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" href="~/Assets/Client/css/switcher.css">
     <!--===============================================================================================-->
+    <!--===============================================================================================-->
     <script src="~/Scripts/angular.min.js"></script>
     <script src="~/Assets/Client/script/AngularController/HomeController.js"></script>
+    <!--Search-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    @*<script src="~/Assets/Client/script/AngularController/BaseController.js"></script>*@
     <!--===============================================================================================-->
     @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">*@
 
@@ -67,7 +73,7 @@
                 <div class="col-xs-4 col-sm-12 col-md-5 col-lg-4 header-search-box">
                     <form class="form-inline">
                         <div class="form-group input-serach">
-                            <input type="text" placeholder="Search ...">
+                            <input type="text" placeholder="Search ..." id="#txtKeyWord" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
                         </div>
                         <button type="submit" class="pull-right btn-search"><i class="fa fa-search"></i></button>
                     </form>

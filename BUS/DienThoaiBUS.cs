@@ -13,7 +13,7 @@ namespace BUS
 {
     public class DienThoaiBUS
     {
-        dbDienThoai dbDT = new dbDienThoai(); 
+        dbDienThoai dbDT = new dbDienThoai();
         DataSet ds;
         public List<DienThoai> Get_DienThoai10()
         {
@@ -72,7 +72,7 @@ namespace BUS
         {
             ds = dbDT.Get_DienThoai_byid(id);
             List<DienThoai> list = new List<DienThoai>();
-            foreach(DataRow dr in ds.Tables[0].Rows)
+            foreach (DataRow dr in ds.Tables[0].Rows)
             {
                 list.Add(new DienThoai
                 {
@@ -91,6 +91,19 @@ namespace BUS
                 });
             }
             return list;
+        }
+        public List<string> ListName(string keyword)
+        {
+            List<string> listname = new List<string>();
+            listname = dbDT.ListName(keyword);
+            return listname;
+        }
+            //Admin
+            public DienThoaiList Get_Paging_DienThoai(int pageindex, int pagesize)
+        {
+            DienThoaiList rslist = new DienThoaiList();
+            rslist = dbDT.Get_Paging_DienThoai(pageindex, pagesize);
+            return rslist;
         }
         public string Add_Phone(DienThoai dt)
         {
@@ -135,12 +148,6 @@ namespace BUS
             }
             return res;
         }
-        //Admin
-        public DienThoaiList Get_Paging_DienThoai(int pageindex,int pagesize)
-        {
-            DienThoaiList rslist = new DienThoaiList();
-            rslist = dbDT.Get_Paging_DienThoai(pageindex, pagesize);
-            return rslist;
-        }
+
     }
 }

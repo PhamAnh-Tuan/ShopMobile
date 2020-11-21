@@ -48,7 +48,7 @@
                                             <a title="Quick view" href="~/Assets/Client/img/product/{{e.HinhAnh}}" class="search fancybox-button"></a>
                                         </div>
                                         <div class="add-to-cart">
-                                            <a class="add-item-to-cart" title="Add to Cart" href="#" data-name="{{e.TenDienThoai}}"
+                                            <a class="add-item-to-cart" title="Add to Cart" href="#" ng-click="AddCart(e)" data-name="{{e.TenDienThoai}}"
                                                data-price="{{e.Gia}}" data-image="~/Assets/Client/img/product/{{e.HinhAnh}}" data-product-code="{{e.MaDienThoai}}">Add to Cart</a>
                                         </div>
                                         <div class="bestseller"></div>
