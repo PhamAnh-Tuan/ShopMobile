@@ -47,7 +47,7 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    @*<script src="~/Assets/Client/script/AngularController/BaseController.js"></script>*@
+    <script src="~/Assets/Client/script/AngularController/BaseController.js"></script>
     <!--===============================================================================================-->
     @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">*@
 
@@ -56,7 +56,7 @@
     <!-- Latest compiled JavaScript -->
     <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
     <link rel="icon" href="~/Assets/Client/img/All/favicons.png" type="image/x-icon">
-    <title>anhtuanmobile</title>
+    <title>anhtuanmobile.com</title>
 </head>
 <body class="green" ng-app="Homeapp">
     <!-- HEADER -->
@@ -70,7 +70,7 @@
                     </a>
 
                 </div>
-                <div class="col-xs-4 col-sm-12 col-md-5 col-lg-4 header-search-box">
+                <div class="col-xs-4 col-sm-12 col-md-5 col-lg-5 header-search-box">
                     <form class="form-inline">
                         <div class="form-group input-serach">
                             <input type="text" placeholder="Search ..." id="#txtKeyWord" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
@@ -79,19 +79,53 @@
                     </form>
                 </div>
 
-                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 group-button-header">
-                    @*<a title="Compare" href="#" class="btn-compare">Compare</a>
-                    <a title="My wishlist" href="#" class="btn-heart">Heart</a>*@
-                    <div class="btn-cart" id="cart-block" style="display:flex">
-                        <a title="SignIn" href="/KhachHang/Login">Log In</a>
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 group-button-header">
+                    <div style="color: #FF9900;padding:0px 10px;margin-left:auto">
+                        Đăng ký
+                    </div>
+                    <div style="border-right: 1px solid #F6402E;height: 2rem">
+
+                    </div>
+                    <div class="" id="cart-block" style="padding: 0px 10px;">
+                        <a title="SignIn" style="color: #FF9900" href="/KhachHang/Login">Đăng nhập</a>
                         <div class="navbar_username">@Session["User_Client"]</div>
-                    </div>                                       
+                    </div>
+                    <div style="border-right: 1px solid #F6402E;height: 2rem">
+
+                    </div>
+                    <a title="My wishlist" href="#" class="">
+                        <div class="demo_changer" id="demo_changer">
+                            <div class="demo-icon fa fa-shopping-cart">
+                                <span class="notify notify-left" id="count-cart">2</span>
+                            </div>
+                            <div class="form_holder">
+                                <div class="cart-block">
+                                    <div class="cart-block-content">
+                                        <div class="cart-block-list">
+                                            <div class="shop_cart">
+                                                <table class="shop_table">
+                                                    <tbody id="show-cart">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                        </div>
+                                        <div class="toal-cart">
+                                            <span>Total</span>
+                                            <span class="toal-price pull-right" id="total_price">54,000đ</span>
+                                        </div>
+                                        <div class="cart-buttons">
+                                            <a href="shoping-cart.html" class="btn-check-out">Payment</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
         <!-- END MANIN HEADER -->
-        @*<h4>Online</h4>
-            <p>So nguoi Online: @(HttpContext.Current.Application["Online"].ToString())</p>*@
         <div id="nav-top-menu" class="nav-top-menu">
             <div class="container">
                 <div class="row">
@@ -146,33 +180,7 @@
     </div>
     <!-- end header -->
 
-    <div class="demo_changer" id="demo_changer">
-        <div class="demo-icon fa fa-shopping-cart">
-            <span class="notify notify-left" id="count-cart">2</span>
-        </div>
-        <div class="form_holder">
-            <div class="cart-block">
-                <div class="cart-block-content">
-                    <div class="cart-block-list">
-                        <div class="shop_cart">
-                            <table class="shop_table">
-                                <tbody id="show-cart">
-                                </tbody>
-                            </table>
-                        </div>
 
-                    </div>
-                    <div class="toal-cart">
-                        <span>Total</span>
-                        <span class="toal-price pull-right" id="total_price">54,000đ</span>
-                    </div>
-                    <div class="cart-buttons">
-                        <a href="shoping-cart.html" class="btn-check-out">Payment</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     @RenderBody()
     <!-- Footer -->

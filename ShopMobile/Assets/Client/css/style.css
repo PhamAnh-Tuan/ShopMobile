@@ -871,9 +871,6 @@ img.alignright {
         }
 
 .cart-block {
-    /*position: absolute;*/
-    /*top: 100%;*/
-    /*right: -1px;*/
     z-index: 1002;
     max-height: 425px;
     overflow-y: auto;
@@ -889,6 +886,7 @@ img.alignright {
     .cart-block .cart-block-content {
         padding: 20px;
         overflow: hidden;
+        
     }
 
         .cart-block .cart-block-content .cart-title {
@@ -4862,6 +4860,8 @@ span.notify-right {
 
 .group-button-header {
     margin-top: 17px;
+    display:flex;
+    align-items:center;
 }
 
     .group-button-header .btn-cart,
@@ -4869,9 +4869,7 @@ span.notify-right {
     .group-button-header .btn-compare {
         width: 39px;
         height: 39px;
-        float: right;
         position: relative;
-        margin-right: 16px;
     }
 
     .group-button-header .btn-cart {

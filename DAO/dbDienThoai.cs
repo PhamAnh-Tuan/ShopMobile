@@ -130,6 +130,34 @@ namespace DAO
             da.Fill(ds);
             return ds;
         }
+        public DienThoai get_chitiet(int ma)
+        {
+            com = new SqlCommand("get_chitiet", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@MaDienThoai", ma);
+            con.Open();
+            dr = com.ExecuteReader();
+            DienThoai dt = new DienThoai();
+            while (dr.Read())
+            {
+                dt.MaDienThoai = int.Parse(dr["MaDienThoai"].ToString());
+                dt.TenDienThoai = dr["TenDienThoai"].ToString();
+                dt.MaLoai = Convert.ToInt32(dr["MaLoai"].ToString());
+                dt.HinhAnh = dr["HinhAnh"].ToString();
+                dt.KichThuocManHinh = dr["KichThuocManHinh"].ToString();
+                dt.DoPhanGiai = dr["DoPhanGiai"].ToString();
+                dt.HeDieuHanh = dr["HeDieuHanh"].ToString();
+                dt.ChipXuLy = dr["ChipXuLy"].ToString();
+                dt.CameraSau = dr["CameraSau"].ToString();
+                dt.CameraTruoc = dr["CameraTruoc"].ToString();
+                dt.DungLuongPin = dr["DungLuongPin"].ToString();
+                dt.TheSim = dr["TheSim"].ToString();
+                dt.Ram = Convert.ToInt32(dr["Ram"].ToString());
+                dt.BoNhoTrong = Convert.ToInt32(dr["BoNhoTrong"].ToString());
+                dt.Gia = Convert.ToInt32(dr["Gia"].ToString());
+            }
+            return dt;
+        }
         public List<string> ListName(string keyword)
         {
             com = new SqlCommand("get_ListName", con);

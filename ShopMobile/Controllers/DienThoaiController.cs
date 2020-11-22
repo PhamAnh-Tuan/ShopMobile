@@ -21,5 +21,14 @@ namespace ShopMobile.Controllers
         {
             return Json(dt.ListName(q), JsonRequestBehavior.AllowGet);
         }
+        public ActionResult ChiTietSP(int details)
+        {
+            Session.Add("details", details);
+            return View();
+        }
+        public JsonResult get_chitiet()
+        {
+            return Json(dt.get_chitiet(Convert.ToInt32(Session["details"].ToString())), JsonRequestBehavior.AllowGet);
+        }
     }
 }

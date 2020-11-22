@@ -98,6 +98,12 @@ namespace BUS
             listname = dbDT.ListName(keyword);
             return listname;
         }
+        public DienThoai get_chitiet(int ma)
+        {
+            DienThoai dt = new DienThoai();
+            dt = dbDT.get_chitiet(ma);
+            return dt;
+        }
             //Admin
             public DienThoaiList Get_Paging_DienThoai(int pageindex, int pagesize)
         {

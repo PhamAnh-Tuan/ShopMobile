@@ -1,30 +1,30 @@
 .demo_changer {
-    z-index: 9999;
-    position: fixed;
-    right: -300px;
-    top: 25%;
+    z-index: 9;
+    width:40px;
 }
 
-.demo_changer .demo-icon {
-    cursor: pointer;
-    float: left;
-    height: 45px;
-    width: 45px;
-    text-align: center;
-    line-height: 45px;
-    background: #ff9900;
-    font-size: 28px;
-    color: white;
-    z-index: 9999;
-}
+    .demo_changer .demo-icon {
+        cursor: pointer;
+        height: 45px;
+        width: 45px;
+        text-align: center;
+        line-height: 45px;
+        font-size: 28px;
+        color: #ff9900;
+        z-index: 9;
+    }
 
 .demo_changer .form_holder p {
     color: #000000;
 }
-
+.demo_changer:hover .form_holder{
+    display:block;
+}
 .demo_changer .form_holder {
+    display:none;
     background: #fff;
-    float: right;
+    position:absolute;
+    right:0;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
     width: 300px;
 }

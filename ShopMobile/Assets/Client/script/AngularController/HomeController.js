@@ -78,44 +78,16 @@ app.controller("SanphamController", function ($scope, $http) {
         }, function (error) {
             alert('failed');
         });
+});
 
+app.controller("DetailsController", function ($scope, $http) {
+    $http.get("/DienThoai/get_chitiet").then(function (d) {
+        $scope.details = d.data;
+
+    }, function (error) {
+        alert('failed');
+    });
 });
 
 
-var common = {
-    init: function () {
-        common.registerEvent();
-    },
-    registerEvent: function () {
-        $("#txtKeyWord").autocomplete({
-            minLength: 0,
-            source: function (request, response) {
-                $.ajax({
-                    url: "/DienThoai/ListName",
-                    dataType: "jsonp",
-                    data: {
-                        term: request.term
-                    },
-                    success: function (data) {
-                        response(data.data);
-                    }
-                });
-            },
-            focus: function (event, ui) {
-                $("#txtKeyWord").val(ui.item.label);
-                return false;
-            },
-            select: function (event, ui) {
-                $("#project").val(ui.item.label);
 
-                return false;
-            }
-        })
-            .autocomplete("instance")._renderItem = function (ul, item) {
-                return $("<li>")
-                    .append("<div>" + item.label + "</div>")
-                    .appendTo(ul);
-            };
-    }
-}
-common.init();

@@ -1477,6 +1477,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\News.cshtml" />
     <Content Include="Views\DienThoai\Search.cshtml" />
+    <Content Include="Views\DienThoai\ChiTietSP.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
