@@ -42,12 +42,13 @@
     <!--===============================================================================================-->
     <!--===============================================================================================-->
     <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/dirPagination.js"></script>
     <script src="~/Assets/Client/script/AngularController/HomeController.js"></script>
     <!--Search-->
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="~/Assets/Client/script/AngularController/BaseController.js"></script>
+    @*<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>*@
+    @*<script src="~/Assets/Client/script/AngularController/BaseController.js"></script>*@
     <!--===============================================================================================-->
     @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">*@
 
@@ -56,72 +57,320 @@
     <!-- Latest compiled JavaScript -->
     <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
     <link rel="icon" href="~/Assets/Client/img/All/favicons.png" type="image/x-icon">
-    <title>anhtuanmobile.com</title>
+    <title>@ViewBag.Title</title>
 </head>
 <body class="green" ng-app="Homeapp">
     <!-- HEADER -->
     <div id="header" class="header">
         <!-- MAIN HEADER -->
         <div class="container main-header">
-            <div class="row">
-                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 logo">
+            <div class="row header__nav">
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 logo">
                     <a href="/Home/Index">
                         <img src="~/Assets/Client/img/All/anhtuanmobile_free-file.png" />
                     </a>
 
                 </div>
-                <div class="col-xs-4 col-sm-12 col-md-5 col-lg-5 header-search-box">
-                    <form class="form-inline">
+                <div class="col-xs-6 col-sm-6 col-md-5 col-lg-5 header-search-box">
+                    <form class="form-inline" ng-controller="SearchController">
                         <div class="form-group input-serach">
-                            <input type="text" placeholder="Search ..." id="#txtKeyWord" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
+                            <input type="text" ng-model="name" @*placeholder="Search ..."*@ id="name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
                         </div>
-                        <button type="submit" class="pull-right btn-search"><i class="fa fa-search"></i></button>
+                        <a ng-click="changevalue()"  href="/DienThoai/SearchProduct?name={{name}}" class="pull-right btn-search"><i class="fa fa-search"></i></a>
                     </form>
                 </div>
 
-                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 group-button-header">
-                    <div style="color: #FF9900;padding:0px 10px;margin-left:auto">
-                        Đăng ký
-                    </div>
-                    <div style="border-right: 1px solid #F6402E;height: 2rem">
+                <div class="col-xs-6 col-sm-12 col-md-3 col-lg-3 group-button-header">
+                    @{
+                        if (Session["User_Client"] == null)
+                        {
+                            @*<div style="color: #FF9900;padding:0px 10px;margin-left:auto">
+                    Đăng ký
+                </div>*@
+                            <!-- Large modal -->
+                            <!-- Button trigger modal -->
 
-                    </div>
-                    <div class="" id="cart-block" style="padding: 0px 10px;">
-                        <a title="SignIn" style="color: #FF9900" href="/KhachHang/Login">Đăng nhập</a>
-                        <div class="navbar_username">@Session["User_Client"]</div>
-                    </div>
-                    <div style="border-right: 1px solid #F6402E;height: 2rem">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                                Đăng ký
+                            </button>
 
-                    </div>
-                    <a title="My wishlist" href="#" class="">
-                        <div class="demo_changer" id="demo_changer">
-                            <div class="demo-icon fa fa-shopping-cart">
-                                <span class="notify notify-left" id="count-cart">2</span>
-                            </div>
-                            <div class="form_holder">
-                                <div class="cart-block">
-                                    <div class="cart-block-content">
-                                        <div class="cart-block-list">
-                                            <div class="shop_cart">
-                                                <table class="shop_table">
-                                                    <tbody id="show-cart">
-                                                    </tbody>
-                                                </table>
-                                            </div>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form class="form-horizontal" name="dangkytk_form" action="#" method="post"
+                                                  enctype="multipart/form-data" id="dangkytk_form register">
+                                                <div class="form-group">
+                                                    <label for="frm_name" class="col-sm-4 control-label">Tên đầy đủ</label>
+
+                                                    <div class="col-sm-8">
+                                                        <input type="text" class="input form-control" id="frm_name" required />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="emailtk" class="col-sm-4 control-label">Email</label>
+
+                                                    <div class="col-sm-8">
+                                                        <input type="email" class="input form-control" id="emailtk" required />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="pass_tk" class="col-sm-4 control-label">Tài khoản đăng nhập</label>
+
+                                                    <div class="col-sm-8">
+                                                        <input type="password" class="input form-control" id="pass_tk" required />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="repass_tk" class="col-sm-4 control-label">Mật khẩu</label>
+
+                                                    <div class="col-sm-8">
+                                                        <input type="password" class="input form-control" id="repass_tk" required />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="gender_tk" class="col-sm-4 control-label">Giới tính</label>
+
+                                                    <div class="col-sm-8">
+                                                        <select class="input form-control" name="gioitinh" id="gender_tk">
+                                                            <option value="" checked>I am...</option>
+                                                            <option value="1">Nam</option>
+                                                            <option value="0">Nữ</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <label for="diachi" class="col-sm-4 control-label">Địa chỉ</label>
+
+                                                    <div class="col-sm-8">
+                                                        <input type="text" name="diachi" class="input form-control" id="diachi_dk" />
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <label for="dienthoai" class="col-sm-4 control-label">Số điện thoại</label>
+
+                                                    <div class="col-sm-8">
+                                                        <input type="text" name="dienthoai" class="input form-control" id="dienthoai_dk" />
+                                                    </div>
+                                                </div>
+                                            </form>
 
                                         </div>
-                                        <div class="toal-cart">
-                                            <span>Total</span>
-                                            <span class="toal-price pull-right" id="total_price">54,000đ</span>
-                                        </div>
-                                        <div class="cart-buttons">
-                                            <a href="shoping-cart.html" class="btn-check-out">Payment</a>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Đăng ký tài khoản</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            @*
+
+                                            <!-- Button trigger modal-->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCart">Launch modal</button>
+
+                <!-- Modal: modalCart -->
+                <div class="modal fade" id="modalCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <!--Header-->
+                      <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Your cart</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">×</span>
+                        </button>
+                      </div>
+                      <!--Body-->
+                      <div class="modal-body">
+
+                        <table class="table table-hover">
+                          <thead>
+                            <tr>
+                              <th>#</th>
+                              <th>Product name</th>
+                              <th>Price</th>
+                              <th>Remove</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th scope="row">1</th>
+                              <td>Product 1</td>
+                              <td>100$</td>
+                              <td><a><i class="fas fa-times"></i></a></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">2</th>
+                              <td>Product 2</td>
+                              <td>100$</td>
+                              <td><a><i class="fas fa-times"></i></a></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">3</th>
+                              <td>Product 3</td>
+                              <td>100$</td>
+                              <td><a><i class="fas fa-times"></i></a></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">4</th>
+                              <td>Product 4</td>
+                              <td>100$</td>
+                              <td><a><i class="fas fa-times"></i></a></td>
+                            </tr>
+                            <tr class="total">
+                              <th scope="row">5</th>
+                              <td>Total</td>
+                              <td>400$</td>
+                              <td></td>
+                            </tr>
+                          </tbody>
+                        </table>
+
+                      </div>
+                      <!--Footer-->
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+                        <button class="btn btn-primary">Checkout</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Modal: modalCart -->
+                            *@
+                            <div style="border-right: 1px solid #F6402E;height: 2rem">
+
+                            </div>
+                            <div class="" id="cart-block" style="padding: 0px 10px;">
+                                <a title="SignIn" style="color: #FF9900" href="/KhachHang/Login">Đăng nhập</a>
+                                @*<div class="navbar_username">@Session["User_Client"]</div>*@
+                            </div>
+                            <div style="border-right: 1px solid #F6402E;height: 2rem">
+
+                            </div>
+                            <a title="My wishlist" href="/GioHang/Index" class="">
+                                <div class="demo_changer" id="demo_changer" ng-controller="GioHangController">
+                                    <div class="demo-icon fa fa-shopping-cart" ng-click="GetCart()">
+                                        <span class="notify notify-left" id="count-cart">2</span>
+                                    </div>
+                                    <div class="form_holder">
+                                        <div class="cart-block">
+                                            <div class="cart-block-content">
+                                                <div class="cart-block-list">
+                                                    <div class="shop_cart">
+                                                        <table class="shop_table">
+                                                            <tbody id="show-cart">
+                                                                <tr>
+                                                                    <th>Mã cấu hình</th>
+                                                                    <th>Số lượng</th>
+                                                                    <th>Đơn giá</th>
+                                                                </tr>
+                                                                <tr ng-repeat="d in dsDonHang">
+                                                                    <td>{{d.MaSP}}</td>
+                                                                    <td>{{d.SoLuong}}</td>
+                                                                    <td>{{d.DonGia}}</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class="toal-cart">
+                                                    <span>Total</span>
+                                                    <span class="toal-price pull-right" id="total_price">54,000đ</span>
+                                                </div>
+                                                <div class="cart-buttons">
+                                                    <a href="shoping-cart.html" class="btn-check-out">Payment</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        }
+                        else
+                        {
+                            @*<div class="dropdown" style="margin-left:70px">
+                    <div class="btn-user" style="background-color:#00D363;color:white;display:flex;" href="#">
+                        <div>
+                            <img src="https://cf.shopee.vn/file/d502b6cc376721c301fec8486e99845c_tn" />
                         </div>
-                    </a>
+                        <div>
+                            @Session["User_Client"]
+                        </div>
+
+                    </div>
+                    <div class="menu-item">
+                        <a class="dropdown-item" role="menuitem" href="#">Thông tin cá nhân</a>
+                        <a class="dropdown-item" role="menuitem" href="">Đăng xuất</a>
+                    </div>
+                </div>*@
+                            <div class="navbar__link--account__container" style="margin-right: 20px">
+                                <div class="navbar__link--account">
+                                    <div class="avatar"><img src="https://cf.shopee.vn/file/d502b6cc376721c301fec8486e99845c_tn" /></div>
+                                    <div class="navbar__username">
+                                        bodoi89
+                                    </div>
+                                </div>
+                                <div class="menu__manager">
+                                    <ul class="menu__item">
+                                        <li>Thông tin tài khoản</li>
+                                        <li><a href="/KhachHang/Logout" style="text-decoration:none">Đăng xuất</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <a title="My wishlist" href="/GioHang/Index" class="" >
+                                <div class="demo_changer" id="demo_changer" ng-controller="GioHangController">
+                                    <div class="demo-icon fa fa-shopping-cart" ng-click="GetCart()">
+                                        <span class="notify notify-left" id="count-cart">2</span>
+                                    </div>
+                                    <div class="form_holder">
+                                        <div class="cart-block">
+                                            <div class="cart-block-content">
+                                                <div class="cart-block-list">
+                                                    <div class="shop_cart">
+                                                        <table class="shop_table">
+                                                            <tbody id="show-cart">
+                                                                <tr>
+                                                                    <th>Mã cấu hình</th>
+                                                                    <th>Số lượng</th>
+                                                                    <th>Đơn giá</th>
+                                                                </tr>
+                                                                <tr ng-repeat="d in dsDonHang">
+                                                                    <td>{{d.MaSP}}</td>
+                                                                    <td>{{d.SoLuong}}</td>
+                                                                    <td>{{d.DonGia}}</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class="toal-cart">
+                                                    <span>Total</span>
+                                                    <span class="toal-price pull-right" id="total_price">54,000đ</span>
+                                                </div>
+                                                <div class="cart-buttons">
+                                                    <a href="shoping-cart.html" class="btn-check-out">Payment</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        }
+                    }
+
                 </div>
             </div>
         </div>
@@ -154,7 +403,7 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li><a href="/Home/News">Tin tức</a></li>
+                                        <li><a href="/TinTuc/Index">Tin tức</a></li>
                                         <li><a href="about-us.html">Về chúng tôi</a></li>
                                         <li><a href="/Home/Contact">Liên hệ</a></li>
                                     </ul>
@@ -184,81 +433,7 @@
 
     @RenderBody()
     <!-- Footer -->
-    <footer id="footer">
-        <div class="container">
-            <!-- introduce-box -->
-            <div id="introduce-box" class="row">
-                <div class="col-md-3">
-                    <div id="address-box">
-                        <a href="/Home/Index">
-                            <img src="~/Assets/Client/img/All/anhtuanmobile_free-file.png" />
-                        </a>
-                        <div id="address-list">
-                            <div class="tit-name">Địa chỉ:</div>
-                            <div class="tit-contain">999 Le Van Hien street, Ngu Hanh Son District, Danang city, Vietnam.</div>
-                            <div class="tit-name">Phone:</div>
-                            <div class="tit-contain">(+84) 962.4372.05</div>
-                            <div class="tit-name">Email:</div>
-                            <div class="tit-contain">anhtuanmobile@gmail.com</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="introduce-title">CHĂM SÓC KHÁCH HÀNG</div>
-                            <ul id="introduce-support" class="introduce-list">
-                                <li> Thứ Hai - Thứ Sáu: 7 giờ sáng đến 8 giờ tối </li>
-                                <li>T7 & CN: 7 giờ sáng đến 6 giờ chiều</li>
-                                <li><a href="policy-faq.html">Mua thế nào</a></li>
-                                <li><a href="policy-faq.html">Cách thanh toán</a></li>
-                                <li><a href="policy-faq.html">FAQ</a></li>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="introduce-title">Chính sách</div>
-                            <ul id="introduce-Account" class="introduce-list">
-                                <li><a href="policy-faq.html">Chính sách bảo mật</a></li>
-                                <li><a href="policy-faq.html">Chính sách thanh toán</a></li>
-                                <li><a href="policy-faq.html">Chính sách đổi trả</a></li>
-                                <li><a href="policy-faq.html">Điều khoản và điều kiện</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div id="contact-box">
-                        <div class="introduce-title">Đăng ký nhận bản tin của Anhtuanmobile</div>
-                        <div class="input-group" id="mail-box">
-                            <input type="text" placeholder="Địa chỉ email của bạn" />
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">OK</button>
-                            </span>
-                        </div><!-- /input-group -->
-                        <div class="introduce-title">Theo dõi chúng tôi</div>
-                        <div class="social-link">
-                            <ul class="social-icons">
-                                <li><a class="rss" data-original-title="rss" href="#"></a></li>
-                                <li><a class="facebook" data-original-title="facebook" href="#"></a></li>
-                                <li><a class="twitter" data-original-title="twitter" href="#"></a></li>
-                                <li><a class="googleplus" data-original-title="googleplus" href="#"></a></li>
-                                <li><a class="linkedin" data-original-title="linkedin" href="#"></a></li>
-                                <li><a class="youtube" data-original-title="youtube" href="#"></a></li>
-                                <li><a class="vimeo" data-original-title="vimeo" href="#"></a></li>
-                                <li><a class="skype" data-original-title="skype" href="#"></a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-            </div><!-- /#introduce-box -->
-
-
-            <div id="footer-menu-box">
-                <p class="text-center">Copyrights &#169; 2016 Eco Shop. All Rights Reserved.</p>
-            </div><!-- /#footer-menu-box -->
-        </div>
-    </footer>
+    @Html.Partial("_Footer");
 
     <a href="#" class="scroll_top" title="Scroll to Top" style="display: inline;">Scroll</a>
     <!-- Script-->
@@ -280,7 +455,7 @@
     <script src="~/Assets/Client/script/shoppingCart.js"></script>
     <script src="~/Assets/Client/script/layout.js"></script>
     <!--===============================================================================================-->
-    <script type="text/javascript">
+    @*<script type="text/javascript">
         jQuery(document).ready(function () {
             Layout.init();
             Layout.initOWL();
@@ -289,9 +464,32 @@
             Layout.initTouchspin();
             Layout.initUniform();
             Layout.initSliderRange();
+            $(".authen__login-link").on("click", function () {
+                $(".modal-authen").css({ "display": "block" });
+                $(".modal__body-2").css({ "display": "block" });
+            });
+            $(".authen__signin-link").on("click", function () {
+                $(".modal-authen").css({ "display": "block" });
+                $(".modal__body-1").css({ "display": "block" });
+            });
+            $(".login").on("click", function () {
+                $(".modal__body-1").css({ "display": "none" });
+                $(".modal-authen").css({ "display": "block" });
+                $(".modal__body-2").css({ "display": "block" });
+            });
+            $(".signin").on("click", function () {
+                $(".modal__body-2").css({ "display": "none" });
+                $(".modal-authen").css({ "display": "block" });
+                $(".modal__body-1").css({ "display": "block" });
+            });
+            $(".back").on("click", function () {
+                $(".modal-authen").hide();
+                $(".modal__body-1").hide();
+                $(".modal__body-2").hide();
+            });
         });
 
-    </script>
+    </script>*@
     <!--===============================================================================================-->
 </body>
 

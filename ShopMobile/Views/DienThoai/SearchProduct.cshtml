@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "SearchProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-page" ng-controller="SearchController">
+    <div class="container">
+        <div class="category-featured Vegetables">
+            <nav class="navbar nav-menu show-brand">
+                <div class="container">
+                    <div class="navbar-brand"><a href="#"> <img alt="fashion" src="~/Assets/Client/images/icon_like.png" />Điện thoại chính hãng</a></div>
+                    <div class="collapse navbar-collapse">
+                    </div>
+                </div>
+            </nav>
+            <div class="product-featured clearfix" data-ng-init="loadrecord(@Convert.ToString(Request.QueryString["name"]))">
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12">
+                        <div class="box-right">
+                            <ul class="product-list">
+                                <li class="col-lg-3 col-sm-4 product-item" ng-repeat="e in SanPham" ng-class-even="even" ng-class-odd="odd">
+                                    <div class="left-block">
+                                        <a href="/DienThoai/ChiTietSP?details={{e.MaDienThoai}}">
+                                            <img class="img-responsive" alt="product" src="~/Assets/Client/img/product/{{e.HinhAnh}}" />
+                                        </a>
+                                        <div class="quick-view">
+                                            <a title="Add to my wishlist" class="heart" href="#"></a>
+                                            <a title="Add to compare" class="compare" href="#"></a>
+                                            <a title="Quick view" href="~/Assets/Client/img/product/{{e.HinhAnh}}" class="search fancybox-button"></a>
+                                        </div>
+                                        <div class="add-to-cart">
+                                            <a class="add-item-to-cart" title="Add to Cart" href="#" data-name="{{e.TenDienThoai}}"
+                                               data-price="{{e.Gia}}" data-image="~/Assets/Client/img/product/{{e.HinhAnh}}" data-product-code="{{e.MaDienThoai}}">Add to Cart</a>
+                                        </div>
+                                        <div class="bestseller"></div>
+                                    </div>
+                                    <div class="right-block">
+                                        <h5 class="product-name">
+                                            <a href="#">{{e.TenDienThoai}} ({{e.Ram}}GB/{{e.BoNhoTrong}}GB)</a>
+                                        </h5>
+                                        <div class="content_price">
+                                            <span class="price product-price"><span style="color: black">Giá từ:</span>{{e.Gia | number}} </span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

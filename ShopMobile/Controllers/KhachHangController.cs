@@ -21,5 +21,14 @@ namespace ShopMobile.Controllers
             Session["User_Client"] = kh.TaiKhoanDangNhap;
             return Json(res);
         }
+        public void Register(KhachHang kh)
+        {
+            _db.Register(kh);
+        }
+        public ActionResult Logout()
+        {
+            Session["USER"] = null;
+            return RedirectToAction("Index","Home");
+        }
     }
 }

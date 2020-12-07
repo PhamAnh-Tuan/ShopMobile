@@ -43,10 +43,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="dbAdmin.cs" />
+    <Compile Include="dbCauHinh.cs" />
+    <Compile Include="dbChiTietDonHang.cs" />
     <Compile Include="dbDienThoai.cs" />
     <Compile Include="dbDonHang.cs" />
     <Compile Include="dbKhachHang.cs" />
     <Compile Include="dbLoaiDT.cs" />
+    <Compile Include="dbNhaCungCap.cs" />
+    <Compile Include="dbTinTuc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

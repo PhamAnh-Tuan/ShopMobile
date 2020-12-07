@@ -30,7 +30,7 @@ namespace DAO
             while (dr.Read())
             {
                 DonHang _db = new DonHang();
-                _db.MaDonHang = int.Parse(dr["MaDonHang"].ToString());
+                _db.MaDonHang = dr["MaDonHang"].ToString();
                 _db.MaKhachHang = int.Parse(dr["MaKhachHang"].ToString());
                 _db.NgayTao = dr["NgayTao"].ToString();
                 _db.TrangThaiDonHang = dr["TrangThaiDonHang"].ToString();
@@ -58,7 +58,7 @@ namespace DAO
             while (dr.Read())
             {
                 DonHang _db = new DonHang();
-                _db.MaDonHang = int.Parse(dr["MaDonHang"].ToString());
+                _db.MaDonHang = dr["MaDonHang"].ToString();
                 _db.MaKhachHang = int.Parse(dr["MaKhachHang"].ToString());
                 _db.NgayTao = dr["NgayTao"].ToString();
                 _db.TrangThaiDonHang = dr["TrangThaiDonHang"].ToString();
@@ -86,7 +86,7 @@ namespace DAO
             while (dr.Read())
             {
                 DonHang _db = new DonHang();
-                _db.MaDonHang = int.Parse(dr["MaDonHang"].ToString());
+                _db.MaDonHang = dr["MaDonHang"].ToString();
                 _db.MaKhachHang = int.Parse(dr["MaKhachHang"].ToString());
                 _db.NgayTao = dr["NgayTao"].ToString();
                 _db.TrangThaiDonHang = dr["TrangThaiDonHang"].ToString();
@@ -101,16 +101,16 @@ namespace DAO
             _dblist.listdonhang = list;
             return _dblist;
         }
-        public void Comfirm_ThisOrder(int value)
+        public void Comfirm_ThisOrder(string value)
         {
-            com = new SqlCommand("sp_ComfirmThisOrder", con);
+            com = new SqlCommand("ComfirmThisOrder", con);
             com.CommandType = CommandType.StoredProcedure;
             com.Parameters.AddWithValue("@MaDonHang", value);
             con.Open();
             com.ExecuteNonQuery();
             con.Close();
         }
-        public DataSet View_Details(int value)
+        public DataSet View_Details(string value)
         {
             com = new SqlCommand("view_details", con);
             com.CommandType = CommandType.StoredProcedure;

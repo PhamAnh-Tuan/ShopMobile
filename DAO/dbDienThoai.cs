@@ -16,6 +16,16 @@ namespace DAO
         SqlDataReader dr;
         SqlCommand com;
         DataSet ds;
+        public DataSet Search_Product(string keyword)
+        {
+            com = new SqlCommand("SEARCH_PRODUCT", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@KeyWord", keyword);
+            da = new SqlDataAdapter(com);
+            ds = new DataSet();
+            da.Fill(ds);
+            return ds;
+        }
         public DataSet Get_DienThoai10()
         {
             com = new SqlCommand("sp_getdata_DienThoai10", con);

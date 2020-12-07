@@ -15,15 +15,36 @@ namespace ShopMobile.Areas.Admin.Controllers
         DonHangBUS _db = new DonHangBUS();
         public ActionResult OrderNotComfirm()
         {
-            return View();
+            if (Session["USER"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Admin");
+            }
         }
         public ActionResult OrderComfirm()
         {
-            return View();
+            if (Session["USER"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Admin");
+            }
         }
         public ActionResult OrderDelivered()
         {
-            return View();
+            if (Session["USER"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Admin");
+            }
         }
         public JsonResult Get_Paging_DonHangChuaXacThuc(int pageindex,int pagesize)
         {
@@ -37,11 +58,11 @@ namespace ShopMobile.Areas.Admin.Controllers
         {
             return Json(_db.Get_Paging_DonHangDaGiao(pageindex, pagesize),JsonRequestBehavior.AllowGet);
         }
-        public JsonResult Comfirm_ThisOrder(int value)
+        public JsonResult Comfirm_ThisOrder(string value)
         {
             return Json(_db.Comfirm_ThisOrder(value), JsonRequestBehavior.AllowGet);
         }
-        public JsonResult View_Details(int value)
+        public JsonResult View_Details(string value)
         {
             return Json(_db.View_Details(value), JsonRequestBehavior.AllowGet);
         }

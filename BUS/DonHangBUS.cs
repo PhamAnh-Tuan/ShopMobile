@@ -31,7 +31,7 @@ namespace BUS
             _dblist = _db.Get_Paging_DonHangDaGiao(pageindex, pagesize);
             return _dblist;
         }
-        public string Comfirm_ThisOrder(int value)
+        public string Comfirm_ThisOrder(string value)
         {
             string res = string.Empty;
             try
@@ -45,7 +45,7 @@ namespace BUS
             }
             return res;
         }
-        public List<ChiTietDonHang> View_Details(int value)
+        public List<ChiTietDonHang> View_Details(string value)
         {
             ds = _db.View_Details(value);
             List<ChiTietDonHang> l = new List<ChiTietDonHang>();
@@ -54,7 +54,7 @@ namespace BUS
                 l.Add(new ChiTietDonHang
                 {
                     MaChiTietDonHang=Convert.ToInt32(dr["MaChiTietDonHang"].ToString()),
-                    MaDienThoai = Convert.ToInt32(dr["MaDienThoai"].ToString()),
+                    MaCauHinh = Convert.ToInt32(dr["MaDienThoai"].ToString()),
                     SoLuong = Convert.ToInt32(dr["SoLuong"].ToString()),
                     DonGia = Convert.ToInt32(dr["DonGia"].ToString()),
                 });

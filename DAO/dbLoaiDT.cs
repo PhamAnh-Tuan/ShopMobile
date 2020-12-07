@@ -15,7 +15,7 @@ namespace DAO
 
         public DataSet Get_LoaiDT()
         {
-            SqlCommand com = new SqlCommand("sp_getdata_LoaiDT", con);
+            SqlCommand com = new SqlCommand("SP_GETDATA_TYPEPHONE", con);
             com.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter da = new SqlDataAdapter(com);
             DataSet ds = new DataSet();
@@ -28,7 +28,7 @@ namespace DAO
         public LoaiDTList Get_Paging_data(int pagesize, int pageindex)
         {
 
-            SqlCommand com = new SqlCommand("Sp_Get_data", con);
+            SqlCommand com = new SqlCommand("SP_PAGE_LoaiDienThoai", con);
 
             com.CommandType = CommandType.StoredProcedure;
 
@@ -64,7 +64,7 @@ namespace DAO
         }
         public void Add_TypePhone(LoaiDT dt)
         {
-            SqlCommand com = new SqlCommand("AddTypePhone", con);
+            SqlCommand com = new SqlCommand("ADD_TYPEPHONE", con);
             com.CommandType = CommandType.StoredProcedure;
             com.Parameters.AddWithValue("@TenLoai", dt.TenLoai);
             com.Parameters.AddWithValue("@XuatXu", dt.XuatXu);
@@ -74,7 +74,7 @@ namespace DAO
         }
         public void Update_TypePhone(LoaiDT dt)
         {
-            SqlCommand com = new SqlCommand("sp_TypePhone_update", con);
+            SqlCommand com = new SqlCommand("UPDATE_TYPEPHONE", con);
             com.CommandType = CommandType.StoredProcedure;
             com.Parameters.AddWithValue("@MaLoai", dt.MaLoai);
             com.Parameters.AddWithValue("@TenLoai", dt.TenLoai);
@@ -86,7 +86,7 @@ namespace DAO
         }
         public void Delete_TypePhone(int MaLoai)
         {
-            SqlCommand com = new SqlCommand("sp_TypePhone_delete", con);
+            SqlCommand com = new SqlCommand("DELETE_TYPEPHONE", con);
             com.CommandType = CommandType.StoredProcedure;
             com.Parameters.AddWithValue("@MaLoai", MaLoai);
             con.Open();
@@ -95,7 +95,7 @@ namespace DAO
         }
         public DataSet Get_LoaiDT_byid(int id)
         {
-            SqlCommand com = new SqlCommand("sp_LoaiDT_id", con);
+            SqlCommand com = new SqlCommand("SP_TYPEPHONE_ID", con);
             com.CommandType = CommandType.StoredProcedure;
             com.Parameters.AddWithValue("@MaLoai", id);
             SqlDataAdapter da = new SqlDataAdapter(com);

@@ -128,8 +128,7 @@ var shoppingCart = (function () {
 
     obj.listCart = function () { // -> array of Items
         var cartCopy = [];
-        console.log("Listing cart");
-        console.log(cart);
+        //console.log(cart);
         for (var i in cart) {
             console.log(i);
             var item = cart[i];

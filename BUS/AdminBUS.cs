@@ -13,10 +13,10 @@ namespace BUS
 {
     public class AdminBUS
     {
-        dbAdmin dblayer = new dbAdmin();
+        dbAdmin _db = new dbAdmin();
         public Admin Admin_Login(Admin ad)
         {
-            string result = Convert.ToString(dblayer.Admin_Login(ad));
+            string result = Convert.ToString(_db.Admin_Login(ad));
             if (result == "1")
             {
                 return ad;

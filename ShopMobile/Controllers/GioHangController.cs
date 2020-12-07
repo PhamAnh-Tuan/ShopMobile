@@ -22,21 +22,21 @@ namespace ShopMobile.Controllers
             }
             List<ChiTietDonHang> giohang = Session["giohang"] as List<ChiTietDonHang>;
             ChiTietDonHang d = null;
-            //
-            if (giohang.Find(m => m.MaDienThoai == s.MaDienThoai) == null)
+
+            if (giohang.Find(m => m.MaCauHinh == s.MaCauHinh) == null)
             {
                 d = new ChiTietDonHang();
-                d.MaDienThoai = s.MaDienThoai;
+                d.MaCauHinh = s.MaCauHinh;
                 d.DonGia = s.Gia;
                 d.SoLuong = 1;
                 giohang.Add(d);
             }
             else
             {
-                giohang.Find(m => m.MaDienThoai == s.MaDienThoai).SoLuong = giohang.Find(m => m.MaDienThoai == s.MaDienThoai).SoLuong + 1;
+                giohang.Find(m => m.MaCauHinh == s.MaCauHinh).SoLuong = giohang.Find(m => m.MaCauHinh == s.MaCauHinh).SoLuong + 1;
             }
             int soluong = 0;
-            foreach(ChiTietDonHang c in giohang)
+            foreach (ChiTietDonHang c in giohang)
             {
 
                 soluong = soluong + c.SoLuong;

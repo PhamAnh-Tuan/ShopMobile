@@ -13,10 +13,10 @@ namespace BUS
 {
     public class KhachHangBUS
     {
-        dbKhachHang dblayer = new dbKhachHang();
+        dbKhachHang _db = new dbKhachHang();
         public KhachHang Client_Login(KhachHang kh)
         {
-            string result = Convert.ToString(dblayer.Client_Login(kh));
+            string result = Convert.ToString(_db.Client_Login(kh));
             if (result == "1")
             {
                 return kh;
@@ -25,6 +25,10 @@ namespace BUS
             {
                 return null;
             }
+        }
+        public void Register(KhachHang kh)
+        {
+            _db.Register(kh);                
         }
     }
 }

@@ -1,0 +1,214 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .main {
+        width: 100%;
+        height: auto;
+    }
+
+    .box-head {
+        height: auto;
+        padding: 22px 0px;
+        font-size: 17px;
+    }
+
+    .home-href {
+        margin-right: 12px;
+    }
+
+        .home-href:hover {
+            text-decoration: none;
+            color: #AED47F;
+        }
+
+    .fa-chevron-right {
+        width: 11px;
+        height: 11px;
+    }
+
+    .category {
+        margin-left: 4px;
+        margin-right: 4px;
+        color: #AED47F;
+    }
+
+    .bg-scroll {
+        height: auto;
+    }
+
+    .cart-thead {
+        height: auto;
+        border: 1px solid #ebebeb;
+        margin-left:0px;
+        margin-right:0px;
+    }
+
+    .thead-list {
+        text-align: center;
+        padding: 15px 0px;
+        color: #363636;
+    }
+
+    .cart-tbody {
+        margin-top: 10px;
+    }
+
+    .box-product {
+        border: 1px solid #ebebeb;
+        height: auto;
+        align-items: center;
+    }
+
+    .img-product {
+        width: auto;
+        height: auto;
+        max-width: 120px;
+        max-height: 100%;
+    }
+
+    .tbody-product {
+        padding: 10px 0px;
+        text-align: center;
+    }
+
+    .price {
+        display: none;
+    }
+
+    .btn {
+        font-size: 1.4em;
+        width: 30%;
+        height: 30px;
+        border: none;
+        background-color: #FFFFFF;
+        outline: none;
+    }
+
+    .box-button {
+        border: 1px solid #ebebeb;
+        display: flex;
+    }
+
+    .text {
+        width: 40%;
+        border: none;
+        text-align: center;
+    }
+
+    .fa-trash-alt {
+        width: 25px;
+        height: 25px;
+        color: #C3C3C3
+    }
+
+    .tfoot {
+        text-align: right;
+    }
+
+    .money_sum {
+        padding: 17px 0px;
+        font-size: 1.2em;
+    }
+
+    .btn-pay {
+        font-size: 1.2em;
+        padding: 11px 26px;
+        border: none;
+        outline: none;
+        background-color: #F1F1F1;
+    }
+
+        .btn-pay a {
+            text-decoration: none;
+        }
+
+        .btn-pay:hover {
+            cursor: pointer;
+        }
+
+    .order {
+        background-color: #80BB35;
+        font-size: 1.2em;
+        padding: 11px 26px;
+        border: none;
+        outline: none;
+    }
+
+        .order a {
+            text-decoration: none;
+            color: white;
+        }
+</style>
+<div class="main" ng-controller="HomeClient">
+    <div class="container">
+        <div class="box-head">
+            <a href="index.html" class="home-href">Trang chủ</a>
+            <span class="category">
+                <svg aria-hidden="true"
+                     focusable="false" data-prefix="fas"
+                     data-icon="chevron-right" class="svg-inline--fa
+                            fa-chevron-right fa-w-10" role="img"
+                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320
+                            512">
+                    <path fill="currentColor" d="M285.476
+                                272.971L91.132 467.314c-9.373 9.373-24.569
+                                9.373-33.941
+                                0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505
+                                256 34.484
+                                101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373
+                                24.569-9.373 33.941 0L285.475 239.03c9.373 9.372
+                                9.373 24.568.001 33.941z"></path>
+                </svg>
+            </span>
+            <span class="category">Giỏ hàng</span>
+        </div>
+        <div class="bg-scroll">
+            <div class="cart-thead row">
+                <div class="thead-list col-sm-3">Sản phẩm</div>
+                <div class="thead-list col-sm-3">Thông tin sản phẩm</div>
+                <div class="thead-list col-sm-2">Đơn giá</div>
+                <div class="thead-list col-sm-1">Số lượng</div>
+                <div class="thead-list col-sm-2">Thành tiền</div>
+                <div class="thead-list col-sm-1">Xóa</div>
+            </div>
+            <div class="cart-tbody">
+                <div class="box-product" ng-repeat="d in dsDonHang">
+                    <div class="tbody-product col-sm-3">
+                        <img src="{{d.HinhAnh}}"
+                             alt="#" class="img-product">
+                    </div>
+                    <div class="tbody-product col-sm-3">
+                        {{d.TenDienThoai}}
+                    </div>
+                    <div class="tbody-product col-sm-2">
+                        <span class="product-price">{{d.Gia}}</span>
+
+                    </div>
+                    <div class="tbody-product col-sm-1">
+                        <div class="box-button">
+                            <button class="btn" id="btn_desc">-</button>
+                            <input type="text" value="{{d.SoLuong}}" class="text" id="text_1">
+                            <button class="btn" id="btn_asc">+</button>
+                        </div>
+                    </div>
+                    <div class="tbody-product col-sm-2 sum" id="money_1">9.590.000</div>
+                    <div class="tbody-product col-sm-1 delete"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash-alt" class="svg-inline--fa fa-trash-alt fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z"></path></svg></div>
+                </div>
+            </div>
+            <div class="tfoot">
+                <div class="money_sum">
+                    <strong class="cart-total-title ">Tổng Cộng:</strong>
+                    <span class="cart-total-price " style="width:100px; "></span>
+                </div>
+
+                <div>
+                    <button class="btn-pay"><a href="Home/Index">Tiếp tục mua hàng</a></button>
+                    <button class="order"><a href="#">Tiến hành đặt hàng</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

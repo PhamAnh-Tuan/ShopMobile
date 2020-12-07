@@ -13,7 +13,8 @@ namespace DTO
             get;
             set;
         }
-        public int MaDienThoai
+        public string MaDonHang { get; set; }
+        public int MaCauHinh
         {
             get;
             set;

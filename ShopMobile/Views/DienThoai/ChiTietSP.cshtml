@@ -12,7 +12,7 @@
             <div class="center_column col-xs-12 col-sm-12" id="center_column">
                 <!-- Product -->
                 <div id="product">
-                    <div class="primary-box row">
+                    <div class="primary-box row" data-ng-init="Loadetails(@Convert.ToInt32(Request.QueryString["details"]))">
                         <div class="pb-left-column col-xs-12 col-sm-6">
                             <!-- product-imge-->
                             <div class="product-image">
@@ -44,12 +44,6 @@
                                 <span class="price product-price" style="color:red;">
                                      {{details.Gia|number}}<sup>đ</sup>
                                 </span>
-                            </div>
-                            <div class="info-orther">
-                                <p>Product Code: #PP987</p>
-
-                                <p>Status: <span class="in-stock">In Stock</span></p>
-
                             </div>
                             <div class="product-desc">
                                 <h2 style="display: block; line-height: 1.3em; font-size: 20px; color: #333; margin-bottom: 0;">Thông số kỹ thuật</h2>

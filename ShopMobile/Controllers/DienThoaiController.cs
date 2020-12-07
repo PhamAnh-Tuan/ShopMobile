@@ -13,9 +13,13 @@ namespace ShopMobile.Controllers
     {
         // GET: DienThoai
         DienThoaiBUS dt = new DienThoaiBUS();
-        public ActionResult Search(string key)
+        public ActionResult SearchProduct(string name)
         {
             return View();
+        }
+        public JsonResult Search_Product(string name)
+        {
+            return Json(dt.Search_Product(name), JsonRequestBehavior.AllowGet);
         }
         public JsonResult ListName(string q)
         {
@@ -23,12 +27,11 @@ namespace ShopMobile.Controllers
         }
         public ActionResult ChiTietSP(int details)
         {
-            Session.Add("details", details);
             return View();
         }
-        public JsonResult get_chitiet()
+        public JsonResult get_chitiet(int details)
         {
-            return Json(dt.get_chitiet(Convert.ToInt32(Session["details"].ToString())), JsonRequestBehavior.AllowGet);
+            return Json(dt.get_chitiet(details), JsonRequestBehavior.AllowGet);
         }
     }
 }

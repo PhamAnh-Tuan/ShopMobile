@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data;
 using System.Data.SqlClient;
-
 using DTO;
 using BUS;
 namespace ShopMobile.Controllers
@@ -20,10 +19,6 @@ namespace ShopMobile.Controllers
             return View();
         }
         public ActionResult Contact()
-        {
-            return View();
-        }
-        public ActionResult News()
         {
             return View();
         }

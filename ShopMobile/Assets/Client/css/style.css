@@ -4,7 +4,7 @@
 body {
     font-family: 'Arial', sans-serif;
     font-size: 14px;
-    overflow-x: hidden;
+    /*overflow-x: hidden;*/
     -webkit-font-smoothing: antialiased;
 }
 
@@ -739,12 +739,15 @@ img.alignright {
 /*-----------------
  [ 3.3 Main header]
  */
+.header__nav{
+    display:flex;
+    align-items:center;
+}
 .main-header {
     padding: 20px 0 30px 0;
 }
 
     .main-header .header-search-box {
-        margin-top: 17px;
         padding-left: 80px;
         padding-right: 45px;
     }
@@ -4859,7 +4862,6 @@ span.notify-right {
     }
 
 .group-button-header {
-    margin-top: 17px;
     display:flex;
     align-items:center;
 }
@@ -6088,3 +6090,51 @@ Social Icons
 [data-slide="prev"] {
     margin-right: 10px;
 }
+/*///*/
+.navbar__link--account__container{
+    margin-left:auto;
+}
+.navbar__link--account {
+    display: flex;
+    align-items: center;
+}
+
+.avatar {
+    height: 20px;
+    cursor: pointer;
+}
+
+    .avatar img {
+        height: 100%;
+    }
+
+.navbar__username {
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.menu__manager {
+    display: none;
+    position: absolute;
+    background: #FFFBF8;
+    margin-top: 2px;
+    margin-left:-4em;
+}
+
+.menu__item {
+    list-style: none;
+    
+}
+
+.navbar__link--account__container:hover .menu__manager {
+    display: block;
+}
+
+.menu__item > li {
+    padding: 5px 10px 0px 10px;
+    cursor: pointer;
+}
+
+    .menu__item > li:hover {
+        color: #17C4AD;
+    }

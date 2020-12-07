@@ -33,5 +33,20 @@ namespace DAO
             con.Close();
             return res;
         }
+        public void Register(KhachHang kh)
+        {
+            com = new SqlCommand("REGISTRATION", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@TenKhachHang", kh.TenKhachHang);
+            com.Parameters.AddWithValue("@TaiKhoanDangNhap", kh.TaiKhoanDangNhap);
+            com.Parameters.AddWithValue("@MatKhau", kh.MatKhau);
+            com.Parameters.AddWithValue("@Email", kh.Email);
+            com.Parameters.AddWithValue("@GioiTinh", kh.GioiTinh);
+            com.Parameters.AddWithValue("@SDT", kh.SDT);
+            com.Parameters.AddWithValue("@DiaChi", kh.DiaChi);
+            con.Open();
+            com.ExecuteNonQuery();
+            con.Close();
+        }
     }
 }

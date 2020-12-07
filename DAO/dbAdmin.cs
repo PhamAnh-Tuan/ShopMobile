@@ -12,10 +12,8 @@ namespace DAO
     public class dbAdmin
     {
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ConnectionString);
-        SqlDataAdapter da;
         SqlParameter oblogin;
         SqlCommand com;
-        DataSet ds;
         public int Admin_Login(Admin ad)
         {
             com = new SqlCommand("sp_Admin_login", con);

@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Thêm nhà cung cấp";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<link href="~/Assets/Admin/css/scud.css" rel="stylesheet" />
+<div class="back-add-type" ng-controller="SupplierController">
+    <div class="import-product-type">
+        <table style="width:100%;text-align:center">
+            <tr class="row-list">
+                <td>Thông tin</td>
+                <td><a href="/Admin/ManagerSupplier/Index">Quay lại</a></td>
+            </tr>
+            <tr class="row-list">
+                <td class="lable-product-type">Tên nhà cung cấp</td>
+                <td>
+                    <input type="text" class="product-type-input" id="name_type" ng-model="Supp.TenNCC">
+                </td>
+            </tr>
+            <tr class="row-list">
+                <td class="lable-product-type">Địa chỉ</td>
+                <td>
+                    <input type="text" class="product-type-input" id="description_type" ng-model="Supp.DiaChi">
+                </td>
+            </tr>
+            <tr class="row-list">
+                <td class="lable-product-type">Số điện thoại</td>
+                <td>
+                    <input type="text" class="product-type-input" id="description_type" ng-model="Supp.SDT">
+                </td>
+            </tr>
+            <tr class="row-list">
+                <td class="lable-product-type">Email</td>
+                <td>
+                    <input type="text" class="product-type-input" id="description_type" ng-model="Supp.Email">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" value="{{btntextadd}}" ng-click="saveSupplier()" />
+                </td>
+                <td></td>
+            </tr>
+        </table>
+</div>
+</div>
+

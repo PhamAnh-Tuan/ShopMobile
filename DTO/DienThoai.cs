@@ -23,5 +23,6 @@ namespace DTO
         public int Ram { get; set; }
         public int BoNhoTrong { get; set; }
         public int Gia { get; set; }
+        public int MaCauHinh { get; set; }
     }
 }

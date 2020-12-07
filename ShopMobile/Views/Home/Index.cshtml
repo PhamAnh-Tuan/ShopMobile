@@ -1,27 +1,9 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "anhtuanmobile.com";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<div id="home-slider">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 header-top-right">
-                <div class="homeslider">
-                    <ul id="contenhomeslider">
-                        <li><img alt="Funky roots" src="~/Assets/Client/img/slide/slide_01.jpg" title="Funky roots" /></li>
-                        <li><img alt="Funky roots" src="~/Assets/Client/img/slide/slide_02.jpg" title="Funky roots" /></li>
-                        <li><img alt="Funky roots" src="~/Assets/Client/img/slide/slide_03.jpg" title="Funky roots" /></li>
-                        <li><img alt="Funky roots" src="~/Assets/Client/img/slide/slide_04.jpg" title="Funky roots" /></li>
-                        <li><img alt="Funky roots" src="~/Assets/Client/img/slide/slide_05.jpg" title="Funky roots" /></li>
-                        <li><img alt="Funky roots" src="~/Assets/Client/img/slide/slide_06.jpg" title="Funky roots" /></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+@Html.Partial("_Slide");
 <div class="content-page" ng-controller="HomeClient">
     <div class="container">
         <div class="category-featured Vegetables">
@@ -48,8 +30,8 @@
                                             <a title="Quick view" href="~/Assets/Client/img/product/{{e.HinhAnh}}" class="search fancybox-button"></a>
                                         </div>
                                         <div class="add-to-cart">
-                                            <a class="add-item-to-cart" title="Add to Cart" href="#" data-name="{{e.TenDienThoai}}"
-                                               data-price="{{e.Gia}}" data-image="~/Assets/Client/img/product/{{e.HinhAnh}}" data-product-code="{{e.MaDienThoai}}">Add to Cart</a>
+                                            <a class="add-item-to-cart" title="Add to Cart" ng-click="AddCart(e)" href="#" data-name="{{e.TenDienThoai}}"
+                                               data-price="{{e.Gia}}" data-image="{{e.HinhAnh}}" data-product-code="{{e.MaCauHinh}}">Add to Cart</a>
                                         </div>
                                         <div class="bestseller"></div>
                                     </div>
@@ -71,7 +53,6 @@
     </div>
     <!--============================-->
     <div class="container">
-        <div class="row">
             <div class="row">
                 <div class="col-md-9">
                     <h3 style="text-transform:uppercase">điện thoại bán chạy nhất</h3>
@@ -96,7 +77,6 @@
                                 </div>
                             </div>
                         </div>*@
-
                                     <div class="photo">
                                         <img src="~/Assets/Client/img/product/{{e.HinhAnh}}" class="img-responsive" alt="a" />
                                     </div>
@@ -181,7 +161,6 @@
                     <a class="right fa fa-chevron-right btn" href="#carousel-example" data-slide="next" style="position:absolute;right:0;top:150px;font-size:2em;color:rgba(0,0,0,0.3)"></a>
                 </div>
             </div>
-        </div>
     </div>
 </div>
 

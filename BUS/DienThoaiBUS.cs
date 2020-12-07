@@ -13,11 +13,11 @@ namespace BUS
 {
     public class DienThoaiBUS
     {
-        dbDienThoai dbDT = new dbDienThoai();
+        dbDienThoai _db = new dbDienThoai();
         DataSet ds;
         public List<DienThoai> Get_DienThoai10()
         {
-            ds = dbDT.Get_DienThoai10();
+            ds = _db.Get_DienThoai10();
             List<DienThoai> l = new List<DienThoai>();
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
@@ -43,7 +43,7 @@ namespace BUS
         }
         public List<DienThoai> Get_DienThoai_byMaLoai(int maloai)
         {
-            ds = dbDT.Get_DienThoai_byMaLoai(maloai);
+            ds = _db.Get_DienThoai_byMaLoai(maloai);
             List<DienThoai> l = new List<DienThoai>();
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
@@ -70,7 +70,7 @@ namespace BUS
         }
         public List<DienThoai> Get_DienThoai_byid(int id)
         {
-            ds = dbDT.Get_DienThoai_byid(id);
+            ds = _db.Get_DienThoai_byid(id);
             List<DienThoai> list = new List<DienThoai>();
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
@@ -95,20 +95,47 @@ namespace BUS
         public List<string> ListName(string keyword)
         {
             List<string> listname = new List<string>();
-            listname = dbDT.ListName(keyword);
+            listname = _db.ListName(keyword);
             return listname;
         }
         public DienThoai get_chitiet(int ma)
         {
             DienThoai dt = new DienThoai();
-            dt = dbDT.get_chitiet(ma);
+            dt = _db.get_chitiet(ma);
             return dt;
+        }
+        public List<DienThoai> Search_Product(string keyword)
+        {
+            ds = _db.Search_Product(keyword);
+            List<DienThoai> list = new List<DienThoai>();
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                list.Add(new DienThoai
+                {
+                    MaDienThoai = Convert.ToInt32(dr["MaDienThoai"]),
+                    TenDienThoai = dr["TenDienThoai"].ToString(),
+                    MaLoai = Convert.ToInt32(dr["MaLoai"].ToString()),
+                    HinhAnh = dr["HinhAnh"].ToString(),
+                    KichThuocManHinh = dr["KichThuocManHinh"].ToString(),
+                    DoPhanGiai = dr["DoPhanGiai"].ToString(),
+                    HeDieuHanh = dr["HeDieuHanh"].ToString(),
+                    ChipXuLy = dr["ChipXuLy"].ToString(),
+                    CameraSau = dr["CameraSau"].ToString(),
+                    CameraTruoc = dr["CameraTruoc"].ToString(),
+                    DungLuongPin = dr["DungLuongPin"].ToString(),
+                    TheSim = dr["TheSim"].ToString(),
+                    Ram=Convert.ToInt32(dr["Ram"].ToString()),
+                    BoNhoTrong=Convert.ToInt32(dr["BoNhoTrong"].ToString()),
+                    Gia=Convert.ToInt32(dr["Gia"].ToString()),
+                });
+            }
+            return list;
         }
             //Admin
             public DienThoaiList Get_Paging_DienThoai(int pageindex, int pagesize)
         {
             DienThoaiList rslist = new DienThoaiList();
-            rslist = dbDT.Get_Paging_DienThoai(pageindex, pagesize);
+            rslist = _db.Get_Paging_DienThoai(pageindex, pagesize);
             return rslist;
         }
         public string Add_Phone(DienThoai dt)
@@ -116,7 +143,7 @@ namespace BUS
             string result = string.Empty;
             try
             {
-                dbDT.Add_Phone(dt);
+                _db.Add_Phone(dt);
                 result = "Data inserted Sucessfuly";
             }
             catch (Exception)
@@ -131,7 +158,7 @@ namespace BUS
             string res = string.Empty;
             try
             {
-                dbDT.Update_Phone(dt);
+                _db.Update_Phone(dt);
                 res = "Updated";
             }
             catch (Exception)
@@ -145,7 +172,7 @@ namespace BUS
             string res = string.Empty;
             try
             {
-                dbDT.Delete_Phone(id);
+                _db.Delete_Phone(id);
                 res = "data deleted";
             }
             catch (Exception)

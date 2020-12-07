@@ -131,9 +131,10 @@
 	color:  #43af50;
 	font-size: 16px;
 }
-.green .main-header .header-search-box .form-inline .btn-search .fa{
-	line-height: inherit;
-}
+	.green .main-header .header-search-box .form-inline .btn-search .fa {
+		line-height: inherit;
+		padding: 9px 13px;
+	}
 .green .group-button-header .btn-cart{
 	background: url("../images/user.png") no-repeat center center;
 }

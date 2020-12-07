@@ -9,7 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>@ViewBag.Title</title>
     <!-- CSS only -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
@@ -27,7 +27,7 @@
         <nav id="sidebar">
             <div class="sidebar-header">
                 <div class="sidebar-header-div">
-                    <img src="~/Assets/Admin/img/anhtuanmobile_free-file.png" class="img-logo"/>
+                    <img src="~/Assets/Admin/img/anhtuanmobile_free-file.png" class="img-logo" />
                 </div>
             </div>
             <ul class="lisst-unstyled components">
@@ -38,10 +38,10 @@
                     <a href="/Admin/ManagerPhone/ManagerPhone"><i class="fas fa-mobile"></i>Quản lý điện thoại</a>
                 </li>
                 <li class="portfolio">
-                    <a href="#"><i class="fas fa-cogs"></i>Cấu hình</a>
+                    <a href="/Admin/ManagerConfiguration/Index"><i class="fas fa-cogs"></i>Cấu hình</a>
                 </li>
                 <li class="portfolio">
-                    <a href="#"><i class="fas fa-people-carry"></i>Quản lý nhà cung cấp</a>
+                    <a href="/Admin/ManagerSupplier/Index"><i class="fas fa-people-carry"></i>Quản lý nhà cung cấp</a>
                 </li>
                 <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-receipt"></i>Quản lý đơn hàng</a>
@@ -60,9 +60,9 @@
                 <li class="portfolio">
                     <a href="#"><i class="fas fa-file-invoice"></i>Quản lý hóa đơn nhập</a>
                 </li>
-                <li class="portfolio">
+                @*<li class="portfolio">
                     <a href="#"><i class="fas fa-file-invoice-dollar"></i>Quản lý hóa đơn bán</a>
-                </li>
+                </li>*@
             </ul>
         </nav>
         <div id="content">
@@ -101,7 +101,6 @@
             </div>
         </div>
     </div>
-    @*<script src="~/Assets/Admin/script/AngularController/HomeController.js"></script>*@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>

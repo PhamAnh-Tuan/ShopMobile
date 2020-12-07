@@ -13,7 +13,7 @@ namespace ShopMobile.Areas.Admin.Controllers
         // GET: Admin/Admin
         AdminBUS _db = new AdminBUS();
 
-        public ActionResult Login()
+        public ActionResult Login()//quay lại cái kia đi
         {
             return View();
         }

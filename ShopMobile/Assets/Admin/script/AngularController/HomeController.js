@@ -54,28 +54,6 @@ app.controller("HomeController", function ($scope, $http) {
         $scope.pageIndex = 1;
         $scope.DTList();
     }
-    //------------------------------------Xóa loại điện thoại----------------------------------------------------------------------------
-    //$scope.deleteLoaiDT = function (id) {
-    //    $http.get("/Admin/ManagerTypePhone/DeleteLoaiDT?id=" + id).then(function (d) {
-    //        alert(d.data);
-    //        $http.get("/Admin/ManagerTypePhone/get_data").then(function (d) {
-    //            $scope.record = d.data;
-    //        }, function (error) {
-    //            alert('Deleted');
-    //            $http.get("/Admin/ManagerTypePhone/get_data?pageindex=" + $scope.pageIndex + "&pagesize=" + $scope.pageSize).then(function (response) {
-
-    //                $scope.Spdata = response.data.registerdata;
-
-    //                $scope.totalcount = response.data.totalcount;
-
-    //            }, function (error) {
-    //                alert('failed');
-    //            });
-    //        });
-    //    }, function (error) {
-    //        alert('Failed');
-    //    });
-    //};
     $scope.deleteLoaiDT = function (id) {
         $http.get("/Admin/ManagerTypePhone/DeleteLoaiDT?id=" + id).then(function (d) {
             alert(d.data);
@@ -152,18 +130,8 @@ app.controller("AddTypePhone", function ($scope, $http) {
             url: '/Admin/ManagerTypePhone/Register',
             data: $scope.LoaiDT
         }).then(function (d) {
-            $scope.LoaiDT = null;
-            $scope.btntextadd = 'Save';
             alert('Data registred..');
-            $http.get("/Admin/ManagerTypePhone/get_data?pageindex=" + $scope.pageIndex + "&pagesize=" + $scope.pageSize).then(function (response) {
-
-                $scope.Spdata = response.data.registerdata;
-                $scope.totalcount = response.data.totalcount;
-
-
-            }, function (error) {
-
-            });
+            window.location.href = '/Admin/ManagerTypePhone/ManagerTypePhone';
         }, function (e) {
             alert('failed');
         });
@@ -190,11 +158,9 @@ app.controller("UpdateTypePhone", function ($scope, $http) {
             url: '/Admin/ManagerTypePhone/UpdateLoaiDT',
             data: $scope.LoaiDT
         }).then(function (d) {
-            $scope.btnupdate = "Update";
-            $scope.LoaiDT = null;
-            alert(d);
-
+            window.location.href = '/Admin/ManagerTypePhone/ManagerTypePhone';
         }, function (e) {
+                console.log($scope.LoaiDT)
             alert('failed');
         });
     };
@@ -229,16 +195,7 @@ app.controller("AddPhone", function ($scope, $http) {
             $scope.btntextadd = 'Save';
 
             alert('Data registed..');
-            window.history.back();
-            $http.get("/Admin/ManagerPhone/Get_Paging_DienThoai?pageindex=" + $scope.pageIndex + "&pagesize=" + $scope.pageSize).then(function (response) {
-
-                $scope.Spdata = response.data.listphone;
-
-                $scope.totalcount = response.data.totalcount;
-
-            }, function (error) {
-
-            });
+            window.location.href = '/Admin/ManagerPhone/ManagerPhone';
         }, function (e) {
             alert('failed');
         });
@@ -271,9 +228,10 @@ app.controller("UpdatePhone", function ($scope, $http) {
             url: '/Admin/ManagerPhone/Update_DienThoai',
             data: $scope.Phone
         }).then(function (d) {
-            $scope.btnphone = "Update";
-            $scope.Phone = null;
+            //$scope.btnphone = "Update";
+            //$scope.Phone = null;
             alert(d.data);
+            window.location.href = '/Admin/ManagerPhone/ManagerPhone';
         }, function (e) {
             alert('Failed');
         });
@@ -356,8 +314,7 @@ app.controller("OrderNotComfirmController", function ($scope, $http) {
             alert(details);
         }, function (error) {
             alert('failed');
-        });
-        
+        });       
     };
 });
 
@@ -429,5 +386,113 @@ app.controller("OrderDeliveredController", function ($scope, $http) {
     $scope.changePageSize = function () {
         $scope.pageIndex = 1;
         $scope.Delivered();
+    }
+});
+
+
+app.controller("SupplierController", function ($scope, $http) {
+    $scope.maxsize = 5;
+
+    $scope.totalcount = 0;
+
+    $scope.pageIndex = 1;
+
+    $scope.pageSize = 5;
+
+    $scope.searchText = '';
+    //----------------------------------------------------------------------------------------------------------------
+    $scope.Supplier = function () {
+
+        $http.get("/Admin/ManagerSupplier/Get_Paging_Supplier?pageindex=" + $scope.pageIndex + "&pagesize=" + $scope.pageSize).then(function (response) {
+
+            $scope.Spdata = response.data.listsupplier;
+
+            $scope.totalcount = response.data.totalcount;
+
+        }, function (error) {
+            alert('failed');
+        });
+    }
+    $scope.Supplier();
+    $scope.pagechanged = function () {
+
+        $scope.Supplier();
+
+    }
+    $scope.changePageSize = function () {
+        $scope.pageIndex = 1;
+        $scope.Supplier();
+    }
+
+
+
+
+    $scope.btntextadd = 'Save';
+    $scope.saveSupplier = function () {
+        $scope.btntextadd = "Please Wait..";
+        $http({
+            method: 'POST',
+            url: '/Admin/ManagerSupplier/Add_Supplier',
+            data: $scope.Supp
+        }).then(function (d) {
+            //$scope.LoaiDT = null;
+            //$scope.btntextadd = 'Save';
+            alert(d.data);
+            window.location.href = '/Admin/ManagerSupplier/Index';
+        }, function (e) {
+            alert('failed');
+        });
+    }
+
+    $scope.deleteSupplier = function (id) {
+        $http.get("/Admin/ManagerSupplier/Delete_Supplier?id=" + id).then(function (d) {
+            alert(d.data);
+            $http.get("/Admin/ManagerSupplier/Get_Paging_Supplier?pageindex=" + $scope.pageIndex + "&pagesize=" + $scope.pageSize).then(function (response) {
+                $scope.record = d.data;
+
+                $scope.Spdata = response.data.listsupplier;
+                $scope.totalcount = response.data.totalcount;
+            }, function (error) {
+                alert('Failed');
+            });
+        }, function (error) {
+            alert('Failed');
+        });
+    };
+});
+
+
+app.controller("ConfigurationController", function ($scope, $http) {
+    $scope.maxsize = 5;
+
+    $scope.totalcount = 0;
+
+    $scope.pageIndex = 1;
+
+    $scope.pageSize = 5;
+
+    $scope.searchText = '';
+    //----------------------------------------------------------------------------------------------------------------
+    $scope.Confi = function () {
+
+        $http.get("/Admin/ManagerConfiguration/Get_Paging_Confi?pageindex=" + $scope.pageIndex + "&pagesize=" + $scope.pageSize).then(function (response) {
+
+            $scope.Spdata = response.data.listconfiguration;
+
+            $scope.totalcount = response.data.totalcount;
+
+        }, function (error) {
+            alert('failed');
+        });
+    }
+    $scope.Confi();
+    $scope.pagechanged = function () {
+
+        $scope.Confi();
+
+    }
+    $scope.changePageSize = function () {
+        $scope.pageIndex = 1;
+        $scope.Confi();
     }
 });

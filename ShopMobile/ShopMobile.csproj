@@ -89,6 +89,7 @@
   <ItemGroup>
     <Content Include="Assets\Admin\css\main.css" />
     <Content Include="Assets\Admin\css\manager.css" />
+    <Content Include="Assets\Admin\css\scud.css" />
     <Content Include="Assets\Admin\css\styles.css" />
     <Content Include="Assets\Admin\css\util.css" />
     <Content Include="Assets\Admin\fonts\font-awesome-4.7.0\css\font-awesome.css" />
@@ -425,7 +426,10 @@
     <Content Include="Assets\Client\img\LogoCompany\Vsmart.png" />
     <Content Include="Assets\Client\img\All\masterCard.jpg" />
     <Content Include="Assets\Client\img\News\news1.jpg" />
-    <Content Include="Assets\Client\img\News\news2.jpg" />
+    <Content Include="Assets\Client\img\News\news2.png" />
+    <Content Include="Assets\Client\img\News\news3.jpg" />
+    <Content Include="Assets\Client\img\News\news4.jpg" />
+    <Content Include="Assets\Client\img\News\news5.jpg" />
     <Content Include="Assets\Client\img\product\apple\apple_iphone11.png" />
     <Content Include="Assets\Client\img\product\apple\apple_iphone11Pro.png" />
     <Content Include="Assets\Client\img\product\apple\apple_iphone7.jpg" />
@@ -571,6 +575,8 @@
     <Content Include="Scripts\angular-touch.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\dirPagination.js" />
+    <Content Include="Scripts\dirPagination.tpl.html" />
     <Content Include="Scripts\FileAPI.flash.swf" />
     <Content Include="Scripts\FileAPI.js" />
     <Content Include="Scripts\FileAPI.min.js" />
@@ -1333,14 +1339,17 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ManagerConfigurationController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManagerOrderController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManagerPhoneController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ManagerSupplierController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManagerTypePhoneController.cs" />
     <Compile Include="Controllers\DienThoaiController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KhachHangController.cs" />
     <Compile Include="Controllers\LoaiDienThoaiController.cs" />
+    <Compile Include="Controllers\TinTucController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1455,6 +1464,9 @@
     <Content Include="Areas\Admin\Views\ManagerOrder\OrderNotComfirm.cshtml" />
     <Content Include="Areas\Admin\Views\ManagerOrder\OrderComfirm.cshtml" />
     <Content Include="Areas\Admin\Views\ManagerOrder\OrderDelivered.cshtml" />
+    <Content Include="Areas\Admin\Views\ManagerSupplier\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ManagerConfiguration\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ManagerSupplier\AddSupplier.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\KhachHang\Login.cshtml" />
@@ -1475,9 +1487,13 @@
     <Content Include="Views\LoaiDienThoai\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\News.cshtml" />
-    <Content Include="Views\DienThoai\Search.cshtml" />
     <Content Include="Views\DienThoai\ChiTietSP.cshtml" />
+    <Content Include="Views\TinTuc\Index.cshtml" />
+    <Content Include="Views\TinTuc\View_TinTuc.cshtml" />
+    <Content Include="Views\DienThoai\SearchProduct.cshtml" />
+    <Content Include="Views\Shared\_Slide.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\GioHang\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1489,7 +1505,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\GioHang\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BUS\BUS.csproj">

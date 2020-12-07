@@ -43,7 +43,7 @@ namespace ShopMobile.Areas.Admin.Controllers
         {
             return Json(dblayer.Add_TypePhone(dt), JsonRequestBehavior.AllowGet);
         }
-        [HttpGet]
+      
 
         public JsonResult UpdateLoaiDT(LoaiDT dt)
         {

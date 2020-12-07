@@ -3,13 +3,53 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+    .home-filter__label {
+        font-size: 1.4rem;
+        color: #555;
+        font-size: 1.4rem;
+        color: #555;
+        padding-left: 15px;
+        padding-right: 6px;
+    }
 
+    .home-filter__btn {
+        background: #FDFDFD;
+        margin-left: 6px;
+        margin-right: 6px;
+    }
+
+    .home-filter__page {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+    }
+
+    .home-filter {
+        padding: 15px 0px;
+        display: flex;
+        align-items: center;
+        background: #F5F5F5;
+        margin-top: 20px;
+    }
+</style>
 <!--===============================================================================================-->
 <link href="~/Assets/Client/css/style.css" rel="stylesheet" />
 <!--===============================================================================================-->
 
 <div class="content-page" ng-controller="SanphamController">
     <div class="container">
+        <div class="home-filter hide-on-mobile-tablet ">
+            <span class="home-filter__label ">
+                Sắp xếp theo
+            </span>
+
+            <div class="home-filter__btn btn " type="button" @*ng-click="sortData('LuotXem')"*@>Phổ biến<div @*ng-class="getSortClass('LuotXem')"*@></div></div>
+            <div class="home-filter__btn btn " type="button" @*ng-click="sortData('NgayCapNhap'*@>Mới nhất<div @*ng-class="getSortClass('NgayCapNhap')"*@></div></div>
+            <div class="home-filter__btn btn " type="button" ng-click="sort('Ram')">Ram<span class="glyphicon sort-icon" ng-show="sortKey=='hobby'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></div>
+            <div class="home-filter__btn btn " type="button" ng-click="sort('Gia')">Giá<span class="glyphicon sort-icon" ng-show="sortKey=='hobby'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></div>
+
+        </div>
         <div class="category-featured Vegetables">
             <nav class="navbar nav-menu show-brand">
                 <div class="container">
@@ -22,12 +62,12 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="box-right">
-                            <ul class="product-list" ng-repeat="e in typephone">
+                            <ul class="product-list" dir-paginate="e in typephone|orderBy:sortKey:reverse|itemsPerPage:10">
                                 <li class="col-sm-4 product-item">
                                     <div class="left-block">
-                                        <a>
+                                        <a href="/DienThoai/ChiTietSP?details={{e.MaDienThoai}}">
                                             <img class="img-responsive" alt="product" src="~/Assets/Client/img/product/{{e.HinhAnh}}" />
-                                   
+
                                         </a>
                                         <div class="quick-view">
                                             <a title="Add to my wishlist" class="heart" href="#"></a>
@@ -35,9 +75,9 @@
                                             <a title="Quick view" href="~/Assets/Client/img/apple/" class="search fancybox-button"></a>
                                         </div>
                                         @*<div class="add-to-cart">
-                                                <a class="add-item-to-cart" title="Add to Cart" href="#" data-name="{{e.TenDienThoai}}"
-                                                   data-price="" data-image="~/Assets/Client/img/apple/{{e.HinhAnh}}" data-product-code="{{e.MaDienThoai}}">Add to Cart</a>
-                                            </div>*@
+                                            <a class="add-item-to-cart" title="Add to Cart" href="#" data-name="{{e.TenDienThoai}}"
+                                               data-price="" data-image="~/Assets/Client/img/apple/{{e.HinhAnh}}" data-product-code="{{e.MaDienThoai}}">Add to Cart</a>
+                                        </div>*@
                                         <div class="bestseller"></div>
                                     </div>
                                     <div class="right-block">
@@ -53,6 +93,13 @@
                 </div>
             </div>
         </div>
-    </div>
+        <dir-pagination-control max-size="5"
+                                direction-links="true"
+                                border-links="true">
+        </dir-pagination-control>
+    </div>  
 </div>
+
+
+
 

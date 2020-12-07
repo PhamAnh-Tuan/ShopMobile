@@ -1,0 +1,37 @@
+﻿
+@{
+    //ViewBag.Title = "View_TinTuc";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="columns-container" ng-controller="ViewNewsController">
+    <div class="container" id="columns">
+        <!-- row -->
+        <div class="row">            
+            <!-- Center colunm-->
+            <div class="center_column col-xs-12 col-sm-9" id="center_column" data-ng-init="viewTinTuc(@Convert.ToInt32(Request.QueryString["news"]))">
+                <!-- page heading-->
+                <div class="page-heading">
+                    <h2>
+                        <span class="page-heading-title"><span class="fa fa-paperclip"></span>{{views.TieuDe}}</span>
+                    </h2>
+                </div>
+
+                <div class="entry-meta-data" style="float: right; padding-top: 10px; padding-bottom: 10px">
+                    <span class="author">
+                        <i class="fa fa-user"></i>
+                        by: <a href="#"> Admin</a>
+                    </span>
+                    <span class="date"><i class="fa fa-calendar"></i> August 4, 2016 AT 1:30 PM </span>
+                </div>
+              
+                <div style="padding-top: 50px">
+                    <div style="text-align: center"><img src="~/Assets/Client/img/News/{{views.Anh}}" style="width: 60%;"></div>
+                    <div>{{views.NoiDung}}</div>
+                </div>
+            <!-- ./ Center colunm -->
+        </div>
+        <!-- ./row-->
+    </div>
+</div>
+

@@ -8,7 +8,7 @@ namespace DTO
 {
     public class DonHang
     {
-        public int MaDonHang { get; set; }
+        public string MaDonHang { get; set; }
         public int MaKhachHang { get; set; }
         public string NgayTao { get; set; }
         public string TrangThaiDonHang { get; set; }

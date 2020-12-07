@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
+@*<!DOCTYPE html>
 
 <html>
 <head>
@@ -14,8 +14,10 @@
 
     <link href="~/Assets/Client/css/login.css" rel="stylesheet" />
 </head>
-<body>
-    <form class="login-form" autocomplete="off" action="#">
+<body>*@
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossOrigin="anonymous" />
+<link href="~/Assets/Client/css/login.css" rel="stylesheet" />
+    <form class="login-form" autocomplete="off" action="#" ng-controller="HomeClient">
         <input placeholder="Email/Tên đăng nhập" ng-model="user.TaiKhoanDangNhap" />
         <div class="input-icon">
             <input type="password" placeholder="Password" ng-model="user.MatKhau"/>
@@ -24,7 +26,7 @@
         <a href="#" class="forgot">Quên mật khẩu?</a>
         <button value="{{btntext}}" ng-click="login()">Đăng nhập</button>
     </form>
-</body>
-</html>
+@*</body>
+</html>*@
 
 
