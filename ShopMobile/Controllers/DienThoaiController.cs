@@ -21,10 +21,6 @@ namespace ShopMobile.Controllers
         {
             return Json(dt.Search_Product(name), JsonRequestBehavior.AllowGet);
         }
-        public JsonResult ListName(string q)
-        {
-            return Json(dt.ListName(q), JsonRequestBehavior.AllowGet);
-        }
         public ActionResult ChiTietSP(int details)
         {
             return View();

@@ -4,63 +4,40 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DTO;
+using BUS;
 namespace ShopMobile.Controllers
 {
     public class GioHangController : Controller
     {
         // GET: GioHang
+        GioHangBUS ghb = new GioHangBUS();
         public ActionResult Index()
         {
             return View();
         }
-        [HttpPost]
-        public JsonResult AddCart(DienThoai s)
+        public ActionResult ThanhToan()
         {
-            if (Session["giohang"] == null)
-            {
-                Session["giohang"] = new List<ChiTietDonHang>();
-            }
-            List<ChiTietDonHang> giohang = Session["giohang"] as List<ChiTietDonHang>;
-            ChiTietDonHang d = null;
-
-            if (giohang.Find(m => m.MaCauHinh == s.MaCauHinh) == null)
-            {
-                d = new ChiTietDonHang();
-                d.MaCauHinh = s.MaCauHinh;
-                d.DonGia = s.Gia;
-                d.SoLuong = 1;
-                giohang.Add(d);
-            }
-            else
-            {
-                giohang.Find(m => m.MaCauHinh == s.MaCauHinh).SoLuong = giohang.Find(m => m.MaCauHinh == s.MaCauHinh).SoLuong + 1;
-            }
-            int soluong = 0;
-            foreach (ChiTietDonHang c in giohang)
-            {
-
-                soluong = soluong + c.SoLuong;
-            }
-            return Json(new { ctdon = d, sl = soluong }, JsonRequestBehavior.AllowGet);
+            return View();
         }
-        public JsonResult GetCarts()
+        public JsonResult Get_Cart(int MaKhach)
         {
-            int sl = 0;
-            int thanhtien = 0;
-            List<ChiTietDonHang> ds = new List<ChiTietDonHang>();
-            if (Session["giohang"] == null)
-            {
-                Session["giohang"] = new List<ChiTietDonHang>();
-                sl = 0;
-                thanhtien = 0;
-            }
-            else
-            {
-                ds = Session["giohang"] as List<ChiTietDonHang>;
-                thanhtien = ds.Sum(s => s.DonGia * s.SoLuong);
-                sl = ds.Sum(s => s.SoLuong);
-            }
-            return Json(new { DSDonHang = ds, soluong = sl, ThanhTien = thanhtien }, JsonRequestBehavior.AllowGet);
+            return Json(ghb.Get_Cart(MaKhach), JsonRequestBehavior.AllowGet);
+        }
+        public void Cart_ASC(string MaCT)
+        {
+            ghb.Cart_ASC(MaCT);
+        }
+        public void Cart_DESC(string MaCT)
+        {
+            ghb.Cart_DESC(MaCT);
+        }
+        public void Add_To_Cart(int MaKhachHang, int MaCauHinh, int DonGia, int SoLuong)
+        {
+            ghb.Add_To_Cart(MaKhachHang,MaCauHinh,DonGia,SoLuong);
+        }
+        public void DELETE_PRODUCTCART(string MaCT)
+        {
+            ghb.DELETE_PRODUCTCART(MaCT);
         }
     }
 }

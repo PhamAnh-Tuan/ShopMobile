@@ -37,7 +37,7 @@
                             <th>Sửa</th>
                             <th>Xóa</th>
                         </tr>
-                        <tr ng-repeat="e in Spdata  | filter: searchText  " ng-class-even="even" ng-class-odd="odd">
+                        <tr ng-repeat="e in Spdata  | filter: searchText  " @*ng-class-even="even" ng-class-odd="odd"*@>
                             <td>{{e.MaLoai}}</td>
                             <td>{{e.TenLoai}}</td>
                             <td><p>{{e.XuatXu}}</p></td>

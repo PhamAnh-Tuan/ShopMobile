@@ -28,7 +28,11 @@ namespace ShopMobile.Controllers
         }
         public JsonResult Get_DienThoai10()
         {
-            return Json(dbDT.Get_DienThoai10(), JsonRequestBehavior.AllowGet);
-        }       
+            return Json(dbDT.Get_DienThoai(), JsonRequestBehavior.AllowGet);
+        }   
+        public ActionResult DangKy()
+        {
+            return View();
+        }
     }
 }

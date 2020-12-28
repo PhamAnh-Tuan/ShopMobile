@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "AddNews";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="back-add-type" ng-controller="NewsController">
+    <div class="import-product-type col-lg-12">
+        <table style="width:100%;text-align:center">
+            <tr class="row-list">
+                <td>Thông tin</td>
+                <td><a href="/Admin/ManagerNews/Index">Quay lại</a></td>
+            </tr>
+            <tr class="row-list">
+                <td class="lable-product-type">Tiêu đề</td>
+                <td>
+                    <input type="text" class="product-type-input" ng-model="TieuDe">
+                </td>
+            </tr>
+            <tr class="row-list">
+                <td class="lable-product-type">Hình ảnh</td>
+                <td>
+                    <input type="file" id="anh" accept="image/*" ng-model="Anh" onchange="loadFile(event)">
+                    <img id="output" style="width:160px" />
+                </td>
+            </tr>
+            <tr class="row-list">
+                <td class="lable-product-type">Nội dung</td>
+                <td>
+                    <input type="text" class="product-type-input" ng-model="NoiDung">
+                </td>
+            </tr>
+            <tr class="row-list">
+                <td class="lable-product-type">Ngày đăng</td>
+                <td>
+                    <input type="text" class="product-type-input" ng-model="NgayDang">
+                </td>
+            </tr>
+            <tr>
+                <td><button ng-click="savedata()" class="btn-add">Thêm</button></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<script>
+
+        var loadFile = function (event) {
+            var image = document.getElementById('output');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        }
+</script>
+

@@ -16,6 +16,7 @@ namespace DAO
         SqlParameter oblogin;
         SqlCommand com;
         DataSet ds;
+        SqlDataReader dr;
         public int Client_Login(KhachHang kh)
         {
             com = new SqlCommand("sp_Client_login", con);
@@ -47,6 +48,27 @@ namespace DAO
             con.Open();
             com.ExecuteNonQuery();
             con.Close();
+        }
+        public KhachHang Get_Info(string TK)
+        {
+            com = new SqlCommand("GET_INFO", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@TaiKhoanDangNhap", TK);
+            con.Open();
+            dr = com.ExecuteReader();
+            KhachHang kh = new KhachHang();
+            while (dr.Read())
+            {
+                kh.MaKhachHang = Convert.ToInt32(dr["MaKhachHang"].ToString());
+                kh.TenKhachHang = dr["TenKhachHang"].ToString();
+                kh.TaiKhoanDangNhap = dr["TaiKhoanDangNhap"].ToString();
+                kh.MatKhau = dr["MatKhau"].ToString();
+                kh.Email = dr["Email"].ToString();
+                kh.GioiTinh = dr["GioiTinh"].ToString();
+                kh.SDT = dr["SDT"].ToString();
+                kh.DiaChi = dr["DiaChi"].ToString();
+            }
+            return kh;
         }
     }
 }

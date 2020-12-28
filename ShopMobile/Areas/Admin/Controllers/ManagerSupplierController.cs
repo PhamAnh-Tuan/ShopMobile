@@ -31,13 +31,29 @@ namespace ShopMobile.Areas.Admin.Controllers
         {
             return View();
         }
+        public ActionResult UpdateSupplier(int id)
+        {
+            return View();
+        }
         public JsonResult Add_Supplier(NhaCungCap supp)
         {
             return Json(ncc.Add_Supplier(supp), JsonRequestBehavior.AllowGet);
         }
+        public JsonResult Get_SUPPLIER_ByID(int MaNCC)
+        {
+            return Json(ncc.Get_SUPPLIER_ByID(MaNCC), JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult Update_Supplier(NhaCungCap supp)
+        {
+            return Json(ncc.Update_Supplier(supp), JsonRequestBehavior.AllowGet);
+        }
         public JsonResult Delete_Supplier(int id)
         {
             return Json(ncc.Delete_Supplier(id), JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult Get_NCC()
+        {
+            return Json(ncc.Get_NCC(), JsonRequestBehavior.AllowGet);
         }
     }
 }

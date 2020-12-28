@@ -6,48 +6,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <style>
-        .back-add-type {
-            z-index: 4;
-            padding-top: 20px;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-        }
-
-        .import-product-type {
-            /*width: 60%;*/
-            background-color: #F5F5F5;
-        }
-
-        .product-type-input {
-            padding: 4px 10px;
-            width: 80%;
-            height: 30px;
-            border-radius: 4px;
-            border: none;
-            outline: none;
-        }
-
-        tr {
-            font-size: 18px;
-            height: 40px;
-            padding: 12px 5px;
-        }
-
-        .btn_add {
-            outline: none;
-            border: none;
-            background-color: rgba(0,0,0,0.2);
-            color: white;
-            border-radius: 15px;
-            width: 5em;
-        }
-    </style>
-</head>
 <body>
     <div class="back-add-type" ng-controller="AddPhone">
         <div class="import-product-type col-lg-12">
@@ -126,7 +84,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><input type="button" value="{{btntextadd}}" ng-click="savedata()" class="btn_add"></td>
+                    <td><button ng-click="savedata()" class="btn-add">Thêm</button></td>
                     <td></td>
                 </tr>
             </table>

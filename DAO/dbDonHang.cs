@@ -110,6 +110,33 @@ namespace DAO
             com.ExecuteNonQuery();
             con.Close();
         }
+        public void ComfirmShipping(string value)
+        {
+            com = new SqlCommand("ComfirmShipping", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@MaDonHang", value);
+            con.Open();
+            com.ExecuteNonQuery();
+            con.Close();
+        }
+        public void UnThisOrder(string value)
+        {
+            com = new SqlCommand("UnThisOrder", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@MaDonHang", value);
+            con.Open();
+            com.ExecuteNonQuery();
+            con.Close();
+        }
+        public void ConfirmChange(string value)
+        {
+            com = new SqlCommand("ConfirmChange", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@MaDonHang", value);
+            con.Open();
+            com.ExecuteNonQuery();
+            con.Close();
+        }
         public DataSet View_Details(string value)
         {
             com = new SqlCommand("view_details", con);
@@ -119,6 +146,35 @@ namespace DAO
             ds = new DataSet();
             da.Fill(ds);
             return ds;
+        }
+        public void Add_DonHang(DonHang ch)
+        {
+            SqlCommand com = new SqlCommand("ADD_DonHang", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@MaDonHang", ch.MaDonHang);
+            com.Parameters.AddWithValue("@MaKhachHang", ch.MaKhachHang);
+            com.Parameters.AddWithValue("@NgayTao", ch.NgayTao);
+            com.Parameters.AddWithValue("@TrangThaiDonHang", ch.TrangThaiDonHang);
+            com.Parameters.AddWithValue("@TongTien", ch.TongTien);
+            com.Parameters.AddWithValue("@TenKhachHang", ch.TenKhachHang);
+            com.Parameters.AddWithValue("@DiaChi", ch.DiaChi);
+            com.Parameters.AddWithValue("@SDT", ch.SDT);
+            com.Parameters.AddWithValue("@GhiChu", ch.GhiChu);
+            con.Open();
+            com.ExecuteNonQuery();
+            con.Close();
+        }
+        public void Add_ChiTietDonHang(ChiTietDonHang ch)
+        {
+            SqlCommand com = new SqlCommand("ADD_ChiTietDonHang", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@MaDonHang", ch.MaDonHang);
+            com.Parameters.AddWithValue("@MaCauHinh", ch.MaCauHinh);
+            com.Parameters.AddWithValue("@SoLuong", ch.SoLuong);
+            com.Parameters.AddWithValue("@DonGia", ch.DonGia);
+            con.Open();
+            com.ExecuteNonQuery();
+            con.Close();
         }
     }
 }

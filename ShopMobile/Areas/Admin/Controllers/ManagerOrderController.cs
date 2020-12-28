@@ -62,6 +62,18 @@ namespace ShopMobile.Areas.Admin.Controllers
         {
             return Json(_db.Comfirm_ThisOrder(value), JsonRequestBehavior.AllowGet);
         }
+        public JsonResult ComfirmShipping(string value)
+        {
+            return Json(_db.ComfirmShipping(value), JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult UnThisOrder(string value)
+        {
+            return Json(_db.UnThisOrder(value), JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult ConfirmChange(string value)
+        {
+            return Json(_db.ConfirmChange(value), JsonRequestBehavior.AllowGet);
+        }
         public JsonResult View_Details(string value)
         {
             return Json(_db.View_Details(value), JsonRequestBehavior.AllowGet);

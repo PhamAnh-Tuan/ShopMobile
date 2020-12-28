@@ -5,10 +5,6 @@
 }
 
 
-<link href="~/Assets/Admin/css/scud.css" rel="stylesheet" />
-    <script src="~/Assets/Admin/script/angular.min.js"></script>
-    <script src="~/Assets/Admin/script/AngularController/HomeController.js"></script>
-
 
     <div class="back-add-type" ng-controller="AddTypePhone">
         <div class="import-product-type">
@@ -31,7 +27,7 @@
                 </tr>
                 <tr>
                     <td>
-                    <input type="button" value="{{btntextadd}}" ng-click="savedata()" />
+                        <button class="btn-add" ng-click="savedata()"><i class="fas fa-plus"></i>Thêm mới</button>
                     </td>
                     <td></td>
                 </tr>

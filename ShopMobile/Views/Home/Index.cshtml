@@ -19,7 +19,7 @@
                     <div class="col-lg-12 col-sm-12">
                         <div class="box-right">
                             <ul class="product-list">
-                                <li class="col-lg-3 col-sm-4 product-item" ng-repeat="e in dataphone" ng-class-even="even" ng-class-odd="odd">
+                                <li class="col-sm-4 product-item" ng-repeat="e in dataphone| limitTo: 10" ng-class-even="even" ng-class-odd="odd">
                                     <div class="left-block">
                                         <a href="/DienThoai/ChiTietSP?details={{e.MaDienThoai}}">
                                             <img class="img-responsive" alt="product" src="~/Assets/Client/img/product/{{e.HinhAnh}}" />
@@ -30,8 +30,7 @@
                                             <a title="Quick view" href="~/Assets/Client/img/product/{{e.HinhAnh}}" class="search fancybox-button"></a>
                                         </div>
                                         <div class="add-to-cart">
-                                            <a class="add-item-to-cart" title="Add to Cart" ng-click="AddCart(e)" href="#" data-name="{{e.TenDienThoai}}"
-                                               data-price="{{e.Gia}}" data-image="{{e.HinhAnh}}" data-product-code="{{e.MaCauHinh}}">Add to Cart</a>
+                                            <a class="add-item-to-cart" title="Add to Cart" ng-click="AddCart(e.MaCauHinh,e.Gia)" style="cursor:pointer">Add to Cart</a>
                                         </div>
                                         <div class="bestseller"></div>
                                     </div>

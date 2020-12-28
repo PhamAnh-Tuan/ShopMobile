@@ -10,7 +10,7 @@ namespace ShopMobile.Areas.Admin.Controllers
     public class ManagerTypePhoneController : Controller
     {
         // GET: Admin/ManagerTypePhone
-        BUS.LoaiDTBUS dblayer = new BUS.LoaiDTBUS();
+        LoaiDTBUS dblayer = new LoaiDTBUS();
         public ActionResult ManagerTypePhone()
         {
             if (Session["USER"] != null)
@@ -43,8 +43,6 @@ namespace ShopMobile.Areas.Admin.Controllers
         {
             return Json(dblayer.Add_TypePhone(dt), JsonRequestBehavior.AllowGet);
         }
-      
-
         public JsonResult UpdateLoaiDT(LoaiDT dt)
         {
             return Json(dblayer.Update_TypePhone(dt), JsonRequestBehavior.AllowGet);

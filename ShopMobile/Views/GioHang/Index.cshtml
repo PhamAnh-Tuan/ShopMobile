@@ -85,6 +85,7 @@
         border: none;
         background-color: #FFFFFF;
         outline: none;
+        padding:0 7px;
     }
 
     .box-button {
@@ -99,8 +100,7 @@
     }
 
     .fa-trash-alt {
-        width: 25px;
-        height: 25px;
+        font-size:2em;
         color: #C3C3C3
     }
 
@@ -141,8 +141,12 @@
             text-decoration: none;
             color: white;
         }
+    .box-product{
+        display:flex;
+        align-items:center;
+    }
 </style>
-<div class="main" ng-controller="HomeClient">
+<div class="main" ng-controller="GioHangController">
     <div class="container">
         <div class="box-head">
             <a href="index.html" class="home-href">Trang chủ</a>
@@ -175,38 +179,39 @@
                 <div class="thead-list col-sm-1">Xóa</div>
             </div>
             <div class="cart-tbody">
-                <div class="box-product" ng-repeat="d in dsDonHang">
+                <div class="box-product" ng-repeat="d in datacart">
                     <div class="tbody-product col-sm-3">
-                        <img src="{{d.HinhAnh}}"
-                             alt="#" class="img-product">
+                        <img src="~/Assets/Client/img/product/{{d.HinhAnh}}"alt="#" class="img-product">
                     </div>
                     <div class="tbody-product col-sm-3">
                         {{d.TenDienThoai}}
                     </div>
                     <div class="tbody-product col-sm-2">
-                        <span class="product-price">{{d.Gia}}</span>
+                        <span class="product-price">{{d.DonGia|number}}</span>
 
                     </div>
                     <div class="tbody-product col-sm-1">
                         <div class="box-button">
-                            <button class="btn" id="btn_desc">-</button>
-                            <input type="text" value="{{d.SoLuong}}" class="text" id="text_1">
-                            <button class="btn" id="btn_asc">+</button>
+                            <button class="btn" ng-click="countdesc(d.MaChiTietGioHang)">-</button>
+                            <input type="text" value="{{d.SoLuong}}" class="text">
+                            <button class="btn" ng-click="countasc(d.MaChiTietGioHang)">+</button>
                         </div>
                     </div>
-                    <div class="tbody-product col-sm-2 sum" id="money_1">9.590.000</div>
-                    <div class="tbody-product col-sm-1 delete"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash-alt" class="svg-inline--fa fa-trash-alt fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z"></path></svg></div>
+                    <div class="tbody-product col-sm-2 sum" id="money_1">{{d.DonGia*d.SoLuong|number}}</div>
+                    <div class="tbody-product col-sm-1 delete">  
+                        <button ng-click="deleteproduct(d.MaChiTietGioHang)"><i class="far fa-trash-alt"></i></button>
+                    </div>
                 </div>
             </div>
             <div class="tfoot">
                 <div class="money_sum">
                     <strong class="cart-total-title ">Tổng Cộng:</strong>
-                    <span class="cart-total-price " style="width:100px; "></span>
+                    <span class="cart-total-price " style="width:100px; ">{{tongtien|number}}</span>
                 </div>
 
                 <div>
                     <button class="btn-pay"><a href="Home/Index">Tiếp tục mua hàng</a></button>
-                    <button class="order"><a href="#">Tiến hành đặt hàng</a></button>
+                    <button class="order"><a href="/GioHang/ThanhToan">Tiến hành đặt hàng</a></button>
                 </div>
             </div>
         </div>

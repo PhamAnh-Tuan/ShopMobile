@@ -45,12 +45,16 @@
     <Compile Include="CauHinh.cs" />
     <Compile Include="CauHinhList.cs" />
     <Compile Include="ChiTietDonHang.cs" />
+    <Compile Include="CTHoaDonNhap.cs" />
+    <Compile Include="CTHoaDonNhapList.cs" />
     <Compile Include="DienThoai.cs" />
     <Compile Include="DienThoaiList.cs" />
     <Compile Include="DonDatHang.cs" />
     <Compile Include="DonHang.cs" />
     <Compile Include="DonHangList.cs" />
     <Compile Include="GioHang.cs" />
+    <Compile Include="HoaDonNhap.cs" />
+    <Compile Include="HoaDonNhapList.cs" />
     <Compile Include="KhachHang.cs" />
     <Compile Include="LoaiDT.cs" />
     <Compile Include="LoaiDTList.cs" />
@@ -58,6 +62,7 @@
     <Compile Include="NhaCungCapList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TinTuc.cs" />
+    <Compile Include="TinTucList.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

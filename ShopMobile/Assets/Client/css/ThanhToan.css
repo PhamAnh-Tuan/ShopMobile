@@ -1,0 +1,197 @@
+﻿.tent-right {
+    background-color: #FAFAFA;
+}
+
+.tent-body {
+    margin: 0 auto;
+}
+
+.tent-list {
+    padding: 0px 15px 0px 0px;
+}
+
+.label-question {
+    font-size: 1.3em;
+}
+
+.grade {
+    margin: 14px 0px;
+    width: 100%;
+    height: 45px;
+    position: relative;
+}
+
+.information {
+    position: absolute;
+    font-size: 15px;
+    z-index: 2;
+    padding: 5px 11px;
+}
+
+.information_new {
+    position: absolute;
+    font-size: 15px;
+    z-index: 2;
+    padding: 3px 11px;
+}
+
+.input-info {
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    padding: 18px 11px 5px;
+    outline: none;
+}
+
+.choose {
+    width: 100%;
+    height: 100%;
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+    outline: none;
+    padding: 9px 11px 2px;
+    overflow: auto;
+}
+
+.pay {
+    width: 100%;
+    height: 120px;
+    border: 1px solid gainsboro;
+    margin: 14px 0px;
+    border-radius: 5px;
+}
+
+.pay-item {
+    align-items: center;
+    height: 50%;
+    width: 100%;
+    padding: 20px 10px;
+    display: flex;
+}
+
+.fa-money-bill-alt {
+    width: 28px;
+    height: 30px;
+    color: #339DCC;
+}
+
+.label-primary {
+    width: 80%;
+}
+
+.label-accessory {
+    width: 20%;
+}
+
+.label-right {
+    padding: 22px 30px;
+    border-bottom: 1px solid gainsboro;
+}
+
+.perform {
+    padding-left: 30px;
+    width: 90%;
+}
+
+.product {
+    width: 100%;
+    height: 88px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid gainsboro;
+}
+
+    .product img {
+        width: auto;
+        height: 70px;
+        border: 1px solid antiquewhite;
+        border-radius: 10px;
+    }
+
+.product-info {
+    text-align:center;
+}
+
+.product-access {
+    text-align:right;
+}
+
+.input-ghost {
+    height: 32px;
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+    padding: 10px 13px;
+    width: 78%;
+    outline: none;
+    margin-right: 15px;
+}
+
+.apply {
+    height: 32px;
+    border-radius: 5px;
+    padding: 10px 13px;
+    width: 22%;
+    float: right;
+    background-color: #2A6395;
+    color: white;
+    outline: none;
+    border: none;
+}
+
+.provisional {
+    width: 100%;
+    height: 50px;
+    padding: 17px 0px;
+    border-bottom: 1px solid gainsboro;
+}
+
+.label-l {
+    text-align: left;
+}
+
+.label-r {
+    float: right;
+}
+
+.total {
+    width: 100%;
+    height: 50px;
+    padding: 17px 0px;
+}
+
+.label-price {
+    float: right;
+    font-size: 1.3em;
+}
+
+.manipulation {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    margin-top: 20px;
+}
+
+.label-cart a {
+    text-decoration: none;
+}
+
+.label-cart {
+    left: 0;
+    position: absolute;
+    padding: 13px 0px;
+}
+
+.btn-order {
+    position: absolute;
+    width: 40%;
+    padding: 10px 10px;
+    font-size: 1.2em;
+    background-color: #2A6395;
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 7px;
+    right: 0;
+}

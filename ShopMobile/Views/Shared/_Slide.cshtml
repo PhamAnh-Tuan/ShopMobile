@@ -1,19 +1,54 @@
-﻿
-<div id="home-slider">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 header-top-right">
-                <div class="homeslider">
-                    <ul id="contenhomeslider">
-                        <li><img alt="Funky roots" src="~/Assets/Client/img/slide/slide_01.jpg" title="Funky roots" /></li>
-                        <li><img alt="Funky roots" src="~/Assets/Client/img/slide/slide_02.jpg" title="Funky roots" /></li>
-                        <li><img alt="Funky roots" src="~/Assets/Client/img/slide/slide_03.jpg" title="Funky roots" /></li>
-                        <li><img alt="Funky roots" src="~/Assets/Client/img/slide/slide_04.jpg" title="Funky roots" /></li>
-                        <li><img alt="Funky roots" src="~/Assets/Client/img/slide/slide_05.jpg" title="Funky roots" /></li>
-                        <li><img alt="Funky roots" src="~/Assets/Client/img/slide/slide_06.jpg" title="Funky roots" /></li>
-                    </ul>
+﻿@*<div id="home-slider">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 header-top-right">
+                    <div class="homeslider">
+                        <ul id="contenhomeslider">
+                            <li><img alt="Funky roots" src="~/Assets/Client/img/slide/slide_01.jpg" title="Funky roots" /></li>
+                            <li><img alt="Funky roots" src="~/Assets/Client/img/slide/slide_02.jpg" title="Funky roots" /></li>
+                            <li><img alt="Funky roots" src="~/Assets/Client/img/slide/slide_03.jpg" title="Funky roots" /></li>
+                            <li><img alt="Funky roots" src="~/Assets/Client/img/slide/slide_04.jpg" title="Funky roots" /></li>
+                            <li><img alt="Funky roots" src="~/Assets/Client/img/slide/slide_05.jpg" title="Funky roots" /></li>
+                            <li><img alt="Funky roots" src="~/Assets/Client/img/slide/slide_06.jpg" title="Funky roots" /></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>*@
+<div class="container">
+    <div class="slideshow-container">
+        <div class="mySlides fades">
+            <a href="Apple.html"><img src="~/Assets/Client/img/slide/slide_01.jpg" style="width:100% "></a>
+            <!--<div class="text ">nội dung của slide thứ nhất</div>-->
+        </div>
+        <div class="mySlides fades">
+            <img src="~/Assets/Client/img/slide/slide_02.jpg" style="width:100% ">
+            <!--<div class="text ">nội dung của slide thứ nhất</div>-->
+        </div>
+        <div class="mySlides fades">
+            <img src="~/Assets/Client/img/slide/slide_03.jpg" style="width:100% ">
+            <!--<div class="text ">nội dung của slide thứ nhất</div>-->
+        </div>
+        <div class="mySlides fades">
+            <img src="~/Assets/Client/img/slide/slide_04.jpg" style="width:100% ">
+        </div>
+        <div class="mySlides fades">
+            <img src="~/Assets/Client/img/slide/slide_05.jpg" style="width:100% ">
+        </div>
+        <div class="mySlides fades">
+            <img src="~/Assets/Client/img/slide/slide_06.jpg" style="width:100% ">
+        </div>
+    </div>
+    <br>
+    <div style="text-align:center ">
+        <span class="dot " onclick="currentSlide(0) "></span>
+        <span class="dot " onclick="currentSlide(1) "></span>
+        <span class="dot " onclick="currentSlide(2) "></span>
+        <span class="dot " onclick="currentSlide(3) "></span>
+        <span class="dot " onclick="currentSlide(4) "></span>
+        <span class="dot " onclick="currentSlide(5) "></span>
     </div>
 </div>
+
+

@@ -45,8 +45,11 @@
     <Compile Include="dbAdmin.cs" />
     <Compile Include="dbCauHinh.cs" />
     <Compile Include="dbChiTietDonHang.cs" />
+    <Compile Include="dbCTHoaDonNhap.cs" />
     <Compile Include="dbDienThoai.cs" />
     <Compile Include="dbDonHang.cs" />
+    <Compile Include="dbGioHang.cs" />
+    <Compile Include="dbHoaDonNhap.cs" />
     <Compile Include="dbKhachHang.cs" />
     <Compile Include="dbLoaiDT.cs" />
     <Compile Include="dbNhaCungCap.cs" />

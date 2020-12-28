@@ -20,6 +20,10 @@ namespace ShopMobile.Areas.Admin.Controllers
         public JsonResult LoginAdmin(DTO.Admin ad)
         {
             var res = _db.Admin_Login(ad);
+
+
+
+
             Session["USER"] = res.TaiKhoan;
             return Json(res);
         }

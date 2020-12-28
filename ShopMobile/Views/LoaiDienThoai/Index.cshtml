@@ -43,17 +43,13 @@
             <span class="home-filter__label ">
                 Sắp xếp theo
             </span>
-
-            <div class="home-filter__btn btn " type="button" @*ng-click="sortData('LuotXem')"*@>Phổ biến<div @*ng-class="getSortClass('LuotXem')"*@></div></div>
-            <div class="home-filter__btn btn " type="button" @*ng-click="sortData('NgayCapNhap'*@>Mới nhất<div @*ng-class="getSortClass('NgayCapNhap')"*@></div></div>
             <div class="home-filter__btn btn " type="button" ng-click="sort('Ram')">Ram<span class="glyphicon sort-icon" ng-show="sortKey=='hobby'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></div>
             <div class="home-filter__btn btn " type="button" ng-click="sort('Gia')">Giá<span class="glyphicon sort-icon" ng-show="sortKey=='hobby'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></div>
-
         </div>
         <div class="category-featured Vegetables">
             <nav class="navbar nav-menu show-brand">
                 <div class="container">
-                    <div class="navbar-brand"><a href="#"> <img alt="fashion" src="~/Assets/Client/images/icon_like.png" /> Best Seller</a></div>
+                    <div class="navbar-brand"><a href="#"> <img alt="fashion" src="~/Assets/Client/images/icon_like.png" />Điện thoại chính hãng</a></div>
                     <div class="collapse navbar-collapse">
                     </div>
                 </div>
@@ -62,7 +58,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="box-right">
-                            <ul class="product-list" dir-paginate="e in typephone|orderBy:sortKey:reverse|itemsPerPage:10">
+                            <ul class="product-list" ng-repeat="e in typephone.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))|orderBy:sortKey:reverse">
                                 <li class="col-sm-4 product-item">
                                     <div class="left-block">
                                         <a href="/DienThoai/ChiTietSP?details={{e.MaDienThoai}}">
@@ -93,10 +89,7 @@
                 </div>
             </div>
         </div>
-        <dir-pagination-control max-size="5"
-                                direction-links="true"
-                                border-links="true">
-        </dir-pagination-control>
+        <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" class="pagination-sm" items-per-page="itemsPerPage" style="float:right"></pagination>
     </div>  
 </div>
 

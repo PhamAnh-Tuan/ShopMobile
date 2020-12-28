@@ -45,6 +45,48 @@ namespace BUS
             }
             return res;
         }
+        public string ComfirmShipping(string value)
+        {
+            string res = string.Empty;
+            try
+            {
+                _db.ComfirmShipping(value);
+                res = "Đã ghi nhận chuyển hàng";
+            }
+            catch
+            {
+                res = "Ghi nhận thất bại";
+            }
+            return res;
+        }
+        public string UnThisOrder(string value)
+        {
+            string res = string.Empty;
+            try
+            {
+                _db.UnThisOrder(value);
+                res = "Hủy đơn hàng thành công";
+            }
+            catch
+            {
+                res = "Hủy đơn hàng thất bại";
+            }
+            return res;
+        }
+        public string ConfirmChange(string value)
+        {
+            string res = string.Empty;
+            try
+            {
+                _db.ConfirmChange(value);
+                res = "Yêu cầu đổi trả thành công";
+            }
+            catch
+            {
+                res = "Yêu cầu thất bại";
+            }
+            return res;
+        }
         public List<ChiTietDonHang> View_Details(string value)
         {
             ds = _db.View_Details(value);
@@ -60,6 +102,14 @@ namespace BUS
                 });
             }
             return l;
+        }
+        public void Add_DonHang(DonHang ct)
+        {
+            _db.Add_DonHang(ct);
+        }
+        public void Add_ChiTietDonHang(ChiTietDonHang ct)
+        {
+            _db.Add_ChiTietDonHang(ct);
         }
     }
 }

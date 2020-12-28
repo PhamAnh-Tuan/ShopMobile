@@ -42,9 +42,7 @@ namespace ShopMobile.Areas.Admin.Controllers
         public void Register(DienThoai dt)
         {
             _db.Add_Phone(dt);
-        }
-        [HttpGet]
-        
+        }       
         public JsonResult Update_DienThoai(DienThoai dt)
         {
             return Json(_db.Update_Phone(dt), JsonRequestBehavior.AllowGet);
@@ -56,22 +54,6 @@ namespace ShopMobile.Areas.Admin.Controllers
         public JsonResult Get_DienThoai_byid(int id)
         {
             return Json(_db.Get_DienThoai_byid(id), JsonRequestBehavior.AllowGet);
-        }
-        public JsonResult Upload(string anh)
-        {
-            List<string> l = new List<string>();
-            string path = Server.MapPath("~Assets/Client/img/product/" + anh + "/");
-            if (!Directory.Exists(path))
-            {
-                Directory.CreateDirectory(path);
-            }
-            foreach(string key in Request.Files)
-            {
-                HttpPostedFileBase pf = Request.Files[key];
-                pf.SaveAs(path + pf.FileName);
-                l.Add(pf.FileName);
-            }
-            return Json(l, JsonRequestBehavior.AllowGet);
         }
     }
 }

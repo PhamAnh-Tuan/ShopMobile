@@ -26,15 +26,16 @@ namespace DAO
             da.Fill(ds);
             return ds;
         }
-        public DataSet Get_DienThoai10()
+        public DataSet Get_DienThoai()
         {
-            com = new SqlCommand("sp_getdata_DienThoai10", con);
+            com = new SqlCommand("SP_GETDATA_DienThoai", con);
             com.CommandType = CommandType.StoredProcedure;
             da = new SqlDataAdapter(com);
             ds = new DataSet();
             da.Fill(ds);
             return ds;
         }
+
         public DataSet Get_DienThoai_byMaLoai(int maloai)
         {
             com = new SqlCommand("sp_getdata_DienThoai_byMaLoai", con);
@@ -45,8 +46,17 @@ namespace DAO
             da.Fill(ds);
             return ds;
         }
+        public DataSet Get_DienThoai_Data()
+        {
+            com = new SqlCommand("getdata_DienThoai", con);
+            com.CommandType = CommandType.StoredProcedure;
+            da = new SqlDataAdapter(com);
+            ds = new DataSet();
+            da.Fill(ds);
+            return ds;
+        }
         DienThoaiList splist = new DienThoaiList();
-        public DienThoaiList Get_Paging_DienThoai(int pageindex,int pagesize)
+        public DienThoaiList Get_Paging_DienThoai(int pageindex, int pagesize)
         {
             com = new SqlCommand("sp_page_DienThoai", con);
             com.CommandType = CommandType.StoredProcedure;
@@ -108,14 +118,14 @@ namespace DAO
             com.Parameters.AddWithValue("@MaDienThoai", dt.MaDienThoai);
             com.Parameters.AddWithValue("@TenDienThoai", dt.TenDienThoai);
             com.Parameters.AddWithValue("@HinhAnh", dt.HinhAnh);
-            com.Parameters.AddWithValue("@KichThuocManHinh", dt.MaLoai);
-            com.Parameters.AddWithValue("@DoPhanGiai", dt.MaLoai);
-            com.Parameters.AddWithValue("@HeDieuHanh", dt.MaLoai);
-            com.Parameters.AddWithValue("@ChipXuLy", dt.MaLoai);
-            com.Parameters.AddWithValue("@CameraSau", dt.MaLoai);
-            com.Parameters.AddWithValue("@CameraTruoc", dt.MaLoai);
-            com.Parameters.AddWithValue("@DungLuongPin", dt.MaLoai);
-            com.Parameters.AddWithValue("@TheSim", dt.MaLoai);
+            com.Parameters.AddWithValue("@KichThuocManHinh", dt.KichThuocManHinh);
+            com.Parameters.AddWithValue("@DoPhanGiai", dt.DoPhanGiai);
+            com.Parameters.AddWithValue("@HeDieuHanh", dt.HeDieuHanh);
+            com.Parameters.AddWithValue("@ChipXuLy", dt.ChipXuLy);
+            com.Parameters.AddWithValue("@CameraSau", dt.CameraSau);
+            com.Parameters.AddWithValue("@CameraTruoc", dt.CameraTruoc);
+            com.Parameters.AddWithValue("@DungLuongPin", dt.DungLuongPin);
+            com.Parameters.AddWithValue("@TheSim", dt.TheSim);
             con.Open();
             com.ExecuteNonQuery();
             con.Close();

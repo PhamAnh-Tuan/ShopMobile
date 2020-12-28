@@ -87,6 +87,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Admin\css\dashboard.css" />
     <Content Include="Assets\Admin\css\main.css" />
     <Content Include="Assets\Admin\css\manager.css" />
     <Content Include="Assets\Admin\css\scud.css" />
@@ -141,6 +142,7 @@
     <Content Include="Assets\Admin\vendor\select2\select2.min.js" />
     <Content Include="Assets\Client\css\aboutus.css" />
     <Content Include="Assets\Client\css\animate.css" />
+    <Content Include="Assets\Client\css\DangKy.css" />
     <Content Include="Assets\Client\css\green.css" />
     <Content Include="Assets\Client\css\login.css" />
     <Content Include="Assets\Client\css\reset.css" />
@@ -149,6 +151,7 @@
     <Content Include="Assets\Client\css\style.css" />
     <Content Include="Assets\Client\css\style_frm_dkdn.css" />
     <Content Include="Assets\Client\css\switcher.css" />
+    <Content Include="Assets\Client\css\ThanhToan.css" />
     <Content Include="Assets\Client\images\aboutus\b.philosophy.jpg" />
     <Content Include="Assets\Client\images\aboutus\corevalue.jpg" />
     <Content Include="Assets\Client\images\aboutus\history.jpg" />
@@ -533,6 +536,7 @@
     <Content Include="Assets\Client\script\checkout.js" />
     <Content Include="Assets\Client\script\contact-us.js" />
     <Content Include="Assets\Client\script\jquery.actual.min.js" />
+    <Content Include="Assets\Client\script\js\jquery.min.js" />
     <Content Include="Assets\Client\script\layout.js" />
     <Content Include="Assets\Client\script\login.js" />
     <Content Include="Assets\Client\script\option4.js" />
@@ -1339,7 +1343,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DashBoardController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ManagerBillDetailsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ManagerBillimportController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManagerConfigurationController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ManagerNewsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManagerOrderController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManagerPhoneController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManagerSupplierController.cs" />
@@ -1349,6 +1357,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KhachHangController.cs" />
     <Compile Include="Controllers\LoaiDienThoaiController.cs" />
+    <Compile Include="Controllers\ThanhToanController.cs" />
     <Compile Include="Controllers\TinTucController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1467,6 +1476,18 @@
     <Content Include="Areas\Admin\Views\ManagerSupplier\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ManagerConfiguration\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ManagerSupplier\AddSupplier.cshtml" />
+    <Content Include="Areas\Admin\Views\ManagerConfiguration\AddConfiguration.cshtml" />
+    <Content Include="Areas\Admin\Views\ManagerConfiguration\UpdateConfiguration.cshtml" />
+    <Content Include="Areas\Admin\Views\ManagerSupplier\UpdateSupplier.cshtml" />
+    <Content Include="Areas\Admin\Views\ManagerBillimport\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ManagerBillimport\AddBill.cshtml" />
+    <Content Include="Areas\Admin\Views\ManagerBillDetails\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ManagerBillDetails\AddBillDetails.cshtml" />
+    <Content Include="Areas\Admin\Views\ManagerBillDetails\UpdateBillDetails.cshtml" />
+    <Content Include="Areas\Admin\Views\ManagerNews\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ManagerNews\AddNews.cshtml" />
+    <Content Include="Areas\Admin\Views\ManagerNews\UpdateNews.cshtml" />
+    <Content Include="Areas\Admin\Views\DashBoard\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\KhachHang\Login.cshtml" />
@@ -1494,6 +1515,9 @@
     <Content Include="Views\Shared\_Slide.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\GioHang\Index.cshtml" />
+    <Content Include="Views\Shared\Modal\_DangKy.cshtml" />
+    <Content Include="Views\Home\DangKy.cshtml" />
+    <Content Include="Views\GioHang\ThanhToan.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1505,6 +1529,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\ThanhToan\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BUS\BUS.csproj">

@@ -1,4 +1,4 @@
-/* ----------------
+﻿/* ----------------
  [1. Common styles]
  */
 body {
@@ -6042,7 +6042,7 @@ Social Icons
 .col-item .rating {
     /*width: 50%;*/
     float: left;
-    font-size: 17px;
+    font-size: 15px;
     text-align: right;
     line-height: 52px;
     margin-bottom: 10px;
@@ -6137,4 +6137,124 @@ Social Icons
 
     .menu__item > li:hover {
         color: #17C4AD;
+    }
+
+
+/*============================================================================*/
+.slideshow-container {
+    max-width: 100%;
+    position: relative;
+    margin: auto;
+}
+
+.mySlides {
+    display: none;
+}
+.fades {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 3s;
+    animation-name: fade;
+    animation-duration: 3s;
+}
+
+@-webkit-keyframes fades {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fades {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+.dot {
+    cursor: pointer;
+    height: 13px;
+    width: 13px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+
+    /* khi được hover, active đổi màu nền */
+
+    .active,
+    .dot:hover {
+        background-color: #717171;
+    }
+/**/
+.phone-ring {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    background-color: rgb(68, 236, 228);
+    position: fixed;
+    bottom: 30px;
+    left: 2%;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+    .phone-ring:hover {
+        background-color: rgb(240, 8, 240);
+    }
+
+    .phone-ring i {
+        line-height: 50px;
+        font-size: 30px;
+        animation: rotate 0.6s;
+        -webkit-animation: rotate 0.6s infinite;
+        line-height: 60px;
+        transition: all 0.4s;
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+        -o-transition: all 0.4s;
+    }
+
+@keyframes rotate {
+
+    0% {
+        -webkit-transform: rotate(0) scale(1) skew(1deg)
+    }
+
+    10% {
+        -webkit-transform: rotate(-25deg) scale(1) skew(1deg)
+    }
+
+    20% {
+        -webkit-transform: rotate(25deg) scale(1) skew(1deg)
+    }
+
+    30% {
+        -webkit-transform: rotate(-25deg) scale(1) skew(1deg)
+    }
+
+    40% {
+        -webkit-transform: rotate(25deg) scale(1) skew(1deg)
+    }
+
+    50% {
+        -webkit-transform: rotate(0) scale(1) skew(1deg)
+    }
+
+    100% {
+        -webkit-transform: rotate(0) scale(1) skew(1deg)
     }

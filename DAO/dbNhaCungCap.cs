@@ -13,6 +13,7 @@ namespace DAO
     {
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ConnectionString);
         NhaCungCapList suplist = new NhaCungCapList();
+        SqlDataReader dr;
         public NhaCungCapList Get_Paging_Supplier(int pagesize, int pageindex)
         {
 
@@ -62,6 +63,38 @@ namespace DAO
             com.ExecuteNonQuery();
             con.Close();
         }
+        public NhaCungCap Get_SUPPLIER_ByID(int ID)
+        {
+            SqlCommand com = new SqlCommand("SP_SUPPLIER_ID", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@MaNCC", ID);
+            con.Open();
+            dr = com.ExecuteReader();
+            NhaCungCap ncc = new NhaCungCap();
+            while (dr.Read())
+            {
+                ncc.MaNCC = Convert.ToInt32(dr["MaNCC"].ToString());
+                ncc.TenNCC = dr["TenNCC"].ToString();
+                ncc.DiaChi = dr["DiaChi"].ToString();
+                ncc.SDT = dr["SDT"].ToString();
+                ncc.Email = dr["Email"].ToString();
+            }
+            return ncc;
+        }
+        public void Update_Supplier(NhaCungCap ncc)
+        {
+            SqlCommand com = new SqlCommand("UPDATE_SUPPLIER", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@MaNCC", ncc.MaNCC);
+            com.Parameters.AddWithValue("@TenNCC", ncc.TenNCC);
+            com.Parameters.AddWithValue("@DiaChi", ncc.DiaChi);
+            com.Parameters.AddWithValue("@SDT", ncc.SDT);
+            com.Parameters.AddWithValue("@Email", ncc.Email);
+            con.Open();
+            com.ExecuteNonQuery();
+            con.Close();
+
+        }
         public void Delete_Supplier(int MaNCC)
         {
             SqlCommand com = new SqlCommand("DELETE_SUPPLIER", con);
@@ -70,6 +103,15 @@ namespace DAO
             con.Open();
             com.ExecuteNonQuery();
             con.Close();
+        }
+        public DataSet Get_NCC()
+        {
+            SqlCommand com = new SqlCommand("SP_GETDATA_NCC", con);
+            com.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(com);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            return ds;
         }
     }
 }

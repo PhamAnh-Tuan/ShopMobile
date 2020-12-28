@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Thêm cấu hình";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="back-add-type" ng-controller="ConfigurationController">
+    <div class="import-product-type">
+        <table style="width:100%;text-align:center">
+            <tr class="row-list">
+                <td>Thông tin</td>
+                <td><a href="/Admin/ManagerConfiguration/Index">Quay lại</a></td>
+            </tr>
+            <tr class="row-list">
+                <td class="lable-product-type">Ram</td>
+                <td>
+                    <input type="text" class="product-type-input" ng-model="confi.Ram">
+                </td>
+            </tr>
+            <tr class="row-list">
+                <td class="lable-product-type">Bộ nhớ trong</td>
+                <td>
+                    <input type="text" class="product-type-input" ng-model="confi.BoNhoTrong">
+                </td>
+            </tr>
+            <tr class="row-list">
+                <td class="lable-product-type">Giá</td>
+                <td>
+                    <input type="text" class="product-type-input" ng-model="confi.Gia">
+                </td>
+            </tr>
+            <tr class="row-list">
+                <td class="lable-product-type">Số lượng</td>
+                <td>
+                    <input type="text" class="product-type-input" ng-model="confi.SoLuong">
+                </td>
+            </tr>
+            <tr class="row-list">
+                <td class="lable-product-type">Mã điện thoại</td>
+                <td>
+                    <select ng-model="confi.MaDienThoai" class="select-code">
+                        <option ng-repeat="e in dataDT" value="{{e.MaDienThoai}}" title="{{e.TenDienThoai}}">{{e.MaDienThoai}}</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="btn-add" ng-click="saveConfi()"><i class="fas fa-plus"></i>Thêm mới</button>
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</div>
+

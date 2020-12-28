@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "UpdateNews";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="back-add-type" ng-controller="NewsController" data-ng-init="LoadNews(@Convert.ToInt32(Request.QueryString["id"]))">
+    <div class="import-product-type col-lg-12">
+        <table style="width:100%;text-align:center">
+            <tr class="row-list">
+                <td>Thông tin</td>
+                <td><a href="/Admin/ManagerPhone/ManagerPhone">Quay lại</a></td>
+            </tr>
+            <tr class="row-list">
+                <td class="lable-product-type">Tiêu đề</td>
+                <td>
+                    <input type="text" class="product-type-input" ng-model="New.TieuDe">
+                </td>
+            </tr>
+            <tr class="row-list">
+                <td class="lable-product-type">Ảnh</td>
+                <td>
+                    <input type="text" class="" ng-model="New.Anh">
+                </td>
+            </tr>
+            <tr class="row-list">
+                <td class="lable-product-type">Nội dung</td>
+                <td>
+                    <input type="text" class="product-type-input" ng-model="New.NoiDung">
+                </td>
+            </tr>
+            <tr class="row-list">
+                <td class="lable-product-type">Ngày đăng</td>
+                <td>
+                    <input type="text" class="product-type-input" ng-model="New.NgayDang">
+                </td>
+            </tr>
+            <tr>
+                <td><button ng-click="updateNews()" class="btn-add">Cập nhật</button></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</div>
+

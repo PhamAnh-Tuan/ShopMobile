@@ -13,9 +13,12 @@
     <!-- CSS only -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link href="~/Assets/Admin/css/manager.css" rel="stylesheet" />
+    <link href="~/Assets/Admin/css/dashboard.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"></script>
 
     <link href="~/Assets/Admin/css/styles.css" rel="stylesheet" />
+    <link href="~/Assets/Admin/css/scud.css" rel="stylesheet" />
     <!-- JS, Popper.js, and jQuery -->
     <script src="~/Scripts/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.4/ui-bootstrap-tpls.js" integrity="sha512-xndMzK9x1ZhE9Jsj38+gx8lSAxJ9UZrtsCb8cY9P1QX+X4qBi0F+J/TbxBkywc53w4S2qaaBY/WjvH4bUW4W9Q==" crossorigin="anonymous"></script>
@@ -32,6 +35,9 @@
             </div>
             <ul class="lisst-unstyled components">
                 <li class="portfolio">
+                    <a href="/Admin/DashBoard/Index"><p><i class="fas fa-mobile-alt"></i>Dashboard</p></a>
+                </li>
+                <li class="portfolio">
                     <a href="/Admin/ManagerTypePhone/ManagerTypePhone"><p><i class="fas fa-mobile-alt"></i>Quản lý loại điện thoại</p></a>
                 </li>
                 <li class="portfolio">
@@ -42,6 +48,9 @@
                 </li>
                 <li class="portfolio">
                     <a href="/Admin/ManagerSupplier/Index"><i class="fas fa-people-carry"></i>Quản lý nhà cung cấp</a>
+                </li>
+                <li class="portfolio">
+                    <a href="/Admin/ManagerNews/Index"><i class="fas fa-cogs"></i>Tin tức</a>
                 </li>
                 <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-receipt"></i>Quản lý đơn hàng</a>
@@ -58,11 +67,11 @@
                     </ul>
                 </li>
                 <li class="portfolio">
-                    <a href="#"><i class="fas fa-file-invoice"></i>Quản lý hóa đơn nhập</a>
+                    <a href="/Admin/ManagerBillimport/Index"><i class="fas fa-people-carry"></i>Hóa đơn nhập</a>
                 </li>
-                @*<li class="portfolio">
-                    <a href="#"><i class="fas fa-file-invoice-dollar"></i>Quản lý hóa đơn bán</a>
-                </li>*@
+                <li class="portfolio">
+                    <a href="/Admin/ManagerBillDetails/Index"><i class="fas fa-people-carry"></i>Chi tiết hóa đơn</a>
+                </li>
             </ul>
         </nav>
         <div id="content">

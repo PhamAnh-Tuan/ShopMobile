@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewBag.Title = "Đăng ký";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container" ng-controller="RegisterController">
+    <div class="main-width">
+        <div class="row" style="width:100%">
+            <div class="main-width-left col-lg-6 col-xs-12">
+                <h4 style="border-bottom: 1px solid black;height: 40px;">Đăng ký tài khoản mới.</h4>
+                <div class="main-left-nameuser">
+                    <div class="nameuser-lable">
+                        <label>Tên khách hàng*</label>
+                    </div>
+                    <div class="nameuser-input">
+                        <input type="text" placeholder="Tên khách hàng" class="nameuser-inputs" ng-model="kh.TenKhachHang">
+                    </div>
+                </div>
+                <div class="main-left-nameuser">
+                    <div class="nameuser-lable">
+                        <label>Tài khoản đăng nhập*</label>
+                    </div>
+                    <div class="nameuser-input">
+                        <input type="text" placeholder="Tài khoản đăng nhập" class="nameuser-inputs" ng-model="kh.TaiKhoanDangNhap">
+                    </div>
+                </div>
+                <div class="main-left-nameuser">
+                    <div class="nameuser-lable">
+                        <label>Địa chỉ email*</label>
+                    </div>
+                    <div class="nameuser-input">
+                        <input type="text" placeholder="Địa chỉ email" class="nameuser-inputs" ng-model="kh.Email">
+                    </div>
+                </div>
+                <div class="main-left-nameuser">
+                    <div class="nameuser-lable">
+                        <label>Giới tính</label>
+                    </div>
+                    <div class="nameuser-input">
+                        <input type="text" placeholder="Giới tính" class="nameuser-inputs" ng-model="kh.GioiTinh">
+                    </div>
+                </div>
+                <div class="main-left-nameuser">
+                    <div class="nameuser-lable">
+                        <label>Số điện thoại*</label>
+                    </div>
+                    <div class="nameuser-input">
+                        <input type="text" placeholder="Số điện thoại" class="nameuser-inputs" ng-model="kh.SDT">
+                    </div>
+                </div>
+                <div class="main-left-nameuser">
+                    <div class="nameuser-lable">
+                        <label>Địa chỉ</label>
+                    </div>
+                    <div class="nameuser-input">
+                        <input type="text" placeholder="Địa chỉ" class="nameuser-inputs" ng-model="kh.DiaChi">
+                    </div>
+                </div>
+                <div class="main-left-nameuser">
+                    <div class="nameuser-lable">
+                        <label>Mật khẩu*</label>
+                    </div>
+                    <div class="nameuser-input">
+                        <input type="text" placeholder="Mật khẩu" class="nameuser-inputs" ng-model="kh.MatKhau">
+                    </div>
+                </div>
+                <button class="bttn-fill bttn-md bttn-success" ng-click="register()">Đăng ký</button>
+            </div>
+            <div class="main-width-right col-lg-6 col-xs-12">
+                <h4 style="border-bottom: 1px solid black;height: 40px;">Đăng nhập bằng các tài khoản có sẵn</h4>
+                <div class="main-right-button">
+                    <button type="button">Google</button>
+                    <button type="button">Facebook</button>
+                </div>
+                <div class="main-right-attention">
+                    <div class="attention-lable ">
+                        <h3 style="border-bottom: 1px solid black">Chú ý khi đăng ký tài khoản.</h3>
+                    </div>
+                    <div style="border-bottom:1px solid #FFFFFF">
+
+                    </div>
+                    <div class="attention-lable">
+                        <h4>Bạn cần lưu ý, các trường có dấu * yêu cầu phải nhập</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

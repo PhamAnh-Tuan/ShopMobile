@@ -15,9 +15,9 @@ namespace BUS
     {
         dbDienThoai _db = new dbDienThoai();
         DataSet ds;
-        public List<DienThoai> Get_DienThoai10()
+        public List<DienThoai> Get_DienThoai()
         {
-            ds = _db.Get_DienThoai10();
+            ds = _db.Get_DienThoai();
             List<DienThoai> l = new List<DienThoai>();
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
@@ -34,9 +34,33 @@ namespace BUS
                     CameraTruoc = dr["CameraTruoc"].ToString(),
                     DungLuongPin = dr["DungLuongPin"].ToString(),
                     TheSim = dr["TheSim"].ToString(),
+                    MaCauHinh = Convert.ToInt32(dr["MaCauHinh"].ToString()),
                     Ram = Convert.ToInt32(dr["Ram"].ToString()),
                     BoNhoTrong = Convert.ToInt32(dr["BoNhoTrong"].ToString()),
                     Gia = Convert.ToInt32(dr["Gia"].ToString()),
+                });
+            }
+            return l;
+        }
+        public List<DienThoai> Get_DienThoai_Data()
+        {
+            ds = _db.Get_DienThoai_Data();
+            List<DienThoai> l = new List<DienThoai>();
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                l.Add(new DienThoai
+                {
+                    MaDienThoai = Convert.ToInt32(dr["MaDienThoai"]),
+                    TenDienThoai = dr["TenDienThoai"].ToString(),
+                    HinhAnh = dr["HinhAnh"].ToString(),
+                    KichThuocManHinh = dr["KichThuocManHinh"].ToString(),
+                    DoPhanGiai = dr["DoPhanGiai"].ToString(),
+                    HeDieuHanh = dr["HeDieuHanh"].ToString(),
+                    ChipXuLy = dr["ChipXuLy"].ToString(),
+                    CameraSau = dr["CameraSau"].ToString(),
+                    CameraTruoc = dr["CameraTruoc"].ToString(),
+                    DungLuongPin = dr["DungLuongPin"].ToString(),
+                    TheSim = dr["TheSim"].ToString(),
                 });
             }
             return l;
@@ -124,15 +148,15 @@ namespace BUS
                     CameraTruoc = dr["CameraTruoc"].ToString(),
                     DungLuongPin = dr["DungLuongPin"].ToString(),
                     TheSim = dr["TheSim"].ToString(),
-                    Ram=Convert.ToInt32(dr["Ram"].ToString()),
-                    BoNhoTrong=Convert.ToInt32(dr["BoNhoTrong"].ToString()),
-                    Gia=Convert.ToInt32(dr["Gia"].ToString()),
+                    Ram = Convert.ToInt32(dr["Ram"].ToString()),
+                    BoNhoTrong = Convert.ToInt32(dr["BoNhoTrong"].ToString()),
+                    Gia = Convert.ToInt32(dr["Gia"].ToString()),
                 });
             }
             return list;
         }
-            //Admin
-            public DienThoaiList Get_Paging_DienThoai(int pageindex, int pagesize)
+        ////Admin
+        public DienThoaiList Get_Paging_DienThoai(int pageindex, int pagesize)
         {
             DienThoaiList rslist = new DienThoaiList();
             rslist = _db.Get_Paging_DienThoai(pageindex, pagesize);

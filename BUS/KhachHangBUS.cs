@@ -30,5 +30,9 @@ namespace BUS
         {
             _db.Register(kh);                
         }
+        public KhachHang Get_Info(string TK)
+        {
+            return _db.Get_Info(TK);
+        }
     }
 }

@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Cập nhật nhà cung cấp";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="back-add-type" ng-controller="SupplierController" data-ng-init="LoadSupplier(@Convert.ToInt32(Request.QueryString["id"]))">
+    <div class="import-product-type">
+        <table style="width:100%;text-align:center">
+            <tr class="row-list">
+                <td>Thông tin</td>
+                <td><a href="/Admin/ManagerSupplier/Index">Quay lại</a></td>
+            </tr>
+            <tr class="row-list">
+                <td class="lable-product-type">Tên nhà cung cấp</td>
+                <td>
+                    <input type="text" class="product-type-input" ng-model="Sup.TenNCC">
+                </td>
+            </tr>
+            <tr class="row-list">
+                <td class="lable-product-type">Địa chỉ</td>
+                <td>
+                    <input type="text" class="product-type-input" ng-model="Sup.DiaChi">
+                </td>
+            </tr>
+            <tr class="row-list">
+                <td class="lable-product-type">Số điện thoại</td>
+                <td>
+                    <input type="text" class="product-type-input" ng-model="Sup.SDT">
+                </td>
+            </tr>
+            <tr class="row-list">
+                <td class="lable-product-type">Email</td>
+                <td>
+                    <input type="text" class="product-type-input" ng-model="Sup.Email">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="btn-add" ng-click="updateSupplier()">Cập nhật</button>
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</div>
+

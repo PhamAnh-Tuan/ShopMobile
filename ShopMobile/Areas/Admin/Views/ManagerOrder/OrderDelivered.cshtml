@@ -6,7 +6,7 @@
 
 <link href="~/Assets/Admin/css/manager.css" rel="stylesheet" />
 
-<div class="contain-table" ng-controller="OrderNotComfirmController">
+<div class="contain-table" ng-controller="OrderDeliveredController">
     <div class="section-product_type" id="Id-product-type">
         <div class="product_type_list">
             <div class="add-product-type">
@@ -27,7 +27,7 @@
                             <th>Ngày tạo</th>
                             <th>Trạng thái đơn hàng</th>
                             <th>Tổng tiền</th>
-                            <th>Xác thực</th>
+                            <th>Đổi trả</th>
                         </tr>
                         <tr ng-repeat="e in Spdata  | filter: searchText  " ng-class-even="even" ng-class-odd="odd">
                             <td>{{e.MaDonHang}}</td>
@@ -35,7 +35,7 @@
                             <td>{{e.NgayTao}}</td>
                             <td>{{e.TrangThaiDonHang}}</td>
                             <td>{{e.TongTien| number}}</td>
-                            <td><button class="btn_remove"><i class="far fa-trash-alt"></i></button></td>
+                            <td><button class="btn_remove" ng-click="Change(e.MaDonHang)"><i class="fas fa-check"></i></button></td>
                         </tr>
                     </table>
                 </form>

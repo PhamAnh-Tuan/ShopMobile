@@ -4,7 +4,6 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<link href="~/Assets/Admin/css/scud.css" rel="stylesheet" />
 <div class="back-add-type" ng-app="Homeapp" ng-controller="UpdateTypePhone" data-ng-init="LoadLoaiDT(@Convert.ToInt32(Request.QueryString["id"]))">
     <div class="import-product-type">
         <table style="width:100%;text-align:center">
@@ -25,7 +24,7 @@
                 </td>
             </tr>
             <tr>
-                <td><input type="button" ng-click="updateLoaiDT()" value="{{btnupdate}}" /></td>
+                <td><button ng-click="updateLoaiDT()" class="btn-add">Cập nhật</button></td>
                 <td></td>
             </tr>
         </table>

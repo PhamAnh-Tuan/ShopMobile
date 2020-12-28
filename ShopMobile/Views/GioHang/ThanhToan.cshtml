@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "ThanhToan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container" style="margin-top:20px" ng-controller="PayController">
+    <div class="tent-left col-lg-4 col-md-4 col-xs-4">
+        <div class="tent-body">
+            <label class="label-question">Thông tin mua hàng</label>
+            <div class="grade">
+                <label class="information">Email</label>
+                <input type="text" class="input-info" ng-model="thongtin.Email">
+            </div>
+            <div class="grade">
+                <label class="information">Họ và tên</label>
+                <input type="text" class="input-info" ng-model="thongtin.TenKhachHang">
+            </div>
+            <div class="grade">
+                <label class="information">Số điện thoại</label>
+                <input type="text" class="input-info" ng-model="thongtin.SDT">
+            </div>
+            <div class="grade">
+                <label class="information">Địa chỉ</label>
+                <input type="text" class="input-info" ng-model="thongtin.DiaChi">
+            </div>
+            <div class="grade">
+                <label class="information">Ghi chú</label>
+                <input type="text" class="input-info" id="comment">
+            </div>
+        </div>
+    </div>
+    <div class="tent-right col-lg-8 col-sm-8 col-xs-8">
+        <h3 class="label-right">Đơn hàng ({{coun}} sản phẩm)</h3>
+        <div class="perform" ng-repeat="e in datacart">
+            <div class="product">
+                <img src="~/Assets/Client/img/product/{{e.HinhAnh}}" class="col-lg-1" />
+                <span class="product-info col-lg-4">{{e.TenDienThoai}}</span>
+                <span class="product-info col-lg-2">{{e.SoLuong}}</span>
+                <span class="product-info col-lg-2">{{e.DonGia|number}}<sup>đ</sup></span>
+                <span class="product-access col-lg-3">{{e.SoLuong*e.DonGia|number}}<sup>đ</sup></span>
+            </div>
+        </div>
+        <div class="total">
+            <span class="label-l">Tổng cộng</span>
+            <span class="label-price">{{tongtien|number}}<sup>đ</sup></span>
+        </div>
+        <div class="manipulation">
+            <span class="label-cart"><a href="/GioHang/Index">Quay về giỏ hàng</a></span>
+            <button class="btn-order" ng-click="checkOut()">Đặt hàng</button>
+        </div>
+    </div>
+</div>
+

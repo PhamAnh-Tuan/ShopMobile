@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "UpdateBillDetails";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="back-add-type" ng-controller="BillDetailsController" data-ng-init="LoadBill(@Convert.ToInt32(Request.QueryString["id"]))">
+    <div class="import-product-type">
+        <table style="width:100%;text-align:center">
+            <tr class="row-list">
+                <td>Thông tin</td>
+                <td><a href="/Admin/ManagerBillDetails/Index">Quay lại</a></td>
+            </tr>
+            <tr class="row-list">
+                <td class="lable-product-type">Mã hóa đơn</td>
+                <td>
+                    <input type="text" class="product-type-input" ng-model="bill.MaHoaDonNhap"readonly>
+                </td>
+            </tr>
+            <tr class="row-list">
+                <td class="lable-product-type">Mã cấu hình</td>
+                <td>
+                    <input type="text" class="product-type-input" ng-model="bill.MaCauHinh" readonly>
+                </td>
+            </tr>
+            <tr class="row-list">
+                <td class="lable-product-type">Giá</td>
+                <td>
+                    <input type="text" class="product-type-input" ng-model="bill.DonGia">
+                </td>
+            </tr>
+            <tr class="row-list">
+                <td class="lable-product-type">Số lượng</td>
+                <td>
+                    <input type="text" class="product-type-input" ng-model="bill.SoLuong">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="btn-add" ng-click="updateBill()">Cập nhật</button>
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
