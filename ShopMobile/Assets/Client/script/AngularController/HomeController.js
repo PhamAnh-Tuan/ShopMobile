@@ -39,7 +39,7 @@ app.controller("HomeClient", function ($rootScope, $scope, $http) {
             alert('failed');
         })
     }
-    $scope.AddCart= function (mch, giaban) {
+    $scope.AddCart = function (mch, giaban) {
         var data = {
 
             taikhoan: localStorage.getItem('TaiKhoan'),
@@ -275,7 +275,7 @@ app.controller("PayController", function ($scope, $http, $rootScope) {
         $scope.datacart = d.data;
         $rootScope.cart = d.data;
         localStorage.setItem('sp', angular.toJson($rootScope.cart));
-        
+
         var tt = 0;
         for (var i = 0; i < d.data.length; i++) {
             tt = Number(d.data[i].SoLuong * d.data[i].DonGia);
@@ -298,7 +298,7 @@ app.controller("PayController", function ($scope, $http, $rootScope) {
         var b = a.getTime();
         localStorage.setItem('maddh', b);
         var currentdate = new Date();
-        var datetime = currentdate.getMonth() + "/"
+        var datetime = currentdate.getMonth() + 1 "/"
             + (currentdate.getDate()) + "/"
             + currentdate.getFullYear()
 
@@ -309,7 +309,7 @@ app.controller("PayController", function ($scope, $http, $rootScope) {
                 MaDonHang: 'DH' + localStorage.getItem('MaKH') + localStorage.getItem('maddh'),
                 MaKhachHang: localStorage.getItem('MaKH'),
                 NgayTao: datetime,
-                TrangThaiDonHang: 'Chưa xác nhận',              
+                TrangThaiDonHang: 'Chưa xác nhận',
                 TongTien: localStorage.getItem('tongtien'),
                 TenKhachHang: $scope.thongtin.TenKhachHang,
                 DiaChi: $scope.thongtin.SDT,
@@ -319,7 +319,7 @@ app.controller("PayController", function ($scope, $http, $rootScope) {
         }).then(function () {
 
             var sp = JSON.parse(localStorage.getItem('sp'));
-           
+
             for (var i = 0; i < sp.length; i++) {
                 $http({
                     method: 'POST',
@@ -330,11 +330,11 @@ app.controller("PayController", function ($scope, $http, $rootScope) {
                         SoLuong: sp[i].SoLuong,
                         DonGia: sp[i].DonGia,
                     }
-                }).then(function (d) {
-                    
-                    $http.get('/Admin/GioHang/delete_GioHangByID?id=' + localStorage.getItem('ID')).then(function (d) {
-                    })
                 })
+                //    .then(function (d) {
+                //    $http.get('/Admin/GioHang/delete_GioHangByID?id=' + localStorage.getItem('ID')).then(function (d) {
+                //    })
+                //})
             }
             localStorage.removeItem('sp');
             alert('Chúc mừng bạn thanh toán thành công');

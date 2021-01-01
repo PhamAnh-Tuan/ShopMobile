@@ -1338,6 +1338,7 @@
     <Content Include="Scripts\test-bundles\angular-sanitize.js" />
     <Content Include="Scripts\test-bundles\angular-touch.js" />
     <Content Include="Web.config" />
+    <Content Include="WebBanDienThoai.sql" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
